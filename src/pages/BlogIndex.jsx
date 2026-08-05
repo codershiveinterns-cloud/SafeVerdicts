@@ -26,29 +26,24 @@ export default function BlogIndex() {
             {blogPosts.map((post) => (
               <article key={post.slug} className="card blog-card">
                 <div className="blog-card-media">
-                  <span className="blog-media-emoji">{post.image || '📝'}</span>
-                  <span className="blog-card-category">{post.category}</span>
+                  {post.imageSrc && (
+                    <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
+                  )}
                 </div>
 
                 <div className="blog-card-body">
-                  <div className="blog-card-meta">
-                    <span className="meta-item"><Calendar size={12} /> {post.date}</span>
-                    <span className="meta-item"><Clock size={12} /> {post.readTime}</span>
+                  <div className="blog-card-badge-row">
+                    <span className="blog-card-category-badge">{post.category}</span>
                   </div>
+                  <span className="blog-card-readtime">{post.readTime}</span>
 
                   <h3 className="blog-card-title">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="blog-card-excerpt">{post.excerpt}</p>
-                </div>
 
-                <div className="blog-card-footer">
-                  <div className="blog-card-author">
-                    <User size={12} className="author-icon" />
-                    <span>By {post.author}</span>
-                  </div>
-                  <Link to={`/blog/${post.slug}`} className="blog-read-more">
-                    Read Post <ArrowRight size={14} />
+                  <Link to={`/blog/${post.slug}`} className="btn-read-more">
+                    Read More
                   </Link>
                 </div>
               </article>
@@ -113,65 +108,90 @@ export default function BlogIndex() {
           display: flex;
           flex-direction: column;
           height: 100%;
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: 16px;
+          overflow: hidden;
+          transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .blog-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-md);
         }
 
         .blog-card-media {
-          height: 180px;
-          background: linear-gradient(135deg, hsl(var(--color-accent-hsl) / 0.05) 0%, hsl(var(--color-accent-hsl) / 0.15) 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          border-bottom: 1px solid var(--color-border);
+          height: 200px;
+          width: 100%;
+          overflow: hidden;
+          background-color: var(--color-subsurface);
         }
 
-        .blog-media-emoji {
-          font-size: 56px;
+        .blog-media-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           transition: transform var(--transition-normal);
         }
 
-        .blog-card:hover .blog-media-emoji {
-          transform: scale(1.1);
-        }
-
-        .blog-card-category {
-          position: absolute;
-          bottom: 16px;
-          left: 20px;
-          background-color: var(--color-primary);
-          color: white;
-          font-size: 10px;
-          font-weight: 700;
-          padding: 4px 10px;
-          border-radius: var(--radius-full);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+        .blog-card:hover .blog-media-img {
+          transform: scale(1.05);
         }
 
         .blog-card-body {
           padding: 24px;
+          display: flex;
+          flex-direction: column;
           flex-grow: 1;
+          align-items: flex-start;
+          text-align: left;
         }
 
-        .blog-card-meta {
-          display: flex;
-          gap: 16px;
-          font-size: 12px;
-          color: var(--color-muted);
+        .blog-card-badge-row {
           margin-bottom: 12px;
         }
 
-        .meta-item {
-          display: flex;
-          align-items: center;
-          gap: 4px;
+        .blog-card-category-badge {
+          display: inline-block;
+          background-color: #FDF2E9;
+          color: #E27D2F;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 6px 14px;
+          border-radius: 8px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        /* Dark mode overrides for badge */
+        .dark-theme .blog-card-category-badge {
+          background-color: rgba(226, 125, 47, 0.15);
+          color: #FF9F43;
+        }
+
+        .blog-card-readtime {
+          font-size: 12px;
+          font-weight: 700;
+          color: #D35400;
+          margin-bottom: 12px;
+          text-transform: lowercase;
+        }
+
+        .dark-theme .blog-card-readtime {
+          color: #FF7F50;
         }
 
         .blog-card-title {
           font-size: 18px;
-          font-weight: 700;
-          margin-bottom: 10px;
-          line-height: 1.35;
+          font-weight: 800;
+          line-height: 1.4;
+          margin-bottom: 12px;
+          color: var(--color-primary);
+        }
+
+        .blog-card-title a {
+          color: inherit;
+          text-decoration: none;
         }
 
         .blog-card-title a:hover {
@@ -179,48 +199,32 @@ export default function BlogIndex() {
         }
 
         .blog-card-excerpt {
-          font-size: 13px;
+          font-size: 14px;
           color: var(--color-muted);
-          line-height: 1.5;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          flex-grow: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
 
-        .blog-card-footer {
-          border-top: 1px solid var(--color-border);
-          padding: 16px 24px;
-          background-color: var(--color-subsurface);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .blog-card-author {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 12px;
-          font-weight: 500;
-          color: var(--color-muted);
-        }
-
-        .author-icon {
-          color: var(--color-accent);
-        }
-
-        .blog-read-more {
+        .btn-read-more {
+          display: inline-block;
+          background-color: #F37021;
+          color: white;
           font-size: 13px;
-          font-weight: 600;
-          color: var(--color-accent);
-          display: flex;
-          align-items: center;
-          gap: 4px;
+          font-weight: 700;
+          padding: 10px 22px;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: background-color var(--transition-normal);
         }
 
-        .blog-read-more:hover {
-          color: var(--color-accent-hover);
+        .btn-read-more:hover {
+          background-color: #D35400;
+          color: white;
         }
       `}</style>
     </div>

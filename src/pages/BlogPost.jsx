@@ -167,8 +167,10 @@ export default function BlogPost() {
       {/* Main Content Layout */}
       <div className="container post-container-grid">
         <article className="post-main-card card">
-          <div className="post-media-emoji-header">
-            {post.image || '🛡️'}
+          <div className="post-media-image-header">
+            {post.imageSrc && (
+              <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
+            )}
           </div>
           <div className="post-body-wrapper">
             <MarkdownRenderer content={post.content} />
@@ -339,14 +341,17 @@ export default function BlogPost() {
           overflow: hidden;
         }
 
-        .post-media-emoji-header {
-          height: 200px;
-          background: linear-gradient(135deg, hsl(var(--color-accent-hsl) / 0.05) 0%, hsl(var(--color-accent-hsl) / 0.12) 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 72px;
+        .post-media-image-header {
+          height: 300px;
+          overflow: hidden;
+          position: relative;
           border-bottom: 1px solid var(--color-border);
+        }
+
+        .post-header-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         .post-body-wrapper {
