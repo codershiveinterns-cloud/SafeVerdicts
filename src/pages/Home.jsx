@@ -329,7 +329,7 @@ export default function Home() {
               <div className="newsletter-icon-badge">
                 <Mail size={24} />
               </div>
-              <h2 className="newsletter-title">Subscribe for Weekly Cyber Deals</h2>
+              <h2 className="newsletter-title">Subscribe for Weekly SafeVerdicts Deals</h2>
               <p className="newsletter-sub">
                 No spam. Just secure discounts, product audit reports, and vulnerability alerts. Cancel anytime.
               </p>
