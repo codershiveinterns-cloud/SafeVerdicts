@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, ShieldCheck, Heart, Sparkles, Award, Star } from 'lucide-react';
+import { Shield, ShieldCheck, Heart, Sparkles, Award, Star, MapPin } from 'lucide-react';
 
 export default function About() {
   return (
@@ -83,6 +83,41 @@ export default function About() {
                 <div className="meth-icon-circle"><Sparkles size={20} /></div>
                 <h4>Malware Capture Rates</h4>
                 <p>For antiviruses, we test their real-time scanners against a sandbox container of safe malware signatures to record detection rates.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="divider-about"></div>
+
+          {/* Founder & Corporate Details */}
+          <div className="founder-office-block">
+            <div className="founder-office-grid">
+              <div className="card details-card">
+                <div className="meth-icon-circle"><Heart size={20} /></div>
+                <h4>Our Founder</h4>
+                <div className="founder-profile">
+                  <h3 className="founder-name">Kapil Sharma</h3>
+                  <span className="founder-role">Lead Analyst & Founder</span>
+                  <p className="founder-bio">
+                    Kapil Sharma founded SafeVerdicts in 2026 with a simple mission: to build a digital ecosystem that separates marketing hype from actual cybersecurity performance. With over a decade of network engineering experience, Kapil reviews every software recommendation to ensure it meets our strict transparency and security standards.
+                  </p>
+                </div>
+              </div>
+
+              <div className="card details-card">
+                <div className="meth-icon-circle"><MapPin size={20} /></div>
+                <h4>Corporate Headquarters</h4>
+                <div className="office-details">
+                  <h3 className="office-company">SafeVerdicts Security, LLC</h3>
+                  <p className="office-address">
+                    1/F Hathikhera, Hathikhera Talai<br />
+                    Ajmer, Rajasthan<br />
+                    India, 305001
+                  </p>
+                  <p className="office-note">
+                    All legal notices, mailings, and partner audits should be addressed to our headquarters registered under Indian corporate business records.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -260,6 +295,71 @@ export default function About() {
         }
 
         .meth-card p {
+          font-size: 13px;
+          color: var(--color-muted);
+          line-height: 1.5;
+        }
+
+        /* Founder & Corporate Details Styling */
+        .founder-office-block {
+          margin-top: 20px;
+        }
+
+        .founder-office-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+          .founder-office-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        .details-card {
+          padding: 32px;
+          text-align: left;
+        }
+
+        .founder-name {
+          font-size: 20px;
+          font-weight: 800;
+          color: var(--color-primary);
+          margin-bottom: 2px;
+        }
+
+        .founder-role {
+          font-size: 13px;
+          color: var(--color-accent);
+          font-weight: 600;
+          display: inline-block;
+          margin-bottom: 14px;
+        }
+
+        .founder-bio {
+          font-size: 14px;
+          color: var(--color-muted);
+          line-height: 1.6;
+        }
+
+        .office-company {
+          font-size: 20px;
+          font-weight: 800;
+          color: var(--color-primary);
+          margin-bottom: 8px;
+        }
+
+        .office-address {
+          font-size: 15px;
+          color: var(--color-text);
+          line-height: 1.6;
+          font-style: normal;
+          font-weight: 500;
+          margin-bottom: 14px;
+        }
+
+        .office-note {
           font-size: 13px;
           color: var(--color-muted);
           line-height: 1.5;
