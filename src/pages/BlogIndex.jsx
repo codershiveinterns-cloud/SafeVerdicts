@@ -211,20 +211,26 @@ export default function BlogIndex() {
         }
 
         .btn-read-more {
-          display: inline-block;
-          background-color: #F37021;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          background-color: var(--color-accent);
           color: white;
+          font-family: var(--font-heading);
           font-size: 13px;
-          font-weight: 700;
+          font-weight: 600;
           padding: 10px 22px;
-          border-radius: 8px;
+          border-radius: var(--radius-md);
           text-decoration: none;
-          transition: background-color var(--transition-normal);
+          transition: var(--transition-normal);
         }
 
         .btn-read-more:hover {
-          background-color: #D35400;
+          background-color: var(--color-accent-hover);
           color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px hsl(var(--color-accent-hsl) / 0.2);
         }
       `}</style>
     </div>
