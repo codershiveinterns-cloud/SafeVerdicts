@@ -16,7 +16,7 @@ export default function CategoriesGrid() {
         <div className="container text-center">
           <div className="categories-badge">
             <Sparkles size={12} />
-            <span>ShieldGuard Software Directory</span>
+            <span>SafeVerdicts Software Directory</span>
           </div>
           <h1>Explore Deals by Category</h1>
           <p className="sub-description">

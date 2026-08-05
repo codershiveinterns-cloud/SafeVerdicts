@@ -12,7 +12,7 @@ export default function Legal({ pageType }) {
       
       <div className="legal-content-text">
         <p>
-          At ShieldGuard, accessible from shieldguard.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by ShieldGuard and how we use it.
+          At SafeVerdicts, accessible from safeverdicts.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by SafeVerdicts and how we use it.
         </p>
         
         <h2>1. Information We Collect</h2>
@@ -27,10 +27,10 @@ export default function Legal({ pageType }) {
 
         <h2>2. Cookies & Affiliate Tracking</h2>
         <p>
-          ShieldGuard utilizes cookies and affiliate tracking pixels. When you click on a "Get Deal" button, you are redirected to the software vendor's website via an affiliate link. 
+          SafeVerdicts utilizes cookies and affiliate tracking pixels. When you click on a "Get Deal" button, you are redirected to the software vendor's website via an affiliate link. 
         </p>
         <p>
-          During this redirection, a cookie is stored in your web browser by third-party affiliate networks (such as Impact Radius, Commission Junction, or vendor direct networks). This cookie stores a referral code indicating you came from ShieldGuard, so the vendor can credit us with a referral commission. These cookies do not track personal identifying information and expire automatically after 30 to 120 days.
+          During this redirection, a cookie is stored in your web browser by third-party affiliate networks (such as Impact Radius, Commission Junction, or vendor direct networks). This cookie stores a referral code indicating you came from SafeVerdicts, so the vendor can credit us with a referral commission. These cookies do not track personal identifying information and expire automatically after 30 to 120 days.
         </p>
 
         <h2>3. Third-Party Links</h2>
@@ -61,7 +61,7 @@ export default function Legal({ pageType }) {
 
       <div className="legal-content-text">
         <p>
-          Welcome to ShieldGuard. By accessing or using our website, you agree to comply with and be bound by the following Terms of Use. Please read these terms carefully.
+          Welcome to SafeVerdicts. By accessing or using our website, you agree to comply with and be bound by the following Terms of Use. Please read these terms carefully.
         </p>
 
         <h2>1. Acceptance of Agreement</h2>
@@ -71,7 +71,7 @@ export default function Legal({ pageType }) {
 
         <h2>2. Use of Site Content</h2>
         <p>
-          The reviews, test reports, formatting, graphics, and compilation on ShieldGuard are protected under applicable copyrights and trademarks. You may view and print content for personal, non-commercial use only. Copying, republishing, or redistributing our review articles or speed logs without written consent is strictly prohibited.
+          The reviews, test reports, formatting, graphics, and compilation on SafeVerdicts are protected under applicable copyrights and trademarks. You may view and print content for personal, non-commercial use only. Copying, republishing, or redistributing our review articles or speed logs without written consent is strictly prohibited.
         </p>
 
         <h2>3. Accuracy of Deal & Pricing Information</h2>
@@ -79,12 +79,12 @@ export default function Legal({ pageType }) {
           While our team checks coupon validity and software pricing weekly, we cannot guarantee that discount rates, billing details, or feature lists are 100% accurate at all times. Software providers frequently adjust prices, server networks, and terms.
         </p>
         <p>
-          All purchasing contracts are processed directly on the vendor's domain. ShieldGuard is not responsible for billing errors, subscription cancellations, or software bugs encountered on vendor platforms.
+          All purchasing contracts are processed directly on the vendor's domain. SafeVerdicts is not responsible for billing errors, subscription cancellations, or software bugs encountered on vendor platforms.
         </p>
 
         <h2>4. Limitation of Liability</h2>
         <p>
-          In no event shall ShieldGuard or its founders be liable for any direct, indirect, incidental, or consequential damages arising out of your use of or inability to use the software recommended on this site.
+          In no event shall SafeVerdicts or its founders be liable for any direct, indirect, incidental, or consequential damages arising out of your use of or inability to use the software recommended on this site.
         </p>
       </div>
     </>
@@ -98,7 +98,7 @@ export default function Legal({ pageType }) {
 
       <div className="legal-content-text">
         <p>
-          Transparency is important to us. This page explains how ShieldGuard may fund some of its content, resources, guides, comparisons, and recommendations. The short version: ShieldGuard may participate in affiliate programmes. If you purchase through certain links on our website, we may earn a commission. This comes at no extra cost to you.
+          Transparency is important to us. This page explains how SafeVerdicts may fund some of its content, resources, guides, comparisons, and recommendations. The short version: SafeVerdicts may participate in affiliate programmes. If you purchase through certain links on our website, we may earn a commission. This comes at no extra cost to you.
         </p>
 
         <h2>Our Commitment to Honesty</h2>
@@ -114,7 +114,7 @@ export default function Legal({ pageType }) {
           When you click an affiliate link on our website to a third-party provider, such as a VPN service, antivirus company, password manager, or other security software provider, a tracking code may be used. This helps the provider know that you came from our website.
         </p>
         <p>
-          If you decide to purchase a product or service through that link, ShieldGuard may receive a referral fee or commission. This can help cover the costs of running this website, creating resources, testing tools, maintaining content, and supporting our business operations.
+          If you decide to purchase a product or service through that link, SafeVerdicts may receive a referral fee or commission. This can help cover the costs of running this website, creating resources, testing tools, maintaining content, and supporting our business operations.
         </p>
 
         <h2>No Extra Cost to You</h2>
@@ -124,7 +124,7 @@ export default function Legal({ pageType }) {
 
         <h2>Third-Party Services</h2>
         <p>
-          Any third-party product or service you buy is provided by that company, not by ShieldGuard. Your purchase, account, billing, support, performance, refunds, and service terms are subject to the provider's own terms, privacy policy, and support process.
+          Any third-party product or service you buy is provided by that company, not by SafeVerdicts. Your purchase, account, billing, support, performance, refunds, and service terms are subject to the provider's own terms, privacy policy, and support process.
         </p>
 
         <h2>Limitation of Liability</h2>

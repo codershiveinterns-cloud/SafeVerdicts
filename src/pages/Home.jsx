@@ -57,7 +57,7 @@ export default function Home() {
             <span className="text-gradient">For a Fraction of the Cost</span>
           </h1>
           <p className="hero-subheading">
-            ShieldGuard evaluates top-tier VPNs, antivirus engines, and password managers. We secure exclusive discounts and coupon codes directly from the vendors for you.
+            SafeVerdicts evaluates top-tier VPNs, antivirus engines, and password managers. We secure exclusive discounts and coupon codes directly from the vendors for you.
           </p>
           <div className="hero-ctas">
             <Link to="/vpns" className="btn btn-primary hero-btn-primary">
@@ -243,12 +243,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Why ShieldGuard Feature Section */}
+      {/* 6. Why SafeVerdicts Feature Section */}
       <section className="section section-bg">
         <div className="container">
           <div className="section-header">
             <span className="section-pretitle">OUR METHODOLOGY</span>
-            <h2 className="section-title">Why Trust ShieldGuard?</h2>
+            <h2 className="section-title">Why Trust SafeVerdicts?</h2>
             <p className="section-sub">We believe cybersecurity reviews shouldn't be controlled by product vendors. Here is how we remain distinct.</p>
           </div>
 

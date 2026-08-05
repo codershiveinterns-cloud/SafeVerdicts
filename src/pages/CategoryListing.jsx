@@ -143,7 +143,7 @@ export default function CategoryListing({ categoryId }) {
                   {/* Column 4: Pricing & CTAs */}
                   <div className="col-action">
                     <div className="action-pricing-box">
-                      <span className="price-label-deal">ShieldGuard Deal:</span>
+                      <span className="price-label-deal">SafeVerdicts Deal:</span>
                       <div className="price-row-main">
                         <span className="price-old-line">{product.originalPrice}</span>
                         <span className="price-new-bold">{product.discountedPrice}</span>

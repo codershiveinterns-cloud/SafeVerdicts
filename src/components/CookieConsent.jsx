@@ -12,7 +12,7 @@ export default function CookieConsent() {
   });
 
   useEffect(() => {
-    const consent = localStorage.getItem('shieldguard_cookie_consent');
+    const consent = localStorage.getItem('safeverdicts_cookie_consent');
     if (!consent) {
       // Delay display slightly for smoother animation on initial load
       const timer = setTimeout(() => setVisible(true), 1500);
@@ -21,18 +21,18 @@ export default function CookieConsent() {
   }, []);
 
   const handleAcceptAll = () => {
-    localStorage.setItem('shieldguard_cookie_consent', 'all');
+    localStorage.setItem('safeverdicts_cookie_consent', 'all');
     setVisible(false);
   };
 
   const handleEssentialOnly = () => {
-    localStorage.setItem('shieldguard_cookie_consent', 'essential');
+    localStorage.setItem('safeverdicts_cookie_consent', 'essential');
     setVisible(false);
   };
 
   const handleSaveCustom = () => {
     localStorage.setItem(
-      'shieldguard_cookie_consent',
+      'safeverdicts_cookie_consent',
       JSON.stringify({
         essential: true,
         analytics: preferences.analytics,

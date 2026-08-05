@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
         <div className="footer-divider"></div>
         <div className="footer-copyright-row">
-          <p>© 2026 ShieldGuard. All rights reserved.</p>
+          <p>© 2026 SafeVerdicts. All rights reserved.</p>
           <div className="footer-bottom-links">
             <Link to="/privacy-policy">Privacy</Link>
             <Link to="/terms">Terms</Link>

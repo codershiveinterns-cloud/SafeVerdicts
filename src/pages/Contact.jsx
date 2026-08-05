@@ -38,12 +38,12 @@ export default function Contact() {
     }
 
     // Success flow - Save to localStorage for demo audit purposes
-    const existingSubmissions = JSON.parse(localStorage.getItem('shieldguard_contacts') || '[]');
+    const existingSubmissions = JSON.parse(localStorage.getItem('safeverdicts_contacts') || '[]');
     existingSubmissions.push({
       ...formData,
       timestamp: new Date().toISOString()
     });
-    localStorage.setItem('shieldguard_contacts', JSON.stringify(existingSubmissions));
+    localStorage.setItem('safeverdicts_contacts', JSON.stringify(existingSubmissions));
 
     setSubmitted(true);
     setErrors({});
@@ -79,7 +79,7 @@ export default function Contact() {
             <Mail size={12} />
             <span>Support Desk</span>
           </div>
-          <h1>Get in Touch with ShieldGuard</h1>
+          <h1>Get in Touch with SafeVerdicts</h1>
           <p className="contact-sub">
             Have questions about a VPN review, advertisement inquiries, or coupon codes? Fill out the form below.
           </p>
@@ -108,7 +108,7 @@ export default function Contact() {
                 <div className="info-icon-box"><MapPin size={18} /></div>
                 <div>
                   <h4>Corporate Headquarters</h4>
-                  <p>ShieldGuard Security, LLC<br />100 Pine Street, Suite 1200<br />San Francisco, CA 94111</p>
+                  <p>SafeVerdicts Security, LLC<br />100 Pine Street, Suite 1200<br />San Francisco, CA 94111</p>
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ export default function Contact() {
                   </div>
                   <h3>Message Sent Successfully!</h3>
                   <p>
-                    Thank you for reaching out. A ShieldGuard representative will review your message and get back to you at the email address provided within 24–48 hours.
+                    Thank you for reaching out. A SafeVerdicts representative will review your message and get back to you at the email address provided within 24–48 hours.
                   </p>
                   <button 
                     className="btn btn-secondary success-reset-btn"

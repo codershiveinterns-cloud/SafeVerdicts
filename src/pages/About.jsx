@@ -14,7 +14,7 @@ export default function About() {
           </div>
           <h1>Transparent Cybersecurity Deals</h1>
           <p className="about-subtitle">
-            ShieldGuard was founded by Kapil Sharma to help users navigate the complicated landscape of security software. We cut through the marketing hype to deliver direct advice and savings.
+            SafeVerdicts was founded by Kapil Sharma to help users navigate the complicated landscape of security software. We cut through the marketing hype to deliver direct advice and savings.
           </p>
         </div>
       </section>
@@ -32,12 +32,12 @@ export default function About() {
                 However, search engines are flooded with generic "ranking" sites that recommend software purely based on which provider pays the highest affiliate referral fee. This leads to biased reviews and inflated pricing.
               </p>
               <p>
-                <strong>ShieldGuard is different.</strong> We purchase accounts ourselves, test them on multiple devices, write our logs openly, and collaborate directly with providers to bypass retail prices.
+                <strong>SafeVerdicts is different.</strong> We purchase accounts ourselves, test them on multiple devices, write our logs openly, and collaborate directly with providers to bypass retail prices.
               </p>
             </div>
 
             <div className="about-stats-card card">
-              <h3 className="stats-card-title">ShieldGuard by the Numbers</h3>
+              <h3 className="stats-card-title">SafeVerdicts by the Numbers</h3>
               <div className="stats-grid-small">
                 <div className="stats-box">
                   <span className="stats-num">120+</span>
@@ -64,7 +64,7 @@ export default function About() {
           {/* Core Values */}
           <div className="methodology-block">
             <h2>Our Testing Methodology</h2>
-            <p className="methodology-subtext">Every product review page on ShieldGuard is backed by a rigorous multi-step testing criteria:</p>
+            <p className="methodology-subtext">Every product review page on SafeVerdicts is backed by a rigorous multi-step testing criteria:</p>
 
             <div className="grid grid-3 methodology-grid">
               <div className="card meth-card">

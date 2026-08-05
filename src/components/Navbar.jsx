@@ -12,7 +12,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('shieldguard_theme') || 'light';
+    return localStorage.getItem('safeverdicts_theme') || 'light';
   });
 
   // Apply theme class to body
@@ -22,7 +22,7 @@ export default function Navbar() {
     } else {
       document.body.classList.remove('dark-theme');
     }
-    localStorage.setItem('shieldguard_theme', theme);
+    localStorage.setItem('safeverdicts_theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -76,7 +76,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
             <Shield className="logo-icon" size={28} />
-            <span>Shield<span className="text-accent">Guard</span></span>
+            <span>Safe<span className="text-accent">Verdicts</span></span>
           </Link>
 
           {/* Nav links for Desktop */}

@@ -554,8 +554,8 @@ Do not rely on your browser's default password keeper. Dedicated managers like *
 
 export const siteFaqs = [
   {
-    q: 'How does ShieldGuard make money?',
-    a: 'ShieldGuard is funded via affiliate commissions. When you click one of our "Get Deal" links and purchase a software subscription, the vendor pays us a referral commission. This does not increase the price you pay—in fact, we work with vendors to secure the lowest exclusive coupon rates for our readers.'
+    q: 'How does SafeVerdicts make money?',
+    a: 'SafeVerdicts is funded via affiliate commissions. When you click one of our "Get Deal" links and purchase a software subscription, the vendor pays us a referral commission. This does not increase the price you pay—in fact, we work with vendors to secure the lowest exclusive coupon rates for our readers.'
   },
   {
     q: 'Are your VPN reviews truly independent?',
