@@ -8,104 +8,114 @@ function MarkdownRenderer({ content }) {
   if (!content) return null;
 
   const lines = content.split('\n');
-  let inList = false;
-  let inTable = false;
-  let tableHeaderParsed = false;
   const parsedElements = [];
+  
+  let currentListItems = [];
+  let currentTableLines = [];
 
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i].trim();
+  const flushList = (key) => {
+    if (currentListItems.length > 0) {
+      parsedElements.push(
+        <ul key={`list-${key}`} className="post-ul">
+          {currentListItems.map((item, idx) => (
+            <li key={idx}>{parseInlineFormatting(item)}</li>
+          ))}
+        </ul>
+      );
+      currentListItems = [];
+    }
+  };
 
-    // Handle empty line
-    if (line === '') {
-      if (inList) {
-        inList = false;
-      }
-      if (inTable) {
-        inTable = false;
-        tableHeaderParsed = false;
-      }
-      continue;
-    }
-
-    // Parse Headers
-    if (line.startsWith('# ')) {
-      parsedElements.push(<h1 key={i} className="post-h1">{line.slice(2)}</h1>);
-      continue;
-    }
-    if (line.startsWith('## ')) {
-      parsedElements.push(<h2 key={i} className="post-h2">{line.slice(3)}</h2>);
-      continue;
-    }
-    if (line.startsWith('### ')) {
-      parsedElements.push(<h3 key={i} className="post-h3">{line.slice(4)}</h3>);
-      continue;
-    }
-
-    // Parse Tables
-    if (line.startsWith('|')) {
-      inTable = true;
-      const columns = line.split('|').map(c => c.trim()).filter(c => c !== '');
+  const flushTable = (key) => {
+    if (currentTableLines.length > 0) {
+      const tableRows = [];
+      let headers = [];
       
-      // Skip separator row (e.g., | :--- | :--- |)
-      if (columns.every(col => col.startsWith(':') || col.startsWith('-') || col.endsWith('-'))) {
-        continue;
-      }
+      currentTableLines.forEach((line) => {
+        const rawColumns = line.split('|').map(c => c.trim());
+        const columns = rawColumns.slice(1, rawColumns.length - 1);
 
-      if (!tableHeaderParsed) {
-        tableHeaderParsed = true;
-        parsedElements.push(
-          <table key={i} className="post-table">
+        if (columns.every(col => col.startsWith(':') || col.startsWith('-') || col.endsWith('-'))) {
+          return;
+        }
+
+        if (headers.length === 0) {
+          headers = columns;
+        } else {
+          tableRows.push(columns);
+        }
+      });
+
+      parsedElements.push(
+        <div key={`table-wrapper-${key}`} className="table-responsive" style={{ overflowX: 'auto', marginBottom: '24px' }}>
+          <table className="post-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                {columns.map((col, idx) => <th key={idx}>{col}</th>)}
+                {headers.map((col, idx) => <th key={idx}>{parseInlineFormatting(col)}</th>)}
               </tr>
             </thead>
             <tbody>
-              {/* Rows will be added dynamically by reading ahead, but for simplicity, we open a container or render row directly */}
+              {tableRows.map((row, rowIdx) => (
+                <tr key={rowIdx}>
+                  {row.map((col, colIdx) => <td key={colIdx}>{parseInlineFormatting(col)}</td>)}
+                </tr>
+              ))}
             </tbody>
           </table>
-        );
-      } else {
-        // Find the last table and append a row (or render row inline in a pseudo-table)
-        // Since we are parsing sequentially, let's render a single-row table or join them
-        parsedElements.push(
-          <table key={i} className="post-table row-only">
-            <tbody>
-              <tr>
-                {columns.map((col, idx) => <td key={idx}>{col}</td>)}
-              </tr>
-            </tbody>
-          </table>
-        );
-      }
-      continue;
-    }
-
-    // Parse Lists
-    if (line.startsWith('* ') || line.startsWith('- ')) {
-      inList = true;
-      const cleanLine = line.slice(2);
-      // Inline bold parsing for list items
-      const parsedText = parseInlineFormatting(cleanLine);
-      parsedElements.push(
-        <ul key={i} className="post-ul">
-          <li>{parsedText}</li>
-        </ul>
+        </div>
       );
+      currentTableLines = [];
+    }
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    if (line.startsWith('|')) {
+      flushList(i);
+      currentTableLines.push(line);
       continue;
     }
 
-    // Parse standard paragraph with bold tags
-    const parsedParagraph = parseInlineFormatting(line);
-    parsedElements.push(<p key={i} className="post-p">{parsedParagraph}</p>);
+    if (line.startsWith('* ') || line.startsWith('- ')) {
+      flushTable(i);
+      currentListItems.push(line.slice(2));
+      continue;
+    }
+
+    if (line === '') {
+      flushList(i);
+      flushTable(i);
+      continue;
+    }
+
+    flushList(i);
+    flushTable(i);
+
+    if (line.startsWith('# ')) {
+      parsedElements.push(<h1 key={i} className="post-h1">{parseInlineFormatting(line.slice(2))}</h1>);
+      continue;
+    }
+    if (line.startsWith('## ')) {
+      parsedElements.push(<h2 key={i} className="post-h2">{parseInlineFormatting(line.slice(3))}</h2>);
+      continue;
+    }
+    if (line.startsWith('### ')) {
+      parsedElements.push(<h3 key={i} className="post-h3">{parseInlineFormatting(line.slice(4))}</h3>);
+      continue;
+    }
+
+    parsedElements.push(<p key={i} className="post-p">{parseInlineFormatting(line)}</p>);
   }
+
+  flushList(lines.length);
+  flushTable(lines.length);
 
   return <div className="markdown-body-content">{parsedElements}</div>;
 }
 
-// Simple inline bold formatter (**text** -> <strong>text</strong>)
 function parseInlineFormatting(text) {
+  if (typeof text !== 'string') return text;
   const parts = text.split(/\*\*([^*]+)\*\*/g);
   if (parts.length === 1) return text;
   
