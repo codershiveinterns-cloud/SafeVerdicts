@@ -14,7 +14,7 @@ export default function About() {
           </div>
           <h1>Transparent Cybersecurity Deals</h1>
           <p className="about-subtitle">
-            ShieldGuard was founded to help users navigate the complicated landscape of security software. We cut through the marketing hype to deliver direct advice and savings.
+            ShieldGuard was founded by Kapil Sharma to help users navigate the complicated landscape of security software. We cut through the marketing hype to deliver direct advice and savings.
           </p>
         </div>
       </section>
