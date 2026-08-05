@@ -1,0 +1,367 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Color System & Styling Tokens */
+:root {
+  /* Fonts */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* HSL Colors */
+  --color-primary-hsl: 224 71% 16%;     /* Dark slate blue for text/headers: #0A192F/similar */
+  --color-accent-hsl: 198 93% 43%;      /* Trustworthy vibrant security blue: #0B8FD3 */
+  --color-accent-hover-hsl: 198 93% 36%;
+  --color-success-hsl: 150 86% 38%;     /* Positive feedback green */
+  --color-warning-hsl: 32 95% 55%;      /* Deal discount orange */
+  --color-bg-hsl: 210 40% 98%;          /* Very soft ice-blue/light-gray bg: #F4F7F9 */
+  --color-surface-hsl: 0 0% 100%;       /* Pure white card surface */
+  --color-border-hsl: 214 32% 91%;      /* Soft gray borders */
+  --color-text-hsl: 215 25% 27%;        /* Soft dark charcoal for text */
+  --color-muted-hsl: 215 16% 47%;       /* Muted text */
+
+  /* Compiled Colors */
+  --color-primary: hsl(var(--color-primary-hsl));
+  --color-accent: hsl(var(--color-accent-hsl));
+  --color-accent-hover: hsl(var(--color-accent-hover-hsl));
+  --color-success: hsl(var(--color-success-hsl));
+  --color-warning: hsl(var(--color-warning-hsl));
+  --color-bg: hsl(var(--color-bg-hsl));
+  --color-surface: hsl(var(--color-surface-hsl));
+  --color-border: hsl(var(--color-border-hsl));
+  --color-text: hsl(var(--color-text-hsl));
+  --color-muted: hsl(var(--color-muted-hsl));
+
+  /* Theme-specific variables */
+  --color-subsurface: #F8FAFC;
+  --color-navbar-bg: rgba(255, 255, 255, 0.85);
+
+  /* Glows / Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 20px -2px rgba(10, 25, 47, 0.05), 0 2px 8px -1px rgba(10, 25, 47, 0.03);
+  --shadow-lg: 0 12px 30px -4px rgba(10, 25, 47, 0.08), 0 4px 12px -2px rgba(10, 25, 47, 0.04);
+  --shadow-glow: 0 0 20px rgba(11, 143, 211, 0.15);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-theme {
+  --color-primary-hsl: 0 0% 100%;       /* White text for headings */
+  --color-bg-hsl: 222 47% 11%;          /* Very dark blue bg: #090D16 */
+  --color-surface-hsl: 223 47% 16%;     /* Dark slate blue card surface: #0E1524 */
+  --color-border-hsl: 223 37% 22%;      /* Darker slate borders: #1D293E */
+  --color-text-hsl: 215 20% 75%;        /* Lighter slate/grey text for body */
+  --color-muted-hsl: 215 16% 55%;       /* Muted text */
+
+  /* Compiled Colors (Re-evaluated under dark mode HSL variables) */
+  --color-primary: hsl(var(--color-primary-hsl));
+  --color-accent: hsl(var(--color-accent-hsl));
+  --color-accent-hover: hsl(var(--color-accent-hover-hsl));
+  --color-success: hsl(var(--color-success-hsl));
+  --color-warning: hsl(var(--color-warning-hsl));
+  --color-bg: hsl(var(--color-bg-hsl));
+  --color-surface: hsl(var(--color-surface-hsl));
+  --color-border: hsl(var(--color-border-hsl));
+  --color-text: hsl(var(--color-text-hsl));
+  --color-muted: hsl(var(--color-muted-hsl));
+
+  /* Theme-specific variables */
+  --color-subsurface: #121A2C;
+  --color-navbar-bg: rgba(9, 13, 22, 0.85);
+
+  /* Adjust shadows for dark mode */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 2px 8px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 30px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Common Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 143, 211, 0.25);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--color-bg);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-discount {
+  background-color: hsl(var(--color-warning-hsl) / 0.12);
+  color: var(--color-warning);
+}
+
+.badge-trend {
+  background-color: hsl(var(--color-accent-hsl) / 0.12);
+  color: var(--color-accent);
+}
+
+.badge-success {
+  background-color: hsl(var(--color-success-hsl) / 0.1);
+  color: var(--color-success);
+}
+
+/* Card base styling with micro-animations */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: hsl(var(--color-accent-hsl) / 0.3);
+}
+
+/* Accordion Accordion styles */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.faq-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: var(--transition-fast);
+}
+
+.faq-header:hover {
+  color: var(--color-accent);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease;
+  padding: 0 24px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.faq-item.open .faq-content {
+  padding-bottom: 20px;
+  max-height: 500px;
+}
+
+.faq-icon {
+  transition: transform var(--transition-normal);
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+  color: var(--color-accent);
+}
+
+/* Section baseline style */
+.section {
+  padding: 80px 0;
+}
+.section-bg {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Search Overlay Component styling */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 25, 47, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.search-modal {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.search-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.search-results {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.search-item:hover {
+  background-color: var(--color-bg);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Active Nav Links styling */
+.active-link {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}

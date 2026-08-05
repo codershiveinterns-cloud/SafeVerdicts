@@ -1,0 +1,1146 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  TrendingUp, 
+  ShieldCheck, 
+  Lock, 
+  HelpCircle, 
+  Mail, 
+  Star, 
+  ExternalLink, 
+  Check, 
+  ArrowRight,
+  Zap,
+  Award,
+  RefreshCw,
+  Eye,
+  CheckCircle2
+} from 'lucide-react';
+import { products, categories, siteFaqs } from '../data/seedData';
+
+export default function Home() {
+  const [email, setEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState(null); // 'success', 'error'
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  // Get the trending product (e.g., ExpressVPN)
+  const trendingProduct = products.find(p => p.trending) || products[0];
+
+  // Get first 6 products for the newest deals grid
+  const newestDeals = products.slice(0, 6);
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      setNewsletterStatus('error');
+      return;
+    }
+    setNewsletterStatus('success');
+    setEmail('');
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
+  return (
+    <div className="home-page">
+      {/* 1. Hero Section */}
+      <section className="hero-section">
+        <div className="container hero-inner">
+          <div className="hero-badge">
+            <ShieldCheck size={14} />
+            <span>100% Independent Security Testing & Deals</span>
+          </div>
+          <h1 className="hero-headline">
+            Securing Your Digital Life, <br />
+            <span className="text-gradient">For a Fraction of the Cost</span>
+          </h1>
+          <p className="hero-subheading">
+            ShieldGuard evaluates top-tier VPNs, antivirus engines, and password managers. We secure exclusive discounts and coupon codes directly from the vendors for you.
+          </p>
+          <div className="hero-ctas">
+            <Link to="/vpns" className="btn btn-primary hero-btn-primary">
+              Compare VPNs — free <ArrowRight size={16} />
+            </Link>
+            <Link to="/categories" className="btn btn-secondary hero-btn-secondary">
+              Browse all deals
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Stat Bar */}
+      <section className="stat-bar-section">
+        <div className="container stat-bar-inner">
+          <div className="stat-item">
+            <span className="stat-number">120+</span>
+            <span className="stat-label">VPNs compared</span>
+          </div>
+          <div className="stat-item-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">50,000+</span>
+            <span className="stat-label">Readers secured</span>
+          </div>
+          <div className="stat-item-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">Weekly</span>
+            <span className="stat-label">Deal updates</span>
+          </div>
+          <div className="stat-item-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">9 min</span>
+            <span className="stat-label">Avg. read time</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Trending Deal Spotlight */}
+      <section className="section spotlight-section">
+        <div className="container">
+          <div className="section-header-row">
+            <div>
+              <span className="section-pretitle">TODAY'S PICK</span>
+              <h2 className="section-title">Trending Cyber Spotlight</h2>
+            </div>
+            <div className="trending-live-tag">
+              <span className="ping-dot"></span>
+              <span>Updated 3 hours ago</span>
+            </div>
+          </div>
+
+          <div className="spotlight-card">
+            <div className="spotlight-badge">
+              <TrendingUp size={16} />
+              <span>{trendingProduct.trendingReason}</span>
+            </div>
+
+            <div className="spotlight-grid">
+              <div className="spotlight-info-col">
+                <div className="spotlight-product-row">
+                  <div className="spotlight-logo">{trendingProduct.logo}</div>
+                  <div>
+                    <h3 className="spotlight-name">{trendingProduct.name}</h3>
+                    <div className="spotlight-rating">
+                      <Star size={16} className="star-icon" fill="currentColor" />
+                      <span><strong>{trendingProduct.rating}</strong> / 5.0 rating ({trendingProduct.reviewsCount} reviews)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="spotlight-headline">"{trendingProduct.headline}"</p>
+                <p className="spotlight-description">{trendingProduct.description}</p>
+
+                <div className="spotlight-bullets">
+                  {trendingProduct.pros.slice(0, 3).map((pro, i) => (
+                    <div key={i} className="spotlight-bullet">
+                      <Check size={16} className="bullet-check-icon" />
+                      <span>{pro}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="spotlight-pricing-col">
+                <div className="spotlight-pricing-box">
+                  <div className="spotlight-discount-tag">{trendingProduct.discountBadge}</div>
+                  <div className="pricing-row">
+                    <span className="price-old">{trendingProduct.originalPrice}</span>
+                    <span className="price-new">{trendingProduct.discountedPrice}</span>
+                    <span className="price-period">/ mo</span>
+                  </div>
+                  <p className="pricing-billing">{trendingProduct.billingDetails}</p>
+
+                  <div className="spotlight-actions">
+                    <a 
+                      href={trendingProduct.affiliateUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn btn-primary spotlight-cta"
+                    >
+                      Get Deal Now <ExternalLink size={16} />
+                    </a>
+                    <Link to={`/${trendingProduct.slug}`} className="spotlight-review-link">
+                      Read full review & test reports <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Newest Deals Grid */}
+      <section className="section section-bg">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-pretitle">LIMITED OFFERS</span>
+            <h2 className="section-title">Newest Cybersecurity Deals</h2>
+            <p className="section-sub">Verified vouchers and activation links. All discounts are automatically applied on click.</p>
+          </div>
+
+          <div className="grid grid-3">
+            {newestDeals.map((product) => (
+              <div key={product.id} className="card deal-card">
+                <div className="deal-card-header">
+                  <div className="deal-logo-box">{product.logo}</div>
+                  <span className="badge badge-discount">{product.discountBadge}</span>
+                </div>
+
+                <div className="deal-card-body">
+                  <h3 className="deal-product-title">{product.name}</h3>
+                  <div className="deal-card-rating">
+                    <Star size={14} className="star-icon" fill="currentColor" />
+                    <span><strong>{product.rating}</strong> ({product.reviewsCount})</span>
+                  </div>
+                  <p className="deal-card-description">{product.headline}</p>
+
+                  <div className="deal-card-pricing">
+                    <span className="deal-price-old">{product.originalPrice}</span>
+                    <span className="deal-price-new">{product.discountedPrice}</span>
+                    <span className="deal-price-period">/{product.billingPeriod.includes('month') ? 'mo' : 'yr'}</span>
+                  </div>
+                </div>
+
+                <div className="deal-card-footer">
+                  <Link to={`/${product.slug}`} className="deal-link-review">
+                    Read Review
+                  </Link>
+                  <a 
+                    href={product.affiliateUrl}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn btn-primary deal-link-btn"
+                  >
+                    Get Deal <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Browse by Category */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header text-center">
+            <span className="section-pretitle">DIRECTORY</span>
+            <h2 className="section-title">Browse Software by Category</h2>
+            <p className="section-sub">Quickly narrow down security tools depending on your exact requirements.</p>
+          </div>
+
+          <div className="category-chips-grid">
+            {categories.map((cat) => (
+              <Link key={cat.id} to={`/${cat.slug}`} className="category-chip-btn">
+                <span className="category-chip-emoji">{cat.emoji}</span>
+                <span className="category-chip-name">{cat.name}</span>
+                <ArrowRight size={14} className="category-chip-arrow" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Why ShieldGuard Feature Section */}
+      <section className="section section-bg">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-pretitle">OUR METHODOLOGY</span>
+            <h2 className="section-title">Why Trust ShieldGuard?</h2>
+            <p className="section-sub">We believe cybersecurity reviews shouldn't be controlled by product vendors. Here is how we remain distinct.</p>
+          </div>
+
+          <div className="grid grid-3">
+            <div className="card feature-card">
+              <div className="feature-icon-wrapper">
+                <Award size={24} className="feature-icon" />
+              </div>
+              <h3 className="feature-card-title">Independent Labs</h3>
+              <p className="feature-card-text">
+                We purchase all software accounts ourselves. We do not accept sponsored posts or paid placement changes from providers.
+              </p>
+            </div>
+
+            <div className="card feature-card">
+              <div className="feature-icon-wrapper">
+                <RefreshCw size={24} className="feature-icon" />
+              </div>
+              <h3 className="feature-card-title">Real-Time Speed Testing</h3>
+              <p className="feature-card-text">
+                Our speed test server scripts check provider bandwidth weekly on 1Gbps fiber lines to report true real-life connection loss.
+              </p>
+            </div>
+
+            <div className="card feature-card">
+              <div className="feature-icon-wrapper">
+                <Lock size={24} className="feature-icon" />
+              </div>
+              <h3 className="feature-card-title">Secured Coupon Feeds</h3>
+              <p className="feature-card-text">
+                We work directly with VPN and antivirus sales representatives to secure deep coupon API links, assuring you pay the minimum possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ Accordion Section */}
+      <section className="section">
+        <div className="container faq-container-inner">
+          <div className="section-header">
+            <span className="section-pretitle">QUESTIONS & ANSWERS</span>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-sub">Get transparent answers regarding VPNs, security software, and how affiliate coupons function.</p>
+          </div>
+
+          <div className="faq-accordion">
+            {siteFaqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`faq-item ${openFaqIndex === index ? 'open' : ''}`}
+              >
+                <button 
+                  className="faq-header" 
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaqIndex === index}
+                >
+                  <span>{faq.q}</span>
+                  <HelpCircle 
+                    className="faq-icon" 
+                    size={18} 
+                  />
+                </button>
+                <div className="faq-content">
+                  <p>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Newsletter Block */}
+      <section className="section newsletter-section">
+        <div className="container">
+          <div className="newsletter-box">
+            <div className="newsletter-content">
+              <div className="newsletter-icon-badge">
+                <Mail size={24} />
+              </div>
+              <h2 className="newsletter-title">Subscribe for Weekly Cyber Deals</h2>
+              <p className="newsletter-sub">
+                No spam. Just secure discounts, product audit reports, and vulnerability alerts. Cancel anytime.
+              </p>
+
+              <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
+                <div className="newsletter-input-group">
+                  <input
+                    type="email"
+                    className="newsletter-input"
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <button type="submit" className="btn btn-primary newsletter-submit-btn">
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+
+              {newsletterStatus === 'success' && (
+                <div className="newsletter-alert newsletter-alert-success">
+                  <CheckCircle2 size={16} />
+                  <span>Success! Check your inbox to confirm your subscription.</span>
+                </div>
+              )}
+              {newsletterStatus === 'error' && (
+                <div className="newsletter-alert newsletter-alert-error">
+                  <span>Please enter a valid email address.</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Home page styling */}
+      <style>{`
+        /* Hero Section styles */
+        .hero-section {
+          padding: 100px 0 80px 0;
+          background: radial-gradient(110% 80% at 50% 10%, var(--color-surface) 60%, hsl(var(--color-accent-hsl) / 0.08) 100%);
+          text-align: center;
+        }
+
+        .hero-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+        }
+
+        .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background-color: hsl(var(--color-accent-hsl) / 0.06);
+          border: 1px solid hsl(var(--color-accent-hsl) / 0.15);
+          color: var(--color-accent);
+          padding: 8px 16px;
+          border-radius: var(--radius-full);
+          font-size: 13px;
+          font-weight: 600;
+          margin-bottom: 28px;
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+
+        .hero-headline {
+          font-size: 42px;
+          font-weight: 800;
+          color: var(--color-primary);
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+          margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+          .hero-headline {
+            font-size: 56px;
+          }
+        }
+
+        .text-gradient {
+          background: linear-gradient(135deg, var(--color-accent) 0%, #0056B3 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subheading {
+          font-size: 17px;
+          color: var(--color-muted);
+          line-height: 1.6;
+          margin-bottom: 40px;
+          max-width: 650px;
+        }
+
+        @media (min-width: 768px) {
+          .hero-subheading {
+            font-size: 19px;
+          }
+        }
+
+        .hero-ctas {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+        }
+
+        @media (min-width: 640px) {
+          .hero-ctas {
+            flex-direction: row;
+            justify-content: center;
+            width: auto;
+          }
+        }
+
+        .hero-btn-primary {
+          font-size: 16px;
+          padding: 14px 28px;
+        }
+
+        .hero-btn-secondary {
+          font-size: 16px;
+          padding: 14px 28px;
+        }
+
+        /* Stat Bar Styles */
+        .stat-bar-section {
+          background-color: var(--color-surface);
+          border-top: 1px solid var(--color-border);
+          border-bottom: 1px solid var(--color-border);
+          padding: 24px 0;
+        }
+
+        .stat-bar-inner {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+          align-items: center;
+        }
+
+        @media (min-width: 768px) {
+          .stat-bar-inner {
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+            gap: 16px;
+          }
+        }
+
+        .stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .stat-number {
+          font-family: var(--font-heading);
+          font-size: 24px;
+          font-weight: 800;
+          color: var(--color-primary);
+        }
+
+        .stat-label {
+          font-size: 13px;
+          color: var(--color-muted);
+          margin-top: 2px;
+        }
+
+        .stat-item-divider {
+          display: none;
+          width: 1px;
+          height: 36px;
+          background-color: var(--color-border);
+        }
+
+        @media (min-width: 768px) {
+          .stat-item-divider {
+            display: block;
+          }
+        }
+
+        /* Section Layout elements */
+        .section-header-row {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 36px;
+        }
+
+        @media (min-width: 768px) {
+          .section-header-row {
+            flex-direction: row;
+            align-items: flex-end;
+          }
+        }
+
+        .section-header {
+          margin-bottom: 48px;
+          max-width: 600px;
+        }
+
+        .section-pretitle {
+          font-size: 12px;
+          font-weight: 700;
+          color: var(--color-accent);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        .section-title {
+          font-size: 32px;
+          font-weight: 800;
+          color: var(--color-primary);
+        }
+
+        .section-sub {
+          font-size: 16px;
+          color: var(--color-muted);
+          margin-top: 8px;
+        }
+
+        .trending-live-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background-color: var(--color-subsurface);
+          padding: 6px 14px;
+          border-radius: var(--radius-full);
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--color-muted);
+        }
+
+        .ping-dot {
+          width: 8px;
+          height: 8px;
+          background-color: var(--color-success);
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
+        }
+
+        .ping-dot::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-success);
+          border-radius: 50%;
+          left: 0;
+          top: 0;
+          animation: ping 1.5s ease-in-out infinite;
+        }
+
+        @keyframes ping {
+          0% { transform: scale(1); opacity: 0.8; }
+          100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* Spotlight Card */
+        .spotlight-card {
+          background-color: var(--color-surface);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-md);
+          overflow: hidden;
+          position: relative;
+          transition: var(--transition-normal);
+        }
+
+        .spotlight-card:hover {
+          box-shadow: var(--shadow-lg);
+          border-color: hsl(var(--color-accent-hsl) / 0.4);
+        }
+
+        .spotlight-badge {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: linear-gradient(135deg, var(--color-accent) 0%, #0056B3 100%);
+          color: white;
+          padding: 8px 20px;
+          font-family: var(--font-heading);
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          border-bottom-right-radius: var(--radius-md);
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .spotlight-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1024px) {
+          .spotlight-grid {
+            grid-template-columns: 1.5fr 1fr;
+          }
+        }
+
+        .spotlight-info-col {
+          padding: 48px 32px 32px 32px;
+        }
+
+        @media (min-width: 768px) {
+          .spotlight-info-col {
+            padding: 48px 40px 40px 40px;
+          }
+        }
+
+        .spotlight-product-row {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+
+        .spotlight-logo {
+          font-size: 32px;
+          width: 56px;
+          height: 56px;
+          background-color: var(--color-bg);
+          border-radius: var(--radius-md);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-sm);
+        }
+
+        .spotlight-name {
+          font-size: 22px;
+          font-weight: 800;
+        }
+
+        .spotlight-rating {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          color: var(--color-muted);
+        }
+
+        .star-icon {
+          color: #FFB300;
+        }
+
+        .spotlight-headline {
+          font-family: var(--font-heading);
+          font-size: 18px;
+          font-weight: 600;
+          color: var(--color-primary);
+          line-height: 1.4;
+          margin-bottom: 12px;
+        }
+
+        .spotlight-description {
+          font-size: 14px;
+          color: var(--color-muted);
+          line-height: 1.6;
+          margin-bottom: 28px;
+        }
+
+        .spotlight-bullets {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .spotlight-bullet {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .bullet-check-icon {
+          color: var(--color-success);
+          flex-shrink: 0;
+        }
+
+        .spotlight-pricing-col {
+          background-color: var(--color-subsurface);
+          border-top: 1px solid var(--color-border);
+          padding: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @media (min-width: 1024px) {
+          .spotlight-pricing-col {
+            border-top: none;
+            border-left: 1px solid var(--color-border);
+            padding: 40px;
+          }
+        }
+
+        .spotlight-pricing-box {
+          text-align: center;
+          width: 100%;
+          max-width: 320px;
+        }
+
+        .spotlight-discount-tag {
+          display: inline-block;
+          background-color: hsl(var(--color-warning-hsl) / 0.12);
+          color: var(--color-warning);
+          font-family: var(--font-heading);
+          font-size: 14px;
+          font-weight: 700;
+          padding: 6px 14px;
+          border-radius: var(--radius-full);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 16px;
+        }
+
+        .pricing-row {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          gap: 8px;
+          margin-bottom: 4px;
+        }
+
+        .price-old {
+          font-size: 18px;
+          color: var(--color-muted);
+          text-decoration: line-through;
+        }
+
+        .price-new {
+          font-family: var(--font-heading);
+          font-size: 40px;
+          font-weight: 800;
+          color: var(--color-primary);
+        }
+
+        .price-period {
+          font-size: 14px;
+          color: var(--color-muted);
+          font-weight: 500;
+        }
+
+        .pricing-billing {
+          font-size: 12px;
+          color: var(--color-muted);
+          margin-bottom: 28px;
+        }
+
+        .spotlight-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .spotlight-cta {
+          padding: 12px 24px;
+          width: 100%;
+        }
+
+        .spotlight-review-link {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-accent);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        }
+
+        .spotlight-review-link:hover {
+          color: var(--color-accent-hover);
+        }
+
+        /* Newest Deals Grid Card styling */
+        .deal-card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .deal-card-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 24px 24px 0 24px;
+        }
+
+        .deal-logo-box {
+          font-size: 24px;
+          width: 44px;
+          height: 44px;
+          background-color: var(--color-bg);
+          border-radius: var(--radius-sm);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-sm);
+        }
+
+        .deal-card-body {
+          padding: 16px 24px 24px 24px;
+          flex-grow: 1;
+        }
+
+        .deal-product-title {
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+
+        .deal-card-rating {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 12px;
+          color: var(--color-muted);
+          margin-bottom: 12px;
+        }
+
+        .deal-card-description {
+          font-size: 13px;
+          color: var(--color-muted);
+          line-height: 1.5;
+          margin-bottom: 20px;
+        }
+
+        .deal-card-pricing {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+        }
+
+        .deal-price-old {
+          font-size: 13px;
+          color: var(--color-muted);
+          text-decoration: line-through;
+        }
+
+        .deal-price-new {
+          font-family: var(--font-heading);
+          font-size: 22px;
+          font-weight: 800;
+          color: var(--color-primary);
+        }
+
+        .deal-price-period {
+          font-size: 12px;
+          color: var(--color-muted);
+        }
+
+        .deal-card-footer {
+          border-top: 1px solid var(--color-border);
+          padding: 16px 24px;
+          background-color: var(--color-subsurface);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .deal-link-review {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-primary);
+        }
+
+        .deal-link-review:hover {
+          color: var(--color-accent);
+        }
+
+        .deal-link-btn {
+          font-size: 13px;
+          padding: 8px 16px;
+        }
+
+        /* Browse Category Chips styles */
+        .category-chips-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+          .category-chips-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        .category-chip-btn {
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          padding: 16px 24px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          transition: var(--transition-normal);
+        }
+
+        .category-chip-btn:hover {
+          border-color: var(--color-accent);
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+        }
+
+        .category-chip-emoji {
+          font-size: 24px;
+        }
+
+        .category-chip-name {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          color: var(--color-primary);
+          font-size: 15px;
+          flex-grow: 1;
+        }
+
+        .category-chip-arrow {
+          color: var(--color-muted);
+          transition: transform var(--transition-fast);
+        }
+
+        .category-chip-btn:hover .category-chip-arrow {
+          transform: translateX(4px);
+          color: var(--color-accent);
+        }
+
+        /* Why ShieldGuard Feature Cards */
+        .feature-card {
+          padding: 32px;
+          text-align: left;
+        }
+
+        .feature-icon-wrapper {
+          width: 48px;
+          height: 48px;
+          border-radius: var(--radius-sm);
+          background-color: hsl(var(--color-accent-hsl) / 0.08);
+          color: var(--color-accent);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+
+        .feature-card-title {
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+
+        .feature-card-text {
+          font-size: 14px;
+          color: var(--color-muted);
+          line-height: 1.6;
+        }
+
+        /* FAQ Accordion container adjustment */
+        .faq-container-inner {
+          max-width: 800px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+          padding-top: 0;
+        }
+
+        .newsletter-box {
+          background: radial-gradient(100% 100% at 0% 0%, #102A43 0%, #0A192F 100%);
+          border-radius: var(--radius-lg);
+          padding: 48px 24px;
+          text-align: center;
+          color: white;
+          border: 1px solid #1E293B;
+          box-shadow: var(--shadow-lg);
+          display: flex;
+          justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+          .newsletter-box {
+            padding: 64px 40px;
+          }
+        }
+
+        .newsletter-content {
+          max-width: 580px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .newsletter-icon-badge {
+          width: 56px;
+          height: 56px;
+          background-color: rgba(11, 143, 211, 0.15);
+          color: var(--color-accent);
+          border: 1px solid rgba(11, 143, 211, 0.3);
+          border-radius: var(--radius-md);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+
+        .newsletter-title {
+          font-size: 28px;
+          font-weight: 800;
+          color: white;
+          margin-bottom: 12px;
+        }
+
+        .newsletter-sub {
+          font-size: 14px;
+          color: #94A3B8;
+          line-height: 1.6;
+          margin-bottom: 32px;
+        }
+
+        .newsletter-form {
+          width: 100%;
+        }
+
+        .newsletter-input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          width: 100%;
+        }
+
+        @media (min-width: 640px) {
+          .newsletter-input-group {
+            flex-direction: row;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            border-radius: var(--radius-md);
+          }
+        }
+
+        .newsletter-input {
+          background-color: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: white;
+          padding: 12px 16px;
+          border-radius: var(--radius-md);
+          font-size: 14px;
+          outline: none;
+          flex-grow: 1;
+          transition: var(--transition-fast);
+        }
+
+        @media (min-width: 640px) {
+          .newsletter-input {
+            background: transparent;
+            border: none;
+          }
+        }
+
+        .newsletter-input:focus {
+          border-color: var(--color-accent);
+          background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .newsletter-submit-btn {
+          width: 100%;
+        }
+
+        @media (min-width: 640px) {
+          .newsletter-submit-btn {
+            width: auto;
+            padding: 10px 24px;
+          }
+        }
+
+        .newsletter-alert {
+          margin-top: 16px;
+          font-size: 13px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .newsletter-alert-success {
+          color: var(--color-success);
+        }
+
+        .newsletter-alert-error {
+          color: #EF4444;
+        }
+      `}</style>
+    </div>
+  );
+}

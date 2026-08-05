@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shieldguard.com/sitemap.xml

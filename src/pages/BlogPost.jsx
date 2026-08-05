@@ -1,0 +1,565 @@
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Calendar, Clock, User, ArrowLeft, ShieldCheck, Star, ExternalLink } from 'lucide-react';
+import { blogPosts, products } from '../data/seedData';
+
+// Custom lightweight Markdown-to-HTML parser component
+function MarkdownRenderer({ content }) {
+  if (!content) return null;
+
+  const lines = content.split('\n');
+  let inList = false;
+  let inTable = false;
+  let tableHeaderParsed = false;
+  const parsedElements = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i].trim();
+
+    // Handle empty line
+    if (line === '') {
+      if (inList) {
+        inList = false;
+      }
+      if (inTable) {
+        inTable = false;
+        tableHeaderParsed = false;
+      }
+      continue;
+    }
+
+    // Parse Headers
+    if (line.startsWith('# ')) {
+      parsedElements.push(<h1 key={i} className="post-h1">{line.slice(2)}</h1>);
+      continue;
+    }
+    if (line.startsWith('## ')) {
+      parsedElements.push(<h2 key={i} className="post-h2">{line.slice(3)}</h2>);
+      continue;
+    }
+    if (line.startsWith('### ')) {
+      parsedElements.push(<h3 key={i} className="post-h3">{line.slice(4)}</h3>);
+      continue;
+    }
+
+    // Parse Tables
+    if (line.startsWith('|')) {
+      inTable = true;
+      const columns = line.split('|').map(c => c.trim()).filter(c => c !== '');
+      
+      // Skip separator row (e.g., | :--- | :--- |)
+      if (columns.every(col => col.startsWith(':') || col.startsWith('-') || col.endsWith('-'))) {
+        continue;
+      }
+
+      if (!tableHeaderParsed) {
+        tableHeaderParsed = true;
+        parsedElements.push(
+          <table key={i} className="post-table">
+            <thead>
+              <tr>
+                {columns.map((col, idx) => <th key={idx}>{col}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {/* Rows will be added dynamically by reading ahead, but for simplicity, we open a container or render row directly */}
+            </tbody>
+          </table>
+        );
+      } else {
+        // Find the last table and append a row (or render row inline in a pseudo-table)
+        // Since we are parsing sequentially, let's render a single-row table or join them
+        parsedElements.push(
+          <table key={i} className="post-table row-only">
+            <tbody>
+              <tr>
+                {columns.map((col, idx) => <td key={idx}>{col}</td>)}
+              </tr>
+            </tbody>
+          </table>
+        );
+      }
+      continue;
+    }
+
+    // Parse Lists
+    if (line.startsWith('* ') || line.startsWith('- ')) {
+      inList = true;
+      const cleanLine = line.slice(2);
+      // Inline bold parsing for list items
+      const parsedText = parseInlineFormatting(cleanLine);
+      parsedElements.push(
+        <ul key={i} className="post-ul">
+          <li>{parsedText}</li>
+        </ul>
+      );
+      continue;
+    }
+
+    // Parse standard paragraph with bold tags
+    const parsedParagraph = parseInlineFormatting(line);
+    parsedElements.push(<p key={i} className="post-p">{parsedParagraph}</p>);
+  }
+
+  return <div className="markdown-body-content">{parsedElements}</div>;
+}
+
+// Simple inline bold formatter (**text** -> <strong>text</strong>)
+function parseInlineFormatting(text) {
+  const parts = text.split(/\*\*([^*]+)\*\*/g);
+  if (parts.length === 1) return text;
+  
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return <strong key={index}>{part}</strong>;
+    }
+    return part;
+  });
+}
+
+export default function BlogPost() {
+  const { slug } = useParams();
+
+  // Find post
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  // Recommends top 2 VPN deals in the sidebar
+  const recommendedDeals = products.slice(0, 2);
+
+  if (!post) {
+    return (
+      <div className="container" style={{ padding: '80px 0', textAlign: 'center' }}>
+        <h2>Post Not Found</h2>
+        <p>The requested blog article does not exist.</p>
+        <Link to="/blog" className="btn btn-primary" style={{ marginTop: '20px' }}>Return to Blog</Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="blog-post-page">
+      {/* Article Header */}
+      <section className="post-hero">
+        <div className="container">
+          <Link to="/blog" className="post-back-link">
+            <ArrowLeft size={14} /> Back to Insights
+          </Link>
+
+          <div className="post-meta-badge">{post.category}</div>
+          <h1 className="post-main-title">{post.title}</h1>
+
+          <div className="post-author-row">
+            <div className="author-avatar">
+              <User size={18} />
+            </div>
+            <div className="author-details">
+              <span className="author-name">By {post.author}</span>
+              <div className="meta-sub-items">
+                <span><Calendar size={12} /> {post.date}</span>
+                <span className="bullet-sep">•</span>
+                <span><Clock size={12} /> {post.readTime}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Layout */}
+      <div className="container post-container-grid">
+        <article className="post-main-card card">
+          <div className="post-media-emoji-header">
+            {post.image || '🛡️'}
+          </div>
+          <div className="post-body-wrapper">
+            <MarkdownRenderer content={post.content} />
+          </div>
+        </article>
+
+        {/* Sidebar Callouts */}
+        <aside className="post-sidebar">
+          <div className="sidebar-sticky">
+            <div className="card conversion-sidebar-card">
+              <div className="sidebar-card-header">
+                <ShieldCheck size={18} className="sidebar-header-icon" />
+                <h4>Top Security Deals</h4>
+              </div>
+
+              <div className="sidebar-deals-list">
+                {recommendedDeals.map((deal) => (
+                  <div key={deal.id} className="sidebar-deal-item">
+                    <div className="sidebar-deal-meta">
+                      <div className="sidebar-deal-logo">{deal.logo}</div>
+                      <div>
+                        <div className="sidebar-deal-name">{deal.name}</div>
+                        <div className="sidebar-deal-stars">
+                          <Star size={12} fill="currentColor" className="star-icon" />
+                          <span>{deal.rating} Rating</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="sidebar-deal-price-row">
+                      <span className="sidebar-deal-tag">{deal.discountBadge}</span>
+                      <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
+                    </div>
+
+                    <a
+                      href={deal.affiliateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary sidebar-deal-btn"
+                    >
+                      Get Deal <ExternalLink size={12} />
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="sidebar-card-footer">
+                <Link to="/categories" className="sidebar-view-all">
+                  Browse all 10 deals
+                </Link>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      {/* Blog Post CSS */}
+      <style>{`
+        .blog-post-page {
+          background-color: var(--color-bg);
+          padding-bottom: 80px;
+        }
+
+        .post-hero {
+          background-color: var(--color-surface);
+          border-bottom: 1px solid var(--color-border);
+          padding: 40px 0 48px 0;
+        }
+
+        .post-back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--color-muted);
+          font-size: 13px;
+          font-weight: 500;
+          margin-bottom: 24px;
+        }
+
+        .post-back-link:hover {
+          color: var(--color-accent);
+        }
+
+        .post-meta-badge {
+          display: inline-block;
+          background-color: hsl(var(--color-accent-hsl) / 0.08);
+          color: var(--color-accent);
+          font-size: 11px;
+          font-weight: 700;
+          padding: 4px 12px;
+          border-radius: var(--radius-full);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 16px;
+        }
+
+        .post-main-title {
+          font-size: 28px;
+          font-weight: 800;
+          color: var(--color-primary);
+          line-height: 1.25;
+          margin-bottom: 24px;
+          max-width: 850px;
+        }
+
+        @media (min-width: 768px) {
+          .post-main-title {
+            font-size: 38px;
+          }
+        }
+
+        .post-author-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .author-avatar {
+          width: 40px;
+          height: 40px;
+          background-color: var(--color-bg);
+          border: 1px solid var(--color-border);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--color-accent);
+        }
+
+        .author-details {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .author-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--color-primary);
+        }
+
+        .meta-sub-items {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12px;
+          color: var(--color-muted);
+        }
+
+        .bullet-sep {
+          color: var(--color-border);
+        }
+
+        /* Post Layout columns */
+        .post-container-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 32px;
+          padding-top: 40px;
+        }
+
+        @media (min-width: 1024px) {
+          .post-container-grid {
+            grid-template-columns: 2.2fr 1fr;
+          }
+        }
+
+        .post-main-card {
+          overflow: hidden;
+        }
+
+        .post-media-emoji-header {
+          height: 200px;
+          background: linear-gradient(135deg, hsl(var(--color-accent-hsl) / 0.05) 0%, hsl(var(--color-accent-hsl) / 0.12) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 72px;
+          border-bottom: 1px solid var(--color-border);
+        }
+
+        .post-body-wrapper {
+          padding: 32px;
+        }
+
+        @media (min-width: 768px) {
+          .post-body-wrapper {
+            padding: 48px;
+          }
+        }
+
+        /* Markdown rendering styling */
+        .post-h1 {
+          font-size: 26px;
+          font-weight: 800;
+          color: var(--color-primary);
+          margin: 36px 0 16px 0;
+          border-bottom: 1px solid var(--color-border);
+          padding-bottom: 8px;
+        }
+
+        .post-h2 {
+          font-size: 20px;
+          font-weight: 700;
+          color: var(--color-primary);
+          margin: 28px 0 12px 0;
+        }
+
+        .post-h3 {
+          font-size: 17px;
+          font-weight: 600;
+          color: var(--color-primary);
+          margin: 24px 0 8px 0;
+        }
+
+        .post-p {
+          font-size: 15px;
+          line-height: 1.75;
+          color: var(--color-text);
+          margin-bottom: 20px;
+        }
+
+        .post-ul {
+          padding-left: 20px;
+          margin-bottom: 20px;
+        }
+
+        .post-ul li {
+          font-size: 15px;
+          line-height: 1.7;
+          color: var(--color-text);
+          margin-bottom: 8px;
+        }
+
+        .post-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 28px 0;
+          font-size: 14px;
+        }
+
+        .post-table th,
+        .post-table td {
+          padding: 12px 16px;
+          border: 1px solid var(--color-border);
+        }
+
+        .post-table th {
+          background-color: var(--color-subsurface);
+          color: var(--color-primary);
+          font-weight: 600;
+          text-align: left;
+        }
+
+        .post-table.row-only {
+          margin: 0;
+          border-top: none;
+        }
+        
+        .post-table.row-only td {
+          border-top: none;
+        }
+
+        /* Sidebar Conversion elements */
+        .post-sidebar {
+          display: block;
+        }
+
+        .sidebar-sticky {
+          position: sticky;
+          top: 96px;
+        }
+
+        .conversion-sidebar-card {
+          padding: 24px;
+          border-color: hsl(var(--color-accent-hsl) / 0.2);
+        }
+
+        .sidebar-card-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          border-bottom: 1px solid var(--color-border);
+          padding-bottom: 16px;
+          margin-bottom: 20px;
+        }
+
+        .sidebar-header-icon {
+          color: var(--color-accent);
+        }
+
+        .sidebar-card-header h4 {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--color-primary);
+        }
+
+        .sidebar-deals-list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .sidebar-deal-item {
+          background-color: var(--color-subsurface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .sidebar-deal-meta {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .sidebar-deal-logo {
+          font-size: 20px;
+          width: 36px;
+          height: 36px;
+          background-color: var(--color-surface);
+          border-radius: var(--radius-sm);
+          border: 1px solid var(--color-border);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-deal-name {
+          font-size: 14px;
+          font-weight: 700;
+          color: var(--color-primary);
+        }
+
+        .sidebar-deal-stars {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 11px;
+          color: var(--color-muted);
+        }
+
+        .sidebar-deal-price-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .sidebar-deal-tag {
+          font-size: 10px;
+          font-weight: 700;
+          color: var(--color-warning);
+          background-color: hsl(var(--color-warning-hsl) / 0.1);
+          padding: 2px 8px;
+          border-radius: var(--radius-full);
+          text-transform: uppercase;
+        }
+
+        .sidebar-deal-price {
+          font-family: var(--font-heading);
+          font-size: 15px;
+          font-weight: 800;
+          color: var(--color-primary);
+        }
+
+        .sidebar-deal-btn {
+          width: 100%;
+          font-size: 13px;
+          padding: 8px 16px;
+        }
+
+        .sidebar-card-footer {
+          border-top: 1px solid var(--color-border);
+          margin-top: 20px;
+          padding-top: 16px;
+          text-align: center;
+        }
+
+        .sidebar-view-all {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-accent);
+        }
+
+        .sidebar-view-all:hover {
+          color: var(--color-accent-hover);
+        }
+      `}</style>
+    </div>
+  );
+}
