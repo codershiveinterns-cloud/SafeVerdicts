@@ -108,7 +108,6 @@ export default function About() {
                 <div className="meth-icon-circle"><MapPin size={20} /></div>
                 <h4>Corporate Headquarters</h4>
                 <div className="office-details">
-                  <h3 className="office-company">SafeVerdicts Security, LLC</h3>
                   <p className="office-address">
                     1/F Hathikhera, Hathikhera Talai<br />
                     Ajmer, Rajasthan<br />
