@@ -94,45 +94,50 @@ export default function Legal({ pageType }) {
     <>
       <div className="legal-icon-badge"><ShieldCheck size={24} /></div>
       <h1>Affiliate Disclosure</h1>
-      <p className="last-updated">Last Updated: August 04, 2026</p>
+      <p className="last-updated">Last updated: August 2026</p>
 
       <div className="legal-content-text">
         <p>
-          In compliance with the Federal Trade Commission (FTC) guidelines, this page describes our affiliate partnerships and how ShieldGuard remains funded.
+          Transparency is important to us. This page explains how ShieldGuard may fund some of its content, resources, guides, comparisons, and recommendations. The short version: ShieldGuard may participate in affiliate programmes. If you purchase through certain links on our website, we may earn a commission. This comes at no extra cost to you.
         </p>
 
-        <div className="callout-disclosure-box">
-          <AlertTriangle size={18} className="callout-disclosure-icon" />
-          <p>
-            <strong>Summary:</strong> We may earn a commission when you click one of our links to purchase software. This does not increase the price you pay, and often helps us secure exclusive discount deals for you.
-          </p>
-        </div>
-
-        <h2>1. How Our Business Model Functions</h2>
+        <h2>Our Commitment to Honesty</h2>
         <p>
-          ShieldGuard is a free resource. We do not charge subscription fees, sell user emails, or gate our detailed testing logs behind paywalls. 
+          Our goal is to provide helpful, practical, and research-based content for people choosing VPNs, antivirus software, password managers, and other privacy and cybersecurity tools. Products and services mentioned on our website should be selected based on usefulness, features, security performance, pricing fit, ease of use, and individual protection needs.
         </p>
         <p>
-          To maintain our infrastructure, test servers, and staff, we use affiliate marketing. When you click a "Get Deal" or "Claim Discount" link for a product like ExpressVPN or Bitdefender and complete a purchase, the merchant pays us a commission. 
+          We do not accept payment to write fake positive reviews. Affiliate commissions should not control our opinions, comparisons, or recommendations.
         </p>
 
-        <h2>2. Honest Review Standards</h2>
+        <h2>How Affiliate Links Work</h2>
         <p>
-          Some might ask: *"If you get paid commissions, how can we trust your reviews?"*
+          When you click an affiliate link on our website to a third-party provider, such as a VPN service, antivirus company, password manager, or other security software provider, a tracking code may be used. This helps the provider know that you came from our website.
         </p>
         <p>
-          Our reputation is our most valuable asset. If we recommend slow, insecure, or overpriced software just to earn a commission, our readers will leave and never return. Therefore, our review methodology remains strictly independent:
+          If you decide to purchase a product or service through that link, ShieldGuard may receive a referral fee or commission. This can help cover the costs of running this website, creating resources, testing tools, maintaining content, and supporting our business operations.
         </p>
-        <ul>
-          <li>We purchase and test the software accounts ourselves.</li>
-          <li>We publish actual test logs (speed, server count, leak test failures) even if they make a product look bad.</li>
-          <li>We list high-quality free or low-commission alternatives (like Bitwarden) alongside commercial options.</li>
-          <li>Providers cannot pay us to delete negative reviews, alter test rankings, or influence our final rating score.</li>
-        </ul>
 
-        <h2>3. Contact Information</h2>
+        <h2>No Extra Cost to You</h2>
         <p>
-          If you have questions regarding our affiliate partnerships or want to report an issue with a specific discount link, please reach out via our <Link to="/contact" className="legal-inline-link">Contact Page</Link> or email us at partnerships@shieldguard.com.
+          Using an affiliate link does not increase the price you pay. In some cases, affiliate links may provide access to special discounts, offers, or introductory pricing from the provider. Any discount, pricing, or offer is controlled by the third-party provider and may change at any time.
+        </p>
+
+        <h2>Third-Party Services</h2>
+        <p>
+          Any third-party product or service you buy is provided by that company, not by ShieldGuard. Your purchase, account, billing, support, performance, refunds, and service terms are subject to the provider's own terms, privacy policy, and support process.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          We try to keep information accurate and useful, but pricing, features, discounts, availability, and terms for third-party providers can change without notice. We cannot guarantee the performance, security, reliability, pricing, or support quality of any third-party service provider.
+        </p>
+        <p>
+          You should always review the provider's latest pricing, features, terms, privacy policy, and refund policy before making a purchase.
+        </p>
+
+        <h2>Questions?</h2>
+        <p>
+          If you have any questions about our affiliate relationships or how we fund this site, please contact us at <a href="mailto:support@shieldguard.com" className="legal-inline-link">support@shieldguard.com</a>.
         </p>
       </div>
     </>
