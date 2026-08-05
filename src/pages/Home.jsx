@@ -1019,7 +1019,7 @@ export default function Home() {
           color: var(--color-accent);
         }
 
-        /* Why ShieldGuard Feature Cards */
+        /* Why SafeVerdicts Feature Cards */
         .feature-card {
           padding: 20px;
           text-align: left;

@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-brand-col">
           <Link to="/" className="footer-logo">
             <Shield className="logo-icon" size={24} />
-            <span>Shield<span className="text-accent">Guard</span></span>
+            <span>Safe<span className="text-accent">Verdicts</span></span>
           </Link>
           <p className="footer-brand-text">
             Independent security testing and software reviews you can trust. We compare the market's leading tools to find you the best savings.
