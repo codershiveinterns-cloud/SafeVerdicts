@@ -94,7 +94,7 @@ export default function Legal({ pageType }) {
     <>
       <div className="legal-icon-badge"><ShieldCheck size={24} /></div>
       <h1>Affiliate Disclosure</h1>
-      <p className="last-updated">Last updated: August 2026</p>
+      <p className="last-updated">Last updated: June 2026</p>
 
       <div className="legal-content-text">
         <p>
