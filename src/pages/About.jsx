@@ -108,11 +108,13 @@ export default function About() {
                 <div className="meth-icon-circle"><MapPin size={20} /></div>
                 <h4>Corporate Headquarters</h4>
                 <div className="office-details">
-                  <p className="office-address">
-                    1/F Hathikhera, Hathikhera Talai<br />
-                    Ajmer, Rajasthan<br />
-                    India, 305001
-                  </p>
+                  <div className="office-address-container">
+                    <p className="office-address">
+                      1/F Hathikhera, Hathikhera Talai<br />
+                      Ajmer, Rajasthan<br />
+                      India, 305001
+                    </p>
+                  </div>
                   <p className="office-note">
                     All legal notices, mailings, and partner audits should be addressed to our headquarters registered under Indian corporate business records.
                   </p>
@@ -321,8 +323,17 @@ export default function About() {
           text-align: left;
         }
 
+        .details-card h4 {
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--color-accent);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 16px;
+        }
+
         .founder-name {
-          font-size: 20px;
+          font-size: 24px;
           font-weight: 800;
           color: var(--color-primary);
           margin-bottom: 2px;
@@ -330,38 +341,39 @@ export default function About() {
 
         .founder-role {
           font-size: 13px;
-          color: var(--color-accent);
-          font-weight: 600;
+          color: var(--color-muted);
+          font-weight: 500;
           display: inline-block;
-          margin-bottom: 14px;
+          margin-bottom: 16px;
         }
 
         .founder-bio {
           font-size: 14px;
-          color: var(--color-muted);
-          line-height: 1.6;
+          color: var(--color-text);
+          line-height: 1.7;
         }
 
-        .office-company {
-          font-size: 20px;
-          font-weight: 800;
-          color: var(--color-primary);
-          margin-bottom: 8px;
+        .office-address-container {
+          background-color: hsl(var(--color-accent-hsl) / 0.04);
+          border-left: 3px solid var(--color-accent);
+          padding: 14px 18px;
+          border-radius: 4px;
+          margin-bottom: 16px;
         }
 
         .office-address {
           font-size: 15px;
-          color: var(--color-text);
+          color: var(--color-primary);
           line-height: 1.6;
           font-style: normal;
-          font-weight: 500;
-          margin-bottom: 14px;
+          font-weight: 600;
+          margin: 0;
         }
 
         .office-note {
           font-size: 13px;
           color: var(--color-muted);
-          line-height: 1.5;
+          line-height: 1.6;
         }
       `}</style>
     </div>
