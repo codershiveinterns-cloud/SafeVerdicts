@@ -333,6 +333,12 @@ export default function ProductReview() {
           margin-bottom: 24px;
         }
 
+        @media (max-width: 480px) {
+          .review-title-row {
+            gap: 12px;
+          }
+        }
+
         .review-logo {
           font-size: 36px;
           width: 72px;
@@ -344,12 +350,27 @@ export default function ProductReview() {
           justify-content: center;
           box-shadow: var(--shadow-sm);
           border: 1px solid var(--color-border);
+          flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+          .review-logo {
+            width: 56px;
+            height: 56px;
+            font-size: 24px;
+          }
         }
 
         .review-title {
-          font-size: 26px;
+          font-size: 22px;
           font-weight: 800;
           color: var(--color-primary);
+        }
+
+        @media (min-width: 480px) {
+          .review-title {
+            font-size: 26px;
+          }
         }
 
         @media (min-width: 768px) {
@@ -632,12 +653,14 @@ export default function ProductReview() {
           background-color: var(--color-surface);
           border: 1px solid var(--color-border);
           border-radius: var(--radius-md);
-          overflow: hidden;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
           box-shadow: var(--shadow-sm);
         }
 
         .specs-data-table {
           width: 100%;
+          min-width: 500px;
           border-collapse: collapse;
           text-align: left;
         }

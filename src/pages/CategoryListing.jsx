@@ -201,10 +201,16 @@ export default function CategoryListing({ categoryId }) {
         }
 
         .listing-title {
-          font-size: 32px;
+          font-size: 26px;
           font-weight: 800;
           color: var(--color-primary);
           margin-bottom: 12px;
+        }
+
+        @media (min-width: 480px) {
+          .listing-title {
+            font-size: 30px;
+          }
         }
 
         @media (min-width: 768px) {
@@ -321,8 +327,14 @@ export default function CategoryListing({ categoryId }) {
         .ranking-badge {
           position: absolute;
           top: 16px;
-          left: 24px;
+          left: 16px;
           z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+          .ranking-badge {
+            left: 32px;
+          }
         }
 
         .badge-best-choice {
@@ -355,7 +367,7 @@ export default function CategoryListing({ categoryId }) {
         .listing-card-grid {
           display: grid;
           grid-template-columns: 1fr;
-          padding: 56px 24px 24px 24px;
+          padding: 48px 16px 20px 16px;
           gap: 24px;
         }
 

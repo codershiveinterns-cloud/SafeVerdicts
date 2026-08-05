@@ -370,9 +370,15 @@ export default function Home() {
       <style>{`
         /* Hero Section styles */
         .hero-section {
-          padding: 100px 0 80px 0;
+          padding: 60px 0 40px 0;
           background: radial-gradient(110% 80% at 50% 10%, var(--color-surface) 60%, hsl(var(--color-accent-hsl) / 0.08) 100%);
           text-align: center;
+        }
+
+        @media (min-width: 768px) {
+          .hero-section {
+            padding: 100px 0 80px 0;
+          }
         }
 
         .hero-inner {
@@ -403,12 +409,18 @@ export default function Home() {
         }
 
         .hero-headline {
-          font-size: 42px;
+          font-size: 32px;
           font-weight: 800;
           color: var(--color-primary);
           line-height: 1.15;
           letter-spacing: -0.02em;
           margin-bottom: 20px;
+        }
+
+        @media (min-width: 480px) {
+          .hero-headline {
+            font-size: 38px;
+          }
         }
 
         @media (min-width: 768px) {
@@ -424,16 +436,17 @@ export default function Home() {
         }
 
         .hero-subheading {
-          font-size: 17px;
+          font-size: 15px;
           color: var(--color-muted);
           line-height: 1.6;
-          margin-bottom: 40px;
+          margin-bottom: 24px;
           max-width: 650px;
         }
 
         @media (min-width: 768px) {
           .hero-subheading {
             font-size: 19px;
+            margin-bottom: 40px;
           }
         }
 
@@ -493,15 +506,27 @@ export default function Home() {
 
         .stat-number {
           font-family: var(--font-heading);
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 800;
           color: var(--color-primary);
         }
 
+        @media (min-width: 480px) {
+          .stat-number {
+            font-size: 24px;
+          }
+        }
+
         .stat-label {
-          font-size: 13px;
+          font-size: 12px;
           color: var(--color-muted);
           margin-top: 2px;
+        }
+
+        @media (min-width: 480px) {
+          .stat-label {
+            font-size: 13px;
+          }
         }
 
         .stat-item-divider {
@@ -645,7 +670,7 @@ export default function Home() {
         }
 
         .spotlight-info-col {
-          padding: 48px 32px 32px 32px;
+          padding: 36px 16px 24px 16px;
         }
 
         @media (min-width: 768px) {
@@ -729,7 +754,7 @@ export default function Home() {
         .spotlight-pricing-col {
           background-color: var(--color-subsurface);
           border-top: 1px solid var(--color-border);
-          padding: 32px;
+          padding: 24px 16px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -940,11 +965,18 @@ export default function Home() {
           background-color: var(--color-surface);
           border: 1px solid var(--color-border);
           border-radius: var(--radius-md);
-          padding: 16px 24px;
+          padding: 12px 14px;
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 10px;
           transition: var(--transition-normal);
+        }
+
+        @media (min-width: 640px) {
+          .category-chip-btn {
+            padding: 16px 24px;
+            gap: 16px;
+          }
         }
 
         .category-chip-btn:hover {
@@ -954,15 +986,27 @@ export default function Home() {
         }
 
         .category-chip-emoji {
-          font-size: 24px;
+          font-size: 20px;
+        }
+
+        @media (min-width: 640px) {
+          .category-chip-emoji {
+            font-size: 24px;
+          }
         }
 
         .category-chip-name {
           font-family: var(--font-heading);
           font-weight: 600;
           color: var(--color-primary);
-          font-size: 15px;
+          font-size: 13px;
           flex-grow: 1;
+        }
+
+        @media (min-width: 640px) {
+          .category-chip-name {
+            font-size: 15px;
+          }
         }
 
         .category-chip-arrow {
@@ -977,8 +1021,14 @@ export default function Home() {
 
         /* Why ShieldGuard Feature Cards */
         .feature-card {
-          padding: 32px;
+          padding: 20px;
           text-align: left;
+        }
+
+        @media (min-width: 768px) {
+          .feature-card {
+            padding: 32px;
+          }
         }
 
         .feature-icon-wrapper {
@@ -1018,7 +1068,7 @@ export default function Home() {
         .newsletter-box {
           background: radial-gradient(100% 100% at 0% 0%, #102A43 0%, #0A192F 100%);
           border-radius: var(--radius-lg);
-          padding: 48px 24px;
+          padding: 32px 16px;
           text-align: center;
           color: white;
           border: 1px solid #1E293B;
@@ -1055,10 +1105,16 @@ export default function Home() {
         }
 
         .newsletter-title {
-          font-size: 28px;
+          font-size: 22px;
           font-weight: 800;
           color: white;
           margin-bottom: 12px;
+        }
+
+        @media (min-width: 768px) {
+          .newsletter-title {
+            font-size: 28px;
+          }
         }
 
         .newsletter-sub {

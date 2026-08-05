@@ -125,6 +125,12 @@ button, input, select, textarea {
   padding: 0 24px;
 }
 
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .grid {
   display: grid;
   gap: 24px;

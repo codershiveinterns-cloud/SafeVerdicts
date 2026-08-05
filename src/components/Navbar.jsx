@@ -345,6 +345,18 @@ export default function Navbar() {
           font-size: 22px;
           font-weight: 800;
           color: var(--color-primary);
+          transition: font-size var(--transition-fast);
+        }
+
+        @media (max-width: 375px) {
+          .navbar-logo {
+            font-size: 18px;
+            gap: 6px;
+          }
+          .logo-icon {
+            width: 22px !important;
+            height: 22px !important;
+          }
         }
 
         .logo-icon {
@@ -403,6 +415,16 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+          .navbar-actions {
+            gap: 8px;
+          }
+          .action-search-btn,
+          .action-theme-btn {
+            padding: 6px !important;
+          }
         }
 
         .action-search-btn {
@@ -691,6 +713,12 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+
+        @media (max-width: 640px) {
+          .navbar-mobile-toggle {
+            padding: 6px;
+          }
         }
 
         @media (min-width: 1024px) {
