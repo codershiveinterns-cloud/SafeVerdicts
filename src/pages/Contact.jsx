@@ -108,7 +108,7 @@ export default function Contact() {
                 <div className="info-icon-box"><MapPin size={18} /></div>
                 <div>
                   <h4>Corporate Headquarters</h4>
-                  <p>SafeVerdicts Security, LLC<br />100 Pine Street, Suite 1200<br />San Francisco, CA 94111</p>
+                  <p>SafeVerdicts Security, LLC<br />1/F Hathikhera, Hathikhera Talai<br />Ajmer, Rajasthan<br />India, 305001</p>
                 </div>
               </div>
 
