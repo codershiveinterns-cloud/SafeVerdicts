@@ -137,7 +137,7 @@ export default function Legal({ pageType }) {
 
         <h2>Questions?</h2>
         <p>
-          If you have any questions about our affiliate relationships or how we fund this site, please contact us at <a href="mailto:support@shieldguard.com" className="legal-inline-link">support@shieldguard.com</a>.
+          If you have any questions about our affiliate relationships or how we fund this site, please contact us at <a href="mailto:support@safeverdicts.com" className="legal-inline-link">support@safeverdicts.com</a>.
         </p>
       </div>
     </>

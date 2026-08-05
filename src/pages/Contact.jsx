@@ -100,7 +100,7 @@ export default function Contact() {
                 <div className="info-icon-box"><Mail size={18} /></div>
                 <div>
                   <h4>Email Support</h4>
-                  <p>support@shieldguard.com</p>
+                  <p>support@safeverdicts.com</p>
                 </div>
               </div>
 
