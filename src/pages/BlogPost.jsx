@@ -92,6 +92,11 @@ function MarkdownRenderer({ content }) {
     flushList(i);
     flushTable(i);
 
+    if (line.trim() === '---' || line.trim() === '***' || line.trim() === '___') {
+      parsedElements.push(<hr key={i} className="post-hr" />);
+      continue;
+    }
+
     if (line.startsWith('> ')) {
       parsedElements.push(
         <blockquote key={i} className="post-takeaway-box">
@@ -312,7 +317,7 @@ export default function BlogPost() {
         .post-hero {
           background-color: var(--color-surface);
           border-bottom: 1px solid var(--color-border);
-          padding: 40px 0 48px 0;
+          padding: 24px 0 24px 0;
         }
 
         .post-back-link {
@@ -322,7 +327,7 @@ export default function BlogPost() {
           color: var(--color-muted);
           font-size: 13px;
           font-weight: 500;
-          margin-bottom: 24px;
+          margin-bottom: 12px;
         }
 
         .post-back-link:hover {
@@ -339,21 +344,21 @@ export default function BlogPost() {
           border-radius: var(--radius-full);
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          margin-bottom: 16px;
+          margin-bottom: 10px;
         }
 
         .post-main-title {
-          font-size: 28px;
+          font-size: 26px;
           font-weight: 800;
           color: var(--color-primary);
           line-height: 1.25;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
           max-width: 850px;
         }
 
         @media (min-width: 768px) {
           .post-main-title {
-            font-size: 38px;
+            font-size: 34px;
           }
         }
 
@@ -364,8 +369,8 @@ export default function BlogPost() {
         }
 
         .author-avatar {
-          width: 40px;
-          height: 40px;
+          width: 36px;
+          height: 36px;
           background-color: var(--color-bg);
           border: 1px solid var(--color-border);
           border-radius: 50%;
@@ -402,8 +407,8 @@ export default function BlogPost() {
         .post-container-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 32px;
-          padding-top: 40px;
+          gap: 28px;
+          padding-top: 24px;
         }
 
         @media (min-width: 1024px) {
@@ -417,7 +422,7 @@ export default function BlogPost() {
         }
 
         .post-media-image-header {
-          height: 300px;
+          height: 260px;
           overflow: hidden;
           position: relative;
           border-bottom: 1px solid var(--color-border);
@@ -430,12 +435,12 @@ export default function BlogPost() {
         }
 
         .post-body-wrapper {
-          padding: 32px;
+          padding: 24px 28px;
         }
 
         @media (min-width: 768px) {
           .post-body-wrapper {
-            padding: 48px;
+            padding: 32px 40px;
           }
         }
 
@@ -644,12 +649,18 @@ export default function BlogPost() {
         .post-takeaway-box {
           background-color: hsl(var(--color-accent-hsl) / 0.06);
           border-left: 4px solid var(--color-accent);
-          padding: 16px 20px;
+          padding: 14px 18px;
           border-radius: 0 8px 8px 0;
-          margin: 24px 0;
+          margin: 16px 0;
           font-size: 15px;
           color: var(--color-primary);
           line-height: 1.6;
+        }
+
+        .post-hr {
+          border: none;
+          border-top: 1px solid var(--color-border);
+          margin: 24px 0;
         }
 
         /* Top Banner Ad Placement Slot */
