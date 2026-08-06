@@ -72,7 +72,7 @@ export default function Home() {
                 rel="noopener noreferrer sponsored"
                 className="btn btn-primary hero-main-btn"
               >
-                Get WiseCare 365 — 75% Off <ArrowRight size={16} />
+                Get WiseCare 365 — Exclusive Deal <ArrowRight size={16} />
               </a>
               <Link to="/categories" className="btn btn-secondary hero-sub-btn">
                 Browse all deals

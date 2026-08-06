@@ -116,11 +116,11 @@ function MarkdownRenderer({ content }) {
             </div>
             <div className="ad-content-flex">
               <div className="ad-info">
-                <h4>WiseCare 365 Pro — Up to 75% Off Special Promotion</h4>
+                <h4>WiseCare 365 Pro — Exclusive Special Promotion</h4>
                 <p>Clean junk files, optimize system startup, and protect your privacy traces in one click.</p>
               </div>
               <div className="ad-action">
-                <span className="ad-discount-pill">75% OFF</span>
+                <span className="ad-discount-pill">EXCLUSIVE DEAL</span>
                 <a
                   href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
                   target="_blank"
@@ -222,7 +222,7 @@ export default function BlogPost() {
               <div className="adsense-banner-content">
                 <span className="banner-brand">💻 WiseCleaner Partner Offer</span>
                 <span className="banner-text">Clean & Speed Up Your PC with WiseCare 365 Pro (Code: TNGZI)</span>
-                <a href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI" target="_blank" rel="noopener noreferrer sponsored" className="btn-banner-link">Claim 75% Off</a>
+                <a href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI" target="_blank" rel="noopener noreferrer sponsored" className="btn-banner-link">Claim Deal</a>
               </div>
             </div>
           </div>
@@ -257,11 +257,10 @@ export default function BlogPost() {
                       <span style={{ fontSize: '24px' }}>💻</span>
                       <div>
                         <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)' }}>WiseCare 365 Pro</strong>
-                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>Commission up to 75%</span>
                       </div>
                     </div>
                     <span style={{ backgroundColor: '#FFEDD5', color: '#C2410C', fontWeight: '800', fontSize: '12px', padding: '4px 8px', borderRadius: '4px' }}>
-                      75% OFF
+                      EXCLUSIVE DEAL
                     </span>
                   </div>
 

@@ -429,8 +429,8 @@ export const products = [
     originalPrice: '$39.95',
     discountedPrice: '$9.95',
     billingPeriod: 'per year',
-    billingDetails: 'billed annually ($9.95 total) - Up to 75% Off Commission Deal',
-    discountBadge: 'Up to 75% Off',
+    billingDetails: 'billed annually ($9.95 total) - Exclusive Special Deal',
+    discountBadge: 'Exclusive Deal',
     affiliateUrl: 'https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI',
     trending: true,
     trendingReason: 'Best Windows Utility 2026',
@@ -447,7 +447,6 @@ export const products = [
     specs: {
       'Operating System': 'Windows 11, 10, 8, 7',
       'Vendor Code': 'TNGZI',
-      'Commission Share': 'Up to 75%',
       'Key Features': 'Junk Cleaner, Registry Defrag, Privacy Shield',
       'Refund Policy': '60-day money-back guarantee'
     },
