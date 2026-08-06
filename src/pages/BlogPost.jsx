@@ -269,54 +269,6 @@ export default function BlogPost() {
             </div>
           </div>
         </article>
-
-        {/* Sidebar Callouts */}
-        <aside className="post-sidebar">
-          <div className="sidebar-sticky">
-            <div className="card conversion-sidebar-card">
-              <div className="sidebar-card-header">
-                <ShieldCheck size={18} className="sidebar-header-icon" />
-                <h4>Top Security Deals</h4>
-              </div>
-
-              <div className="sidebar-deals-list">
-                {recommendedDeals.map((deal) => (
-                  <div key={deal.id} className="sidebar-deal-item">
-                    <div className="sidebar-deal-meta">
-                      <div className="sidebar-deal-logo">{deal.logo}</div>
-                      <div>
-                        <div className="sidebar-deal-name">{deal.name}</div>
-                        <div className="sidebar-deal-stars">
-                          <Star size={12} fill="currentColor" className="star-icon" />
-                          <span>{deal.rating} Rating</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="sidebar-deal-price-row">
-                      <span className="sidebar-deal-tag">{deal.discountBadge}</span>
-                      <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
-                    </div>
-
-                    <Link
-                      to={`/${deal.slug}`}
-                      className="btn btn-secondary sidebar-deal-btn"
-                      style={{ width: '100%', justifyContent: 'center' }}
-                    >
-                      Read Review
-                    </Link>
-                  </div>
-                ))}
-              </div>
-
-              <div className="sidebar-card-footer">
-                <Link to="/categories" className="sidebar-view-all">
-                  Browse all deals
-                </Link>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
 
       {/* Blog Post CSS */}
@@ -417,16 +369,9 @@ export default function BlogPost() {
 
         /* Post Layout columns */
         .post-container-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 28px;
+          max-width: 920px;
+          margin: 0 auto;
           padding-top: 24px;
-        }
-
-        @media (min-width: 1024px) {
-          .post-container-grid {
-            grid-template-columns: 2.2fr 1fr;
-          }
         }
 
         .post-main-card {
