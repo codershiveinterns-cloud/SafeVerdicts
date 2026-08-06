@@ -26,8 +26,27 @@ export default function BlogIndex() {
             {blogPosts.map((post) => (
               <article key={post.slug} className="card blog-card">
                 <div className="blog-card-media">
-                  {post.imageSrc && (
-                    <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
+                  {post.slug === 'wisecare-365-pro-all-in-one-windows' ? (
+                    <div className="custom-vector-card-thumbnail">
+                      <div className="thumbnail-window-header">
+                        <span className="dot dot-r"></span>
+                        <span className="dot dot-y"></span>
+                        <span className="dot dot-g"></span>
+                        <span className="thumb-app-name">Wise Data Recovery Pro</span>
+                      </div>
+                      <div className="thumbnail-body-content">
+                        <div className="thumb-icon-badge">📁</div>
+                        <div className="thumb-status-box">
+                          <strong>1,248 Files Restored</strong>
+                          <span>Docs, Photos & Videos</span>
+                        </div>
+                        <div className="thumb-speed-pill">98% Match</div>
+                      </div>
+                    </div>
+                  ) : (
+                    post.imageSrc && (
+                      <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
+                    )
                   )}
                 </div>
 
@@ -138,6 +157,83 @@ export default function BlogIndex() {
           width: 100%;
           overflow: hidden;
           background-color: var(--color-subsurface);
+        }
+
+        .custom-vector-card-thumbnail {
+          height: 200px;
+          background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-bottom: 1px solid var(--color-border);
+        }
+
+        .thumbnail-window-header {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background-color: rgba(15, 23, 42, 0.8);
+          padding: 6px 10px;
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .thumbnail-window-header .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+        }
+        .thumbnail-window-header .dot-r { background-color: #EF4444; }
+        .thumbnail-window-header .dot-y { background-color: #F59E0B; }
+        .thumbnail-window-header .dot-g { background-color: #10B981; }
+
+        .thumb-app-name {
+          color: #94A3B8;
+          font-size: 10px;
+          font-weight: 600;
+          margin-left: 4px;
+        }
+
+        .thumbnail-body-content {
+          background: linear-gradient(135deg, hsl(var(--color-accent-hsl) / 0.12) 0%, hsl(var(--color-accent-hsl) / 0.04) 100%);
+          border: 1px solid hsl(var(--color-accent-hsl) / 0.2);
+          border-radius: 8px;
+          padding: 12px 14px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .thumb-icon-badge {
+          font-size: 24px;
+        }
+
+        .thumb-status-box {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+
+        .thumb-status-box strong {
+          font-size: 13px;
+          color: #FFFFFF;
+          font-weight: 700;
+        }
+
+        .thumb-status-box span {
+          font-size: 10px;
+          color: #94A3B8;
+        }
+
+        .thumb-speed-pill {
+          background-color: #DCFCE7;
+          color: #15803D;
+          font-size: 10px;
+          font-weight: 800;
+          padding: 3px 8px;
+          border-radius: 4px;
         }
 
         .blog-media-img {
