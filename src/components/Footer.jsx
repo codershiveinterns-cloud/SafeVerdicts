@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, ShieldCheck } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -66,10 +66,6 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom">
-        <div className="footer-disclosure">
-          <ShieldCheck size={14} className="disclosure-badge-icon" />
-          <span><strong>AFFILIATE DISCLOSURE:</strong> We may earn a commission when you use one of our links to make a purchase. This has no impact on the price you pay and helps keep our reviews free & independent.</span>
-        </div>
         <div className="footer-divider"></div>
         <div className="footer-copyright-row">
           <p>© 2026 SafeVerdicts. All rights reserved.</p>
@@ -188,25 +184,6 @@ export default function Footer() {
           display: flex;
           flex-direction: column;
           gap: 24px;
-        }
-
-        .footer-disclosure {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-          font-size: 12px;
-          line-height: 1.5;
-          color: #64748B;
-          background-color: #0E1E36;
-          padding: 16px;
-          border-radius: var(--radius-md);
-          border: 1px solid #1E293B;
-        }
-
-        .disclosure-badge-icon {
-          color: var(--color-accent);
-          flex-shrink: 0;
-          margin-top: 2px;
         }
 
         .footer-divider {
