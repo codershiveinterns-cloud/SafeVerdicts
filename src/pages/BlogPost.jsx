@@ -213,12 +213,12 @@ export default function BlogPost() {
           <div className="sidebar-sticky">
             {/* WiseCleaner Special Dedicated Widget */}
             {wiseCleanerDeal && (
-              <div className="card conversion-sidebar-card wisecleaner-highlight-card" style={{ marginBottom: '24px', borderColor: 'var(--color-primary)' }}>
-                <div className="sidebar-card-header" style={{ background: 'linear-gradient(135deg, #1E293B, #0F172A)', color: '#fff' }}>
-                  <ShieldCheck size={18} className="sidebar-header-icon" style={{ color: '#F97316' }} />
+              <div className="card conversion-sidebar-card wisecleaner-highlight-card" style={{ marginBottom: '24px', borderColor: 'var(--color-border)' }}>
+                <div className="sidebar-card-header" style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)', color: '#fff' }}>
+                  <ShieldCheck size={18} className="sidebar-header-icon" style={{ color: '#fff' }} />
                   <div>
                     <h4 style={{ margin: 0, color: '#fff' }}>WiseCleaner Official Deal</h4>
-                    <span style={{ fontSize: '11px', color: '#94A3B8' }}>Partner Code: {wiseCleanerDeal.vendorCode}</span>
+                    <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.8)' }}>Partner Code: {wiseCleanerDeal.vendorCode}</span>
                   </div>
                 </div>
 
@@ -230,7 +230,7 @@ export default function BlogPost() {
                         <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)' }}>WiseCare 365 Pro</strong>
                       </div>
                     </div>
-                    <span style={{ backgroundColor: '#FFEDD5', color: '#C2410C', fontWeight: '800', fontSize: '12px', padding: '4px 8px', borderRadius: '4px' }}>
+                    <span style={{ backgroundColor: '#E0F2FE', color: '#0284C7', fontWeight: '800', fontSize: '12px', padding: '4px 8px', borderRadius: '4px' }}>
                       EXCLUSIVE DEAL
                     </span>
                   </div>
@@ -250,7 +250,7 @@ export default function BlogPost() {
                     target="_blank"
                     rel="noopener noreferrer sponsored"
                     className="btn btn-primary"
-                    style={{ width: '100%', justifyContent: 'center', backgroundColor: '#F97316', borderColor: '#F97316', color: '#fff', fontWeight: '700' }}
+                    style={{ width: '100%', justifyContent: 'center' }}
                   >
                     Get Deal Now <ExternalLink size={14} />
                   </a>
@@ -647,28 +647,29 @@ export default function BlogPost() {
 
         /* Takeaway Callout Box */
         .post-takeaway-box {
-          background-color: #FFF7ED;
-          border-left: 4px solid #F97316;
+          background-color: hsl(var(--color-accent-hsl) / 0.06);
+          border-left: 4px solid var(--color-accent);
           padding: 16px 20px;
           border-radius: 0 8px 8px 0;
           margin: 24px 0;
           font-size: 15px;
-          color: #9A3412;
+          color: var(--color-primary);
           line-height: 1.6;
         }
 
         /* Top Banner Ad Placement Slot */
         .top-ad-placement-slot {
           padding: 16px;
-          background-color: #F1F5F9;
-          border-bottom: 1px solid #E2E8F0;
+          background-color: var(--color-subsurface);
+          border-bottom: 1px solid var(--color-border);
         }
 
         .adsense-placeholder-box {
-          background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
           border-radius: 8px;
           padding: 14px 20px;
-          color: #FFFFFF;
+          color: var(--color-text);
           display: flex;
           flex-direction: column;
           gap: 6px;
@@ -678,7 +679,7 @@ export default function BlogPost() {
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.08em;
-          color: #94A3B8;
+          color: var(--color-muted);
           text-transform: uppercase;
         }
 
@@ -693,12 +694,12 @@ export default function BlogPost() {
         .banner-brand {
           font-weight: 700;
           font-size: 14px;
-          color: #F97316;
+          color: var(--color-accent);
         }
 
         .banner-text {
           font-size: 13px;
-          color: #E2E8F0;
+          color: var(--color-text);
         }
 
         .btn-banner-link {
