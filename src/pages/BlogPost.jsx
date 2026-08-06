@@ -206,7 +206,7 @@ export default function BlogPost() {
           {/* Software Preview Dashboard Hero / Image Header */}
           <div className="post-media-image-header">
             {post.imageSrc && (
-              <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
+              <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" fetchpriority="high" decoding="async" />
             )}
           </div>
           <div className="post-body-wrapper">

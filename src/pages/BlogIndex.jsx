@@ -27,7 +27,7 @@ export default function BlogIndex() {
               <article key={post.slug} className="card blog-card">
                 <div className="blog-card-media">
                   {post.imageSrc && (
-                    <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
+                    <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" loading="lazy" decoding="async" />
                   )}
                 </div>
 

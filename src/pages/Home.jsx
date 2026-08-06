@@ -112,7 +112,7 @@ export default function Home() {
                   <h3 className="spotlight-hero-title">WiseCare 365 Pro</h3>
                   <p className="spotlight-hero-sub">All-in-One PC Care & Windows Cleanup</p>
                 </div>
-                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="spotlight-hero-bg" />
+                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="spotlight-hero-bg" loading="lazy" decoding="async" />
               </div>
 
               <div className="spotlight-card-details">
