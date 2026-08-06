@@ -251,6 +251,23 @@ export default function BlogPost() {
           </div>
           <div className="post-body-wrapper">
             <MarkdownRenderer content={post.content} />
+
+            <div className="post-footer-actions">
+              <hr className="post-hr" />
+              <div className="post-footer-buttons">
+                <a
+                  href={post.slug === 'wisecare-365-pro-all-in-one-windows' ? 'https://www.wisecleaner.com/' : (wiseCleanerDeal?.affiliateUrl || 'https://www.wisecleaner.com/')}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  className="btn btn-primary post-footer-buy-btn"
+                >
+                  Buy Now <ExternalLink size={16} />
+                </a>
+                <Link to="/blog" className="btn btn-secondary post-footer-back-btn">
+                  Back to Blogs
+                </Link>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -904,6 +921,37 @@ export default function BlogPost() {
           border: none;
           border-top: 1px solid var(--color-border);
           margin: 24px 0;
+        }
+
+        .post-footer-actions {
+          margin-top: 32px;
+        }
+
+        .post-footer-buttons {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-wrap: wrap;
+          padding-top: 8px;
+        }
+
+        .post-footer-buy-btn {
+          padding: 12px 28px;
+          font-size: 15px;
+          font-weight: 700;
+          border-radius: var(--radius-md);
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .post-footer-back-btn {
+          padding: 12px 24px;
+          font-size: 15px;
+          font-weight: 600;
+          border-radius: var(--radius-md);
+          display: inline-flex;
+          align-items: center;
         }
 
         /* Top Banner Ad Placement Slot */
