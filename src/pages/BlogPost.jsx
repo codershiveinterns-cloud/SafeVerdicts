@@ -106,34 +106,6 @@ function MarkdownRenderer({ content }) {
       continue;
     }
     if (line.startsWith('## ')) {
-      // Insert mid-article native sponsored ad unit before 'Why It Is Useful for Windows Users'
-      if (line.includes('Why It Is Useful')) {
-        parsedElements.push(
-          <div key={`mid-ad-${i}`} className="native-ad-unit mid-article-ad">
-            <div className="ad-badge-row">
-              <span className="ad-sponsored-tag">SPONSORED DEAL</span>
-              <span className="ad-vendor-code">CODE: TNGZI</span>
-            </div>
-            <div className="ad-content-flex">
-              <div className="ad-info">
-                <h4>WiseCare 365 Pro — Exclusive Special Promotion</h4>
-                <p>Clean junk files, optimize system startup, and protect your privacy traces in one click.</p>
-              </div>
-              <div className="ad-action">
-                <span className="ad-discount-pill">EXCLUSIVE DEAL</span>
-                <a
-                  href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  className="btn btn-primary ad-btn"
-                >
-                  Get Deal <ExternalLink size={14} />
-                </a>
-              </div>
-            </div>
-          </div>
-        );
-      }
       parsedElements.push(<h2 key={i} className="post-h2">{parseInlineFormatting(line.slice(3))}</h2>);
       continue;
     }
