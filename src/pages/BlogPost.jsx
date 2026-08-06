@@ -243,17 +243,6 @@ export default function BlogPost() {
       {/* Main Content Layout */}
       <div className="container post-container-grid">
         <article className="post-main-card card">
-          {/* Top Banner Ad Placement Slot */}
-          <div className="top-ad-placement-slot">
-            <div className="adsense-placeholder-box">
-              <div className="adsense-label">ADVERTISEMENT / GOOGLE ADS SLOT (728x90)</div>
-              <div className="adsense-banner-content">
-                <span className="banner-brand">💻 WiseCleaner Partner Offer</span>
-                <span className="banner-text">Automate junk cleanup, optimize Windows startup speed, and safeguard your privacy traces with 1-click system care.</span>
-              </div>
-            </div>
-          </div>
-
           {/* Software Preview Dashboard Hero / Image Header */}
           <div className="post-media-image-header">
             {post.imageSrc && (
