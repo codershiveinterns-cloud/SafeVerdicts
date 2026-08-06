@@ -293,49 +293,51 @@ export default function BlogPost() {
               </div>
             )}
 
-            <div className="card conversion-sidebar-card">
-              <div className="sidebar-card-header">
-                <ShieldCheck size={18} className="sidebar-header-icon" />
-                <h4>Top Security Deals</h4>
-              </div>
+            {!wiseCleanerDeal && (
+              <div className="card conversion-sidebar-card">
+                <div className="sidebar-card-header">
+                  <ShieldCheck size={18} className="sidebar-header-icon" />
+                  <h4>Top Security Deals</h4>
+                </div>
 
-              <div className="sidebar-deals-list">
-                {recommendedDeals.map((deal) => (
-                  <div key={deal.id} className="sidebar-deal-item">
-                    <div className="sidebar-deal-meta">
-                      <div className="sidebar-deal-logo">{deal.logo}</div>
-                      <div>
-                        <div className="sidebar-deal-name">{deal.name}</div>
-                        <div className="sidebar-deal-stars">
-                          <Star size={12} fill="currentColor" className="star-icon" />
-                          <span>{deal.rating} Rating</span>
+                <div className="sidebar-deals-list">
+                  {recommendedDeals.map((deal) => (
+                    <div key={deal.id} className="sidebar-deal-item">
+                      <div className="sidebar-deal-meta">
+                        <div className="sidebar-deal-logo">{deal.logo}</div>
+                        <div>
+                          <div className="sidebar-deal-name">{deal.name}</div>
+                          <div className="sidebar-deal-stars">
+                            <Star size={12} fill="currentColor" className="star-icon" />
+                            <span>{deal.rating} Rating</span>
+                          </div>
                         </div>
                       </div>
+
+                      <div className="sidebar-deal-price-row">
+                        <span className="sidebar-deal-tag">{deal.discountBadge}</span>
+                        <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
+                      </div>
+
+                      <a
+                        href={deal.affiliateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="btn btn-primary sidebar-deal-btn"
+                      >
+                        Get Deal <ExternalLink size={12} />
+                      </a>
                     </div>
+                  ))}
+                </div>
 
-                    <div className="sidebar-deal-price-row">
-                      <span className="sidebar-deal-tag">{deal.discountBadge}</span>
-                      <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
-                    </div>
-
-                    <a
-                      href={deal.affiliateUrl}
-                      target="_blank"
-                      rel="noopener noreferrer sponsored"
-                      className="btn btn-primary sidebar-deal-btn"
-                    >
-                      Get Deal <ExternalLink size={12} />
-                    </a>
-                  </div>
-                ))}
+                <div className="sidebar-card-footer">
+                  <Link to="/categories" className="sidebar-view-all">
+                    Browse all deals
+                  </Link>
+                </div>
               </div>
-
-              <div className="sidebar-card-footer">
-                <Link to="/categories" className="sidebar-view-all">
-                  Browse all deals
-                </Link>
-              </div>
-            </div>
+            )}
           </div>
         </aside>
       </div>
