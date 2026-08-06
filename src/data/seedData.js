@@ -844,7 +844,7 @@ While you can perform credit monitoring manually, premium identity safeguard ser
 export const siteFaqs = [
   {
     q: 'How does SafeVerdicts make money?',
-    a: 'SafeVerdicts provides independent software reviews and featured partner redirect links (such as WiseCleaner on our home and blog pages). We show unbiased testing scores and reviews without external links for all other software listings.'
+    a: 'SafeVerdicts provides independent software reviews and featured partner redirect links (such as WindowsPCDoc on our home and blog pages). We show unbiased testing scores and reviews without external links for all other software listings.'
   },
   {
     q: 'Are your VPN reviews truly independent?',

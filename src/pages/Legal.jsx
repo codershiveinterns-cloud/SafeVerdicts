@@ -27,7 +27,7 @@ export default function Legal({ pageType }) {
 
         <h2>2. Cookies & Partner Redirects</h2>
         <p>
-          SafeVerdicts provides independent software reviews and featured partner redirect links (such as for WiseCleaner on our homepage and blog). When you click on a partner link, you are redirected to the vendor's website. 
+          SafeVerdicts provides independent software reviews and featured partner redirect links (such as for WindowsPCDoc on our homepage and blog). When you click on a partner link, you are redirected to the vendor's website. 
         </p>
         <p>
           During this redirection, standard referral tracking cookies may be used by the software vendor to identify visitor referrals. These cookies do not track personal identifying information and expire automatically.
@@ -35,7 +35,7 @@ export default function Legal({ pageType }) {
 
         <h2>3. Third-Party Links & Reviews</h2>
         <p>
-          Our website focuses on unbiased software reviews. Direct redirect links are provided only for select featured partners like WiseCleaner. All other product listings present independent editorial reviews without external vendor links.
+          Our website focuses on unbiased software reviews. Direct redirect links are provided only for select featured partners like WindowsPCDoc. All other product listings present independent editorial reviews without external vendor links.
         </p>
 
         <h2>4. GDPR & CCPA Compliance</h2>

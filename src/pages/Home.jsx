@@ -62,7 +62,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-theme-sub">
-              The deal aggregator that helps you clean, protect, and speed up your PC. Discover top-rated tools like WiseCare 365 Pro, track your savings, and stop overpaying for SaaS.
+              The deal aggregator that helps you clean, protect, and speed up your PC. Discover top-rated tools like WindowsPCDoc, track your savings, and stop overpaying for SaaS.
             </p>
 
             <div className="hero-theme-actions">
@@ -72,7 +72,7 @@ export default function Home() {
                 rel="noopener noreferrer sponsored"
                 className="btn btn-primary hero-main-btn"
               >
-                Visit WiseCare 365 Website <ArrowRight size={16} />
+                Visit WindowsPCDoc Website <ArrowRight size={16} />
               </a>
               <Link to="/categories" className="btn btn-secondary hero-sub-btn">
                 Browse all deals
