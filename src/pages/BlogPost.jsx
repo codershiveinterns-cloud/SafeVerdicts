@@ -256,12 +256,11 @@ export default function BlogPost() {
               <hr className="post-hr" />
               <div className="post-footer-buttons">
                 <a
-                  href={post.slug === 'wisecare-365-pro-all-in-one-windows' ? 'https://www.wisecleaner.com/' : (wiseCleanerDeal?.affiliateUrl || 'https://www.wisecleaner.com/')}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
                   className="btn btn-primary post-footer-buy-btn"
                 >
-                  Buy Now <ExternalLink size={16} />
+                  Buy Now
                 </a>
                 <Link to="/blog" className="btn btn-secondary post-footer-back-btn">
                   Back to Blogs
