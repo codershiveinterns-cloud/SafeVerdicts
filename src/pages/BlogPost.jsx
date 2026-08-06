@@ -194,7 +194,6 @@ export default function BlogPost() {
               <div className="adsense-banner-content">
                 <span className="banner-brand">💻 WiseCleaner Partner Offer</span>
                 <span className="banner-text">Automate junk cleanup, optimize Windows startup speed, and safeguard your privacy traces with 1-click system care.</span>
-                <a href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI" target="_blank" rel="noopener noreferrer sponsored" className="btn-banner-link">Get WiseCare 365 →</a>
               </div>
             </div>
           </div>
