@@ -325,7 +325,7 @@ export default function BlogPost() {
                     className="btn btn-primary"
                     style={{ width: '100%', justifyContent: 'center' }}
                   >
-                    Get Deal Now <ExternalLink size={14} />
+                    Visit WiseCleaner <ArrowRight size={14} />
                   </a>
                 </div>
               </div>

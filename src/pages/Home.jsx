@@ -72,7 +72,7 @@ export default function Home() {
                 rel="noopener noreferrer sponsored"
                 className="btn btn-primary hero-main-btn"
               >
-                Get WiseCare 365 — Exclusive Deal <ArrowRight size={16} />
+                Visit WiseCare 365 Website <ArrowRight size={16} />
               </a>
               <Link to="/categories" className="btn btn-secondary hero-sub-btn">
                 Browse all deals
@@ -134,7 +134,7 @@ export default function Home() {
                     rel="noopener noreferrer sponsored"
                     className="btn btn-primary spotlight-deal-btn"
                   >
-                    Get deal <ArrowRight size={14} />
+                    Visit Site <ArrowRight size={14} />
                   </a>
                 </div>
 
