@@ -144,8 +144,9 @@ function parseInlineFormatting(text) {
 export default function BlogPost() {
   const { slug } = useParams();
 
-  // Find post
-  const post = blogPosts.find((p) => p.slug === slug);
+  // Find post safely with case and trailing slash normalization
+  const normalizedSlug = slug ? slug.replace(/\/$/, '').trim().toLowerCase() : '';
+  const post = blogPosts.find((p) => p.slug.toLowerCase() === normalizedSlug);
 
   // Wisecleaner specific product or top 2 default deals
   const wiseCleanerDeal = products.find((p) => p.id === 'wisecare-365');
