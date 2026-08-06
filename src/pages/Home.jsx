@@ -23,8 +23,9 @@ export default function Home() {
   const [newsletterStatus, setNewsletterStatus] = useState(null); // 'success', 'error'
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  // Get the trending product (e.g., ExpressVPN)
-  const trendingProduct = products.find(p => p.trending) || products[0];
+  // Get the featured product (WiseCare 365 Pro / WiseCleaner)
+  const featuredProduct = products.find(p => p.id === 'wisecare-365') || products[0];
+  const trendingProduct = featuredProduct;
 
   // Get first 6 products for the newest deals grid
   const newestDeals = products.slice(0, 6);
@@ -45,27 +46,104 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      {/* 1. Hero Section */}
-      <section className="hero-section">
-        <div className="container hero-inner">
-          <div className="hero-badge">
-            <ShieldCheck size={14} />
-            <span>100% Independent Security Testing & Deals</span>
+      {/* 1. Hero Section - Matching Mockup Screenshot */}
+      <section className="hero-dark-section">
+        <div className="container hero-dark-grid">
+          {/* Left Column: Headlines, CTA Buttons, Stats */}
+          <div className="hero-dark-left">
+            <div className="hero-dark-pill">
+              <span className="pill-version">v2.4</span>
+              <span className="pill-text">Rebuilt — your stack, your deals, your savings.</span>
+            </div>
+
+            <h1 className="hero-dark-headline">
+              Lifetime deals, <br />
+              <span className="text-pink-gradient">finally organized.</span>
+            </h1>
+
+            <p className="hero-dark-sub">
+              The deal aggregator that helps you clean, protect, and speed up your PC. Discover top-rated tools like WiseCare 365 Pro, track your savings, and stop overpaying for SaaS.
+            </p>
+
+            <div className="hero-dark-actions">
+              <a 
+                href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="btn btn-pink-glow"
+              >
+                Get WiseCare 365 — 75% Off <ArrowRight size={16} />
+              </a>
+              <Link to="/categories" className="btn btn-outline-dark">
+                Browse 2,800+ deals
+              </Link>
+            </div>
+
+            {/* Stats Row */}
+            <div className="hero-stats-row">
+              <div className="hero-stat-col">
+                <div className="hero-stat-val">$4,318</div>
+                <div className="hero-stat-lbl">AVG VAULT VALUE / YEAR SAVED</div>
+              </div>
+              <div className="hero-stat-col">
+                <div className="hero-stat-val">2,847</div>
+                <div className="hero-stat-lbl">LIFETIME DEALS TRACKED</div>
+              </div>
+              <div className="hero-stat-col">
+                <div className="hero-stat-val">38,120</div>
+                <div className="hero-stat-lbl">FOUNDERS & SMALL TEAMS</div>
+              </div>
+              <div className="hero-stat-col">
+                <div className="hero-stat-val">9 min</div>
+                <div className="hero-stat-lbl">AVG TIME TO SET UP</div>
+              </div>
+            </div>
           </div>
-          <h1 className="hero-headline">
-            Securing Your Digital Life, <br />
-            <span className="text-gradient">For a Fraction of the Cost</span>
-          </h1>
-          <p className="hero-subheading">
-            SafeVerdicts evaluates top-tier VPNs, antivirus engines, and password managers. We secure exclusive discounts and coupon codes directly from the vendors for you.
-          </p>
-          <div className="hero-ctas">
-            <Link to="/vpns" className="btn btn-primary hero-btn-primary">
-              Compare VPNs — free <ArrowRight size={16} />
-            </Link>
-            <Link to="/categories" className="btn btn-secondary hero-btn-secondary">
-              Browse all deals
-            </Link>
+
+          {/* Right Column: Hero Spotlight Card matching screenshot */}
+          <div className="hero-dark-right">
+            <div className="spotlight-dark-card">
+              <div className="spotlight-card-banner">
+                <div className="today-pick-badge">
+                  <Zap size={13} fill="currentColor" />
+                  <span>Today's Pick</span>
+                </div>
+                <div className="banner-text-overlay">
+                  <h3 className="banner-title">WiseCare 365 Pro</h3>
+                  <p className="banner-sub">All-in-One PC Care & Windows Cleanup</p>
+                </div>
+                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="banner-img" />
+              </div>
+
+              <div className="spotlight-card-content">
+                <div className="most-clicked-tag">MOST CLICKED RIGHT NOW</div>
+                <h4 className="card-product-title">WiseCare 365 Pro</h4>
+                <p className="card-product-desc">
+                  One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one dashboard.
+                </p>
+
+                <div className="card-product-footer">
+                  <div className="price-tag-wrap">
+                    <span className="price-tag">$9.95</span>
+                    <span className="period-tag">/ year</span>
+                  </div>
+                  <a
+                    href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="btn btn-pink-deal"
+                  >
+                    Get deal <ArrowRight size={14} />
+                  </a>
+                </div>
+
+                <div className="view-page-row">
+                  <Link to="/blog/wisecare-365-pro-all-in-one-windows" className="view-product-link">
+                    View product page →
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -368,7 +446,303 @@ export default function Home() {
 
       {/* Home page styling */}
       <style>{`
-        /* Hero Section styles */
+        /* Dark Theme Hero Section Matching Mockup */
+        .hero-dark-section {
+          background-color: #0B0F19;
+          color: #FFFFFF;
+          padding: 60px 0;
+          border-bottom: 1px solid #1E293B;
+        }
+
+        .hero-dark-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 48px;
+          align-items: center;
+        }
+
+        @media (min-width: 992px) {
+          .hero-dark-grid {
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+          }
+        }
+
+        .hero-dark-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background-color: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          padding: 6px 14px;
+          border-radius: 9999px;
+          font-size: 13px;
+          margin-bottom: 24px;
+        }
+
+        .pill-version {
+          background-color: #EC4899;
+          color: #FFFFFF;
+          font-weight: 800;
+          font-size: 11px;
+          padding: 2px 8px;
+          border-radius: 9999px;
+        }
+
+        .pill-text {
+          color: #94A3B8;
+          font-weight: 500;
+        }
+
+        .hero-dark-headline {
+          font-size: 38px;
+          font-weight: 800;
+          line-height: 1.12;
+          letter-spacing: -0.02em;
+          color: #FFFFFF;
+          margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+          .hero-dark-headline {
+            font-size: 56px;
+          }
+        }
+
+        .text-pink-gradient {
+          background: linear-gradient(135deg, #EC4899 0%, #F43F5E 50%, #A855F7 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .hero-dark-sub {
+          font-size: 17px;
+          line-height: 1.6;
+          color: #94A3B8;
+          max-width: 620px;
+          margin-bottom: 32px;
+        }
+
+        .hero-dark-actions {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 16px;
+          margin-bottom: 48px;
+        }
+
+        .btn-pink-glow {
+          background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+          color: #FFFFFF !important;
+          font-weight: 700;
+          padding: 14px 28px;
+          border-radius: 10px;
+          border: none;
+          box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-pink-glow:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
+        }
+
+        .btn-outline-dark {
+          background-color: #1E293B;
+          color: #E2E8F0 !important;
+          border: 1px solid #334155;
+          font-weight: 600;
+          padding: 14px 24px;
+          border-radius: 10px;
+          transition: background-color 0.2s ease;
+        }
+
+        .btn-outline-dark:hover {
+          background-color: #334155;
+        }
+
+        /* Hero Stats Row */
+        .hero-stats-row {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          border-top: 1px solid #1E293B;
+          padding-top: 28px;
+        }
+
+        @media (min-width: 640px) {
+          .hero-stats-row {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        .hero-stat-val {
+          font-family: var(--font-heading);
+          font-size: 26px;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin-bottom: 4px;
+        }
+
+        .hero-stat-lbl {
+          font-size: 10px;
+          font-weight: 700;
+          color: #64748B;
+          letter-spacing: 0.05em;
+        }
+
+        /* Right Column Spotlight Card */
+        .spotlight-dark-card {
+          background-color: #111827;
+          border: 1px solid #1F2937;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.15);
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .spotlight-dark-card:hover {
+          transform: translateY(-4px);
+          border-color: #EC4899;
+        }
+
+        .spotlight-card-banner {
+          position: relative;
+          height: 220px;
+          background: linear-gradient(180deg, rgba(236, 72, 153, 0.2) 0%, rgba(17, 24, 39, 0.95) 100%), #0F172A;
+          display: flex;
+          align-items: flex-end;
+          padding: 20px;
+          overflow: hidden;
+        }
+
+        .today-pick-badge {
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          background-color: #EC4899;
+          color: #FFFFFF;
+          font-size: 11px;
+          font-weight: 800;
+          padding: 6px 12px;
+          border-radius: 9999px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          z-index: 2;
+        }
+
+        .banner-text-overlay {
+          position: relative;
+          z-index: 2;
+        }
+
+        .banner-title {
+          font-size: 22px;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin: 0 0 4px 0;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .banner-sub {
+          font-size: 13px;
+          color: #E2E8F0;
+          margin: 0;
+          text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .banner-img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.35;
+        }
+
+        .spotlight-card-content {
+          padding: 24px;
+        }
+
+        .most-clicked-tag {
+          font-size: 10px;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          color: #EC4899;
+          margin-bottom: 8px;
+        }
+
+        .card-product-title {
+          font-size: 20px;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin-bottom: 10px;
+        }
+
+        .card-product-desc {
+          font-size: 14px;
+          line-height: 1.6;
+          color: #94A3B8;
+          margin-bottom: 24px;
+        }
+
+        .card-product-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 1px solid #1F2937;
+          padding-top: 18px;
+          margin-bottom: 16px;
+        }
+
+        .price-tag-wrap {
+          display: flex;
+          align-items: baseline;
+          gap: 4px;
+        }
+
+        .price-tag {
+          font-family: var(--font-heading);
+          font-size: 24px;
+          font-weight: 800;
+          color: #FFFFFF;
+        }
+
+        .period-tag {
+          font-size: 13px;
+          color: #64748B;
+        }
+
+        .btn-pink-deal {
+          background-color: #EC4899;
+          color: #FFFFFF !important;
+          font-weight: 700;
+          font-size: 14px;
+          padding: 10px 20px;
+          border-radius: 8px;
+          transition: background-color 0.2s ease;
+        }
+
+        .btn-pink-deal:hover {
+          background-color: #DB2777;
+        }
+
+        .view-page-row {
+          text-align: left;
+        }
+
+        .view-product-link {
+          font-size: 13px;
+          color: #64748B;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+
+        .view-product-link:hover {
+          color: #EC4899;
+        }
         .hero-section {
           padding: 60px 0 40px 0;
           background: radial-gradient(110% 80% at 50% 10%, var(--color-surface) 60%, hsl(var(--color-accent-hsl) / 0.08) 100%);
