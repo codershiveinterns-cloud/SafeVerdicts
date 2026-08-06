@@ -274,92 +274,48 @@ export default function BlogPost() {
         {/* Sidebar Callouts */}
         <aside className="post-sidebar">
           <div className="sidebar-sticky">
-            {/* WiseCleaner Special Dedicated Widget */}
-            {wiseCleanerDeal && (
-              <div className="card conversion-sidebar-card wisecleaner-highlight-card" style={{ marginBottom: '24px' }}>
-                <div className="sidebar-card-header">
-                  <ShieldCheck size={18} className="sidebar-header-icon" />
-                  <h4>Featured Security Deal</h4>
-                </div>
-
-                <div className="wisecleaner-card-body" style={{ padding: '20px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ fontSize: '24px' }}>💻</span>
-                      <div>
-                        <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)', fontWeight: '800' }}>WiseCare 365 Pro</strong>
-                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>All-in-One PC Care & Windows Cleanup</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style={{ marginBottom: '14px' }}>
-                    <span style={{ backgroundColor: 'hsl(var(--color-accent-hsl) / 0.1)', color: 'var(--color-accent)', fontWeight: '800', fontSize: '11px', padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      EXCLUSIVE DEAL
-                    </span>
-                  </div>
-
-                  <div className="active-partnership-badge" style={{ backgroundColor: '#DCFCE7', color: '#15803D', fontSize: '12px', fontWeight: '600', padding: '6px 10px', borderRadius: '6px', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span>✓ Verified SafeVerdicts Offer</span>
-                  </div>
-
-                  <a
-                    href="https://www.wisecleaner.com/"
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="btn btn-primary"
-                    style={{ width: '100%', justifyContent: 'center' }}
-                  >
-                    Visit WiseCleaner <ArrowRight size={14} />
-                  </a>
-                </div>
+            <div className="card conversion-sidebar-card">
+              <div className="sidebar-card-header">
+                <ShieldCheck size={18} className="sidebar-header-icon" />
+                <h4>Top Security Deals</h4>
               </div>
-            )}
 
-            {!wiseCleanerDeal && (
-              <div className="card conversion-sidebar-card">
-                <div className="sidebar-card-header">
-                  <ShieldCheck size={18} className="sidebar-header-icon" />
-                  <h4>Top Security Deals</h4>
-                </div>
-
-                <div className="sidebar-deals-list">
-                  {recommendedDeals.map((deal) => (
-                    <div key={deal.id} className="sidebar-deal-item">
-                      <div className="sidebar-deal-meta">
-                        <div className="sidebar-deal-logo">{deal.logo}</div>
-                        <div>
-                          <div className="sidebar-deal-name">{deal.name}</div>
-                          <div className="sidebar-deal-stars">
-                            <Star size={12} fill="currentColor" className="star-icon" />
-                            <span>{deal.rating} Rating</span>
-                          </div>
+              <div className="sidebar-deals-list">
+                {recommendedDeals.map((deal) => (
+                  <div key={deal.id} className="sidebar-deal-item">
+                    <div className="sidebar-deal-meta">
+                      <div className="sidebar-deal-logo">{deal.logo}</div>
+                      <div>
+                        <div className="sidebar-deal-name">{deal.name}</div>
+                        <div className="sidebar-deal-stars">
+                          <Star size={12} fill="currentColor" className="star-icon" />
+                          <span>{deal.rating} Rating</span>
                         </div>
                       </div>
-
-                      <div className="sidebar-deal-price-row">
-                        <span className="sidebar-deal-tag">{deal.discountBadge}</span>
-                        <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
-                      </div>
-
-                      <Link
-                        to={`/${deal.slug}`}
-                        className="btn btn-secondary sidebar-deal-btn"
-                        style={{ width: '100%', justifyContent: 'center' }}
-                      >
-                        Read Review
-                      </Link>
                     </div>
-                  ))}
-                </div>
 
-                <div className="sidebar-card-footer">
-                  <Link to="/categories" className="sidebar-view-all">
-                    Browse all deals
-                  </Link>
-                </div>
+                    <div className="sidebar-deal-price-row">
+                      <span className="sidebar-deal-tag">{deal.discountBadge}</span>
+                      <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
+                    </div>
+
+                    <Link
+                      to={`/${deal.slug}`}
+                      className="btn btn-secondary sidebar-deal-btn"
+                      style={{ width: '100%', justifyContent: 'center' }}
+                    >
+                      Read Review
+                    </Link>
+                  </div>
+                ))}
               </div>
-            )}
+
+              <div className="sidebar-card-footer">
+                <Link to="/categories" className="sidebar-view-all">
+                  Browse all deals
+                </Link>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
