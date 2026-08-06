@@ -100,7 +100,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Featured WiseCleaner Deal Card */}
+          {/* Right Column: Featured WindowsPCDoc Deal Card */}
           <div className="hero-theme-right">
             <div className="spotlight-theme-card card">
               <div className="spotlight-card-hero">
@@ -137,19 +137,10 @@ export default function Home() {
                 </div>
 
                 <div className="spotlight-card-actions" style={{ display: 'flex', gap: '12px', paddingTop: '16px', borderTop: '1px solid var(--color-border)' }}>
-                  <a
-                    href="https://www.wisecleaner.com/"
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="btn btn-primary"
-                    style={{ flex: 1, justifyContent: 'center', fontSize: '13px', padding: '10px 14px' }}
-                  >
-                    Visit Site <ExternalLink size={14} />
-                  </a>
                   <Link 
                     to="/blog/wisecare-365-pro-all-in-one-windows" 
-                    className="btn btn-secondary"
-                    style={{ flex: 1, justifyContent: 'center', fontSize: '13px', padding: '10px 14px' }}
+                    className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', fontSize: '14px', padding: '10px 14px' }}
                   >
                     Read Review <ArrowRight size={14} />
                   </Link>
@@ -160,48 +151,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Stat Bar */}
-      <section className="stat-bar-section">
-        <div className="container stat-bar-inner">
-          <div className="stat-item">
-            <span className="stat-number">120+</span>
-            <span className="stat-label">VPNs compared</span>
-          </div>
-          <div className="stat-item-divider"></div>
-          <div className="stat-item">
-            <span className="stat-number">50,000+</span>
-            <span className="stat-label">Readers secured</span>
-          </div>
-          <div className="stat-item-divider"></div>
-          <div className="stat-item">
-            <span className="stat-number">Weekly</span>
-            <span className="stat-label">Deal updates</span>
-          </div>
-          <div className="stat-item-divider"></div>
-          <div className="stat-item">
-            <span className="stat-number">9 min</span>
-            <span className="stat-label">Avg. read time</span>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* 4. Newest Deals Grid */}
-      <section className="section section-bg">
+      {/* Directory Grid Section */}
+      <section className="section directory-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-pretitle">LIMITED OFFERS</span>
-            <h2 className="section-title">Newest Cybersecurity Deals</h2>
-            <p className="section-sub">Verified vouchers and activation links. All discounts are automatically applied on click.</p>
+          <div className="section-header-row">
+            <div>
+              <h2 className="section-title">Top-Rated Security Software</h2>
+              <p className="section-subtitle">Independent performance testing scores updated weekly.</p>
+            </div>
+            <Link to="/categories" className="view-all-link">
+              View All Directory <ArrowRight size={14} />
+            </Link>
           </div>
 
-          <div className="grid grid-3">
+          <div className="deals-grid-row">
             {newestDeals.map((product) => (
-              <div key={product.id} className="card deal-card">
+              <div key={product.id} className="card deal-card-item">
                 <div className="deal-card-header">
-                  <div className="deal-logo-box">{product.logo}</div>
-                  <span className="badge badge-discount">{product.discountBadge}</span>
+                  <span className="deal-badge">{product.discountBadge}</span>
+                  <div className="deal-brand-logo">{product.logo}</div>
                 </div>
 
                 <div className="deal-card-body">
@@ -211,34 +179,12 @@ export default function Home() {
                     <span><strong>{product.rating}</strong> ({product.reviewsCount})</span>
                   </div>
                   <p className="deal-card-description">{product.headline}</p>
-
-                  <div className="deal-card-pricing">
-                    <span className="deal-price-old">{product.originalPrice}</span>
-                    <span className="deal-price-new">{product.discountedPrice}</span>
-                    <span className="deal-price-period">/{product.billingPeriod.includes('month') ? 'mo' : 'yr'}</span>
-                  </div>
                 </div>
 
                 <div className="deal-card-footer">
-                  {product.id === 'wisecare-365' ? (
-                    <>
-                      <Link to={`/${product.slug}`} className="deal-link-review">
-                        Read Review
-                      </Link>
-                      <a 
-                        href="https://www.wisecleaner.com/"
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-primary deal-link-btn"
-                      >
-                        Visit Site <ExternalLink size={14} />
-                      </a>
-                    </>
-                  ) : (
-                    <Link to={`/${product.slug}`} className="btn btn-primary deal-link-btn" style={{ width: '100%', justifyContent: 'center' }}>
-                      Read Review <ArrowRight size={14} />
-                    </Link>
-                  )}
+                  <Link to={`/${product.slug}`} className="btn btn-primary deal-link-btn" style={{ width: '100%', justifyContent: 'center' }}>
+                    Read Review <ArrowRight size={14} />
+                  </Link>
                 </div>
               </div>
             ))}

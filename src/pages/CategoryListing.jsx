@@ -63,16 +63,9 @@ export default function CategoryListing({ categoryId }) {
             <span className="filter-label">Sort by:</span>
             <div className="toggle-buttons">
               <button 
-                className={`toggle-btn ${sortBy === 'rating' ? 'active' : ''}`}
-                onClick={() => setSortBy('rating')}
+                className="toggle-btn active"
               >
                 Best Rating
-              </button>
-              <button 
-                className={`toggle-btn ${sortBy === 'price' ? 'active' : ''}`}
-                onClick={() => setSortBy('price')}
-              >
-                Lowest Price
               </button>
             </div>
           </div>
@@ -140,19 +133,9 @@ export default function CategoryListing({ categoryId }) {
                     </ul>
                   </div>
 
-                  {/* Column 4: Pricing & CTAs */}
+                  {/* Column 4: CTAs */}
                   <div className="col-action">
-                    <div className="action-pricing-box">
-                      <span className="price-label-deal">SafeVerdicts Deal:</span>
-                      <div className="price-row-main">
-                        <span className="price-old-line">{product.originalPrice}</span>
-                        <span className="price-new-bold">{product.discountedPrice}</span>
-                        <span className="price-period-label">/{product.billingPeriod.includes('month') ? 'mo' : 'yr'}</span>
-                      </div>
-                      <p className="discount-tag-line">{product.discountBadge} discount</p>
-                    </div>
-
-                    <div className="action-buttons-group">
+                    <div className="action-buttons-group" style={{ width: '100%' }}>
                       <Link to={`/${product.slug}`} className="btn btn-primary list-review-btn" style={{ width: '100%', justifyContent: 'center' }}>
                         Read Review <ArrowRight size={14} />
                       </Link>

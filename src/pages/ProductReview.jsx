@@ -132,44 +132,8 @@ export default function ProductReview() {
                 </div>
               </div>
 
-              <h2 className="review-headline">"{product.headline}"</h2>
-              <p className="review-description-text">{product.description}</p>
-            </div>
-
-            {/* Quick Pricing Callout Box */}
-            <div className="review-hero-pricing">
-              <div className="pricing-callout-card">
-                <div className="pricing-callout-header">
-                  <span>Exclusive Offer</span>
-                  <span className="discount-pill">{product.discountBadge}</span>
-                </div>
-                <div className="pricing-callout-body">
-                  <div className="price-primary-row">
-                    <span className="price-crossed">{product.originalPrice}</span>
-                    <span className="price-bold-huge">{product.discountedPrice}</span>
-                    <span className="price-duration">/{product.billingPeriod.includes('month') ? 'mo' : 'yr'}</span>
-                  </div>
-                  <p className="price-billing-subtext">{product.billingDetails}</p>
-
-                  <div className="divider-pricing"></div>
-
-                  <ul className="pricing-quick-bullets">
-                    <li><Check size={14} className="bullet-check" /> Verified coupon code</li>
-                    <li><Check size={14} className="bullet-check" /> Direct checkout redirection</li>
-                    <li><Check size={14} className="bullet-check" /> 30-day money-back guarantee</li>
-                  </ul>
-
-                  <a 
-                    href={product.affiliateUrl || "https://www.wisecleaner.com/"} 
-                    target="_blank" 
-                    rel="noopener noreferrer sponsored" 
-                    className="btn btn-primary pricing-buy-btn"
-                    style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}
-                  >
-                    Visit {product.name} <ExternalLink size={16} />
-                  </a>
-                </div>
-              </div>
+              <h2 className="review-headline" style={{ marginTop: '20px', fontSize: '20px', fontWeight: '700' }}>"{product.headline}"</h2>
+              <p className="review-description-text" style={{ marginTop: '10px', fontSize: '15px', color: 'var(--color-muted)', lineHeight: '1.6' }}>{product.description}</p>
             </div>
           </div>
         </div>
@@ -301,15 +265,8 @@ export default function ProductReview() {
         }
 
         .review-hero-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-
-        @media (min-width: 1024px) {
-          .review-hero-grid {
-            grid-template-columns: 1.6fr 1fr;
-          }
+          max-width: 920px;
+          margin: 0 auto;
         }
 
         .review-hero-info {
