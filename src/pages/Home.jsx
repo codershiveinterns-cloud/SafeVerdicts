@@ -66,14 +66,12 @@ export default function Home() {
             </p>
 
             <div className="hero-theme-actions">
-              <a 
-                href="https://www.wisecleaner.com/"
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+              <Link 
+                to="/blog/wisecare-365-pro-all-in-one-windows"
                 className="btn btn-primary hero-main-btn"
               >
-                Visit WindowsPCDoc Website <ArrowRight size={16} />
-              </a>
+                Read WindowsPCDoc Review <ArrowRight size={16} />
+              </Link>
               <Link to="/categories" className="btn btn-secondary hero-sub-btn">
                 Browse all deals
               </Link>
