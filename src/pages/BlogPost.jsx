@@ -213,34 +213,35 @@ export default function BlogPost() {
           <div className="sidebar-sticky">
             {/* WiseCleaner Special Dedicated Widget */}
             {wiseCleanerDeal && (
-              <div className="card conversion-sidebar-card wisecleaner-highlight-card" style={{ marginBottom: '24px', borderColor: 'var(--color-border)' }}>
-                <div className="sidebar-card-header" style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)', color: '#fff' }}>
-                  <ShieldCheck size={18} className="sidebar-header-icon" style={{ color: '#fff' }} />
-                  <div>
-                    <h4 style={{ margin: 0, color: '#fff' }}>WiseCleaner Official Deal</h4>
-                    <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.8)' }}>Partner Code: {wiseCleanerDeal.vendorCode}</span>
-                  </div>
+              <div className="card conversion-sidebar-card wisecleaner-highlight-card" style={{ marginBottom: '24px' }}>
+                <div className="sidebar-card-header">
+                  <ShieldCheck size={18} className="sidebar-header-icon" />
+                  <h4>Featured Security Deal</h4>
                 </div>
 
-                <div className="wisecleaner-card-body" style={{ padding: '16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div className="wisecleaner-card-body" style={{ padding: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{ fontSize: '24px' }}>💻</span>
                       <div>
-                        <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)' }}>WiseCare 365 Pro</strong>
+                        <strong style={{ display: 'block', fontSize: '16px', color: 'var(--color-primary)', fontWeight: '800' }}>WiseCare 365 Pro</strong>
+                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>Windows PC Care & Speed Toolkit</span>
                       </div>
                     </div>
-                    <span style={{ backgroundColor: '#E0F2FE', color: '#0284C7', fontWeight: '800', fontSize: '12px', padding: '4px 8px', borderRadius: '4px' }}>
+                  </div>
+
+                  <div style={{ marginBottom: '14px' }}>
+                    <span style={{ backgroundColor: 'hsl(var(--color-accent-hsl) / 0.1)', color: 'var(--color-accent)', fontWeight: '800', fontSize: '11px', padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       EXCLUSIVE DEAL
                     </span>
                   </div>
 
                   <div className="active-partnership-badge" style={{ backgroundColor: '#DCFCE7', color: '#15803D', fontSize: '12px', fontWeight: '600', padding: '6px 10px', borderRadius: '6px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span>✓ Active Partnership</span>
+                    <span>✓ Verified SafeVerdicts Offer</span>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '16px' }}>
-                    <span style={{ fontSize: '22px', fontWeight: '800', color: 'var(--color-primary)' }}>$9.95</span>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '18px' }}>
+                    <span style={{ fontSize: '24px', fontWeight: '800', color: 'var(--color-primary)' }}>$9.95</span>
                     <span style={{ fontSize: '14px', textDecoration: 'line-through', color: 'var(--color-muted)' }}>$39.95</span>
                     <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>/year</span>
                   </div>
