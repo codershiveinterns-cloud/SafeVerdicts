@@ -159,7 +159,7 @@ export default function ProductReview() {
                     <li><Check size={14} className="bullet-check" /> 30-day money-back guarantee</li>
                   </ul>
 
-                  {product.id === 'wisecare-365' ? (
+                  {product.id === 'wisecare-365' && (
                     <a 
                       href="https://www.wisecleaner.com/" 
                       target="_blank" 
@@ -168,12 +168,6 @@ export default function ProductReview() {
                     >
                       Visit WiseCleaner <ExternalLink size={16} />
                     </a>
-                  ) : (
-                    <div style={{ textAlign: 'center', marginTop: '16px' }}>
-                      <span className="badge badge-discount" style={{ fontSize: '13px', padding: '8px 16px' }}>
-                        ✓ Independent Review — No Affiliate Link
-                      </span>
-                    </div>
                   )}
                 </div>
               </div>
