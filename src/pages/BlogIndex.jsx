@@ -63,10 +63,20 @@ export default function BlogIndex() {
           padding: 60px 0;
           background-color: var(--color-surface);
           border-bottom: 1px solid var(--color-border);
+          text-align: center;
+        }
+
+        .blog-header .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
         }
 
         .blog-header-badge {
           display: inline-flex;
+          align-items: center;
+          justify-content: center;
           background-color: hsl(var(--color-accent-hsl) / 0.08);
           color: var(--color-accent);
           font-size: 11px;
@@ -83,6 +93,8 @@ export default function BlogIndex() {
           font-weight: 800;
           color: var(--color-primary);
           margin-bottom: 12px;
+          text-align: center;
+          width: 100%;
         }
 
         @media (min-width: 768px) {
@@ -97,6 +109,7 @@ export default function BlogIndex() {
           max-width: 700px;
           margin: 0 auto;
           line-height: 1.6;
+          text-align: center;
         }
 
         /* Blog list */
