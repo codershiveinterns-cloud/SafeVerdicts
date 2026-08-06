@@ -671,10 +671,21 @@ export default function BlogPost() {
           color: var(--color-muted);
         }
 
+        .post-media-image-header {
+          position: relative;
+          border-bottom: 1px solid var(--color-border);
+          max-height: 420px;
+          overflow: hidden;
+          background-color: var(--color-subsurface);
+        }
+
         .post-header-img {
           width: 100%;
-          height: 100%;
+          height: auto;
+          max-height: 420px;
           object-fit: cover;
+          object-position: center;
+          display: block;
         }
 
         .post-body-wrapper {
