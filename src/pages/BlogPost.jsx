@@ -215,11 +215,6 @@ export default function BlogPost() {
       {/* Main Content Layout */}
       <div className="container post-container-grid">
         <article className="post-main-card card">
-          {/* FTC & Google AdSense Compliance Disclosure */}
-          <div className="affiliate-disclosure-bar">
-            <span>📢 <strong>Advertiser Disclosure:</strong> SafeVerdicts is reader-supported. When you purchase software through links on our site, we may earn an affiliate commission at no additional cost to you.</span>
-          </div>
-
           {/* Top Banner Ad Placement Slot */}
           <div className="top-ad-placement-slot">
             <div className="adsense-placeholder-box">
@@ -690,16 +685,6 @@ export default function BlogPost() {
           font-size: 15px;
           color: #9A3412;
           line-height: 1.6;
-        }
-
-        /* FTC / Google AdSense Disclosure Bar */
-        .affiliate-disclosure-bar {
-          background-color: #F8FAFC;
-          border-bottom: 1px solid #E2E8F0;
-          padding: 10px 16px;
-          font-size: 12px;
-          color: #64748B;
-          line-height: 1.5;
         }
 
         /* Top Banner Ad Placement Slot */
