@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Calendar, Clock, User, ArrowLeft, ShieldCheck, Star, ExternalLink } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, ArrowRight, ShieldCheck, Star, ExternalLink } from 'lucide-react';
 import { blogPosts, products } from '../data/seedData';
 
 // Custom lightweight Markdown-to-HTML parser component
@@ -49,11 +49,13 @@ function MarkdownRenderer({ content }) {
       parsedElements.push(
         <div key={`table-wrapper-${key}`} className="table-responsive" style={{ overflowX: 'auto', marginBottom: '24px' }}>
           <table className="post-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr>
-                {headers.map((col, idx) => <th key={idx}>{parseInlineFormatting(col)}</th>)}
-              </tr>
-            </thead>
+            {headers.length > 0 && (
+              <thead>
+                <tr>
+                  {headers.map((col, idx) => <th key={idx}>{parseInlineFormatting(col)}</th>)}
+                </tr>
+              </thead>
+            )}
             <tbody>
               {tableRows.map((row, rowIdx) => (
                 <tr key={rowIdx}>
@@ -118,6 +120,10 @@ function MarkdownRenderer({ content }) {
       parsedElements.push(<h3 key={i} className="post-h3">{parseInlineFormatting(line.slice(4))}</h3>);
       continue;
     }
+    if (line.startsWith('#### ')) {
+      parsedElements.push(<h4 key={i} className="post-h4">{parseInlineFormatting(line.slice(5))}</h4>);
+      continue;
+    }
 
     parsedElements.push(<p key={i} className="post-p">{parseInlineFormatting(line)}</p>);
   }
@@ -130,15 +136,59 @@ function MarkdownRenderer({ content }) {
 
 function parseInlineFormatting(text) {
   if (typeof text !== 'string') return text;
-  const parts = text.split(/\*\*([^*]+)\*\*/g);
-  if (parts.length === 1) return text;
-  
-  return parts.map((part, index) => {
-    if (index % 2 === 1) {
-      return <strong key={index}>{part}</strong>;
+
+  // Match links like [text](url) or bold **text** or code `code`
+  // We process links first, then bold, then code
+  const elements = [];
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+
+  const processText = (str, keyPrefix) => {
+    if (!str) return [];
+    // Bold splitting
+    const boldParts = str.split(/\*\*([^*]+)\*\*/g);
+    return boldParts.map((part, bIdx) => {
+      if (bIdx % 2 === 1) {
+        return <strong key={`${keyPrefix}-b-${bIdx}`}>{part}</strong>;
+      }
+      return part;
+    });
+  };
+
+  let keyIdx = 0;
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      const prevStr = text.substring(lastIndex, match.index);
+      elements.push(...processText(prevStr, `pre-${keyIdx}`));
     }
-    return part;
-  });
+    const linkText = match[1];
+    const linkUrl = match[2];
+    
+    if (linkUrl.startsWith('http')) {
+      elements.push(
+        <a key={`link-${keyIdx}`} href={linkUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+          {linkText}
+        </a>
+      );
+    } else {
+      elements.push(
+        <Link key={`link-${keyIdx}`} to={linkUrl} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+          {linkText}
+        </Link>
+      );
+    }
+    
+    lastIndex = linkRegex.lastIndex;
+    keyIdx++;
+  }
+
+  if (lastIndex < text.length) {
+    const remaining = text.substring(lastIndex);
+    elements.push(...processText(remaining, `post-${keyIdx}`));
+  }
+
+  return elements.length === 1 ? elements[0] : elements;
 }
 
 export default function BlogPost() {

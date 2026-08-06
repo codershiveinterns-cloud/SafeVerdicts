@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import { categories } from './data/seedData';
 
 // Lazy-loaded page components for route-level code splitting & fast initial load
 const Home = lazy(() => import('./pages/Home'));
@@ -59,10 +60,10 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               
-              {/* Category Listing Pages */}
-              <Route path="/vpns" element={<CategoryListing categoryId="vpns" />} />
-              <Route path="/antivirus" element={<CategoryListing categoryId="antivirus" />} />
-              <Route path="/password-managers" element={<CategoryListing categoryId="password-managers" />} />
+              {/* Dynamic Category Listing Pages for all categories */}
+              {categories.map((c) => (
+                <Route key={c.id} path={`/${c.slug}`} element={<CategoryListing categoryId={c.id} />} />
+              ))}
               <Route path="/categories" element={<CategoriesGrid />} />
               
               {/* Blog Pages */}
