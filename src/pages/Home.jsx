@@ -862,6 +862,11 @@ export default function Home() {
           max-width: 600px;
         }
 
+        .section-header.text-center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
         .section-pretitle {
           font-size: 12px;
           font-weight: 700;
@@ -1248,32 +1253,36 @@ export default function Home() {
 
         /* Browse Category Chips styles */
         .category-chips-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
           gap: 16px;
-        }
-
-        @media (min-width: 768px) {
-          .category-chips-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
+          max-width: 1100px;
+          margin: 0 auto;
         }
 
         .category-chip-btn {
           background-color: var(--color-surface);
           border: 1px solid var(--color-border);
           border-radius: var(--radius-md);
-          padding: 12px 14px;
+          padding: 14px 18px;
           display: flex;
           align-items: center;
-          gap: 10px;
+          justify-content: space-between;
+          gap: 12px;
           transition: var(--transition-normal);
+          flex: 1 1 calc(50% - 16px);
+          min-width: 240px;
+          box-sizing: border-box;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
           .category-chip-btn {
-            padding: 16px 24px;
+            padding: 18px 24px;
             gap: 16px;
+            flex: 0 1 calc(33.333% - 16px);
+            min-width: 280px;
+            max-width: 350px;
           }
         }
 
@@ -1285,6 +1294,11 @@ export default function Home() {
 
         .category-chip-emoji {
           font-size: 20px;
+          line-height: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
         }
 
         @media (min-width: 640px) {
@@ -1299,6 +1313,8 @@ export default function Home() {
           color: var(--color-primary);
           font-size: 13px;
           flex-grow: 1;
+          line-height: 1.3;
+          text-align: left;
         }
 
         @media (min-width: 640px) {
@@ -1310,6 +1326,10 @@ export default function Home() {
         .category-chip-arrow {
           color: var(--color-muted);
           transition: transform var(--transition-fast);
+          flex-shrink: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .category-chip-btn:hover .category-chip-arrow {

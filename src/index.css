@@ -122,6 +122,12 @@ button, input, select, textarea {
   text-align: center !important;
 }
 
+.section-header.text-center,
+.text-center.section-header {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .text-left {
   text-align: left !important;
 }
