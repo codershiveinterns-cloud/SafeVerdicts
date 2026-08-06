@@ -122,12 +122,7 @@ export default function Home() {
                   One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one simple dashboard.
                 </p>
 
-                <div className="spotlight-product-footer">
-                  <div className="price-box">
-                    <span className="price-main">$9.95</span>
-                    <span className="price-slash">$39.95</span>
-                    <span className="price-sub">/year</span>
-                  </div>
+                <div className="spotlight-product-footer" style={{ justifyContent: 'flex-end' }}>
                   <a
                     href="https://www.wisecleaner.com/"
                     target="_blank"
