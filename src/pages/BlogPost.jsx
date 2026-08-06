@@ -203,11 +203,84 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <div className="post-media-image-header">
-            {post.imageSrc && (
-              <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
-            )}
-          </div>
+          {/* Software Preview Dashboard Hero / Image Header */}
+          {post.slug === 'wisecare-365-pro-all-in-one-windows' ? (
+            <div className="post-media-image-header custom-dashboard-container">
+              <div className="app-window-frame">
+                <div className="app-window-header">
+                  <div className="window-controls">
+                    <span className="window-dot red"></span>
+                    <span className="window-dot yellow"></span>
+                    <span className="window-dot green"></span>
+                  </div>
+                  <div className="window-app-title">
+                    <ShieldCheck size={14} className="title-icon" /> WiseCare 365 Pro v7.2 — System Performance & Privacy Manager
+                  </div>
+                  <div className="window-license-badge">PRO EDITION ACTIVE</div>
+                </div>
+
+                <div className="app-window-body">
+                  <div className="dashboard-top-banner">
+                    <div className="score-ring-container">
+                      <div className="score-ring-outer">
+                        <div className="score-ring-inner">
+                          <span className="score-number">98</span>
+                          <span className="score-unit">/100</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="score-details">
+                      <div className="status-title-row">
+                        <h3>System Status: Excellent</h3>
+                        <span className="status-badge-green">✓ Fully Optimized</span>
+                      </div>
+                      <p className="status-desc">14.8 GB Junk Files Cleaned • Startup Time Boosted by 48% • Privacy Shield Active</p>
+                      <div className="progress-bar-track">
+                        <div className="progress-bar-fill" style={{ width: '98%' }}></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="dashboard-grid-widgets">
+                    <div className="widget-card">
+                      <div className="widget-icon">🧹</div>
+                      <div className="widget-info">
+                        <strong>Disk Cleaner</strong>
+                        <span>0 Temp Files Remaining</span>
+                      </div>
+                    </div>
+                    <div className="widget-card">
+                      <div className="widget-icon">⚡</div>
+                      <div className="widget-info">
+                        <strong>System Tuneup</strong>
+                        <span>Fast Boot (9.2s)</span>
+                      </div>
+                    </div>
+                    <div className="widget-card">
+                      <div className="widget-icon">🛡️</div>
+                      <div className="widget-info">
+                        <strong>Privacy Eraser</strong>
+                        <span>History Wiped</span>
+                      </div>
+                    </div>
+                    <div className="widget-card">
+                      <div className="widget-icon">🔒</div>
+                      <div className="widget-info">
+                        <strong>Registry Protector</strong>
+                        <span>0 Invalid Entries</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="post-media-image-header">
+              {post.imageSrc && (
+                <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
+              )}
+            </div>
+          )}
           <div className="post-body-wrapper">
             <MarkdownRenderer content={post.content} />
           </div>
@@ -422,10 +495,202 @@ export default function BlogPost() {
         }
 
         .post-media-image-header {
-          height: 260px;
-          overflow: hidden;
           position: relative;
           border-bottom: 1px solid var(--color-border);
+        }
+
+        .custom-dashboard-container {
+          height: auto !important;
+          background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+          padding: 20px;
+        }
+
+        .app-window-frame {
+          background-color: var(--color-surface);
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+          overflow: hidden;
+        }
+
+        .app-window-header {
+          background-color: #0F172A;
+          padding: 10px 16px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .window-controls {
+          display: flex;
+          gap: 6px;
+        }
+
+        .window-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+        .window-dot.red { background-color: #EF4444; }
+        .window-dot.yellow { background-color: #F59E0B; }
+        .window-dot.green { background-color: #10B981; }
+
+        .window-app-title {
+          color: #94A3B8;
+          font-size: 11px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          letter-spacing: 0.02em;
+        }
+
+        .window-license-badge {
+          background-color: rgba(11, 143, 211, 0.2);
+          color: #38BDF8;
+          font-size: 9px;
+          font-weight: 800;
+          padding: 2px 8px;
+          border-radius: 4px;
+          letter-spacing: 0.05em;
+        }
+
+        .app-window-body {
+          padding: 18px;
+          background-color: var(--color-surface);
+        }
+
+        .dashboard-top-banner {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          background: linear-gradient(135deg, hsl(var(--color-accent-hsl) / 0.08) 0%, hsl(var(--color-accent-hsl) / 0.02) 100%);
+          border: 1px solid hsl(var(--color-accent-hsl) / 0.15);
+          border-radius: 8px;
+          padding: 14px 18px;
+          margin-bottom: 14px;
+        }
+
+        .score-ring-outer {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          background: conic-gradient(var(--color-accent) 0% 98%, #E2E8F0 98% 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+        }
+
+        .score-ring-inner {
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-surface);
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .score-number {
+          font-size: 16px;
+          font-weight: 800;
+          color: var(--color-primary);
+          line-height: 1;
+        }
+
+        .score-unit {
+          font-size: 8px;
+          color: var(--color-muted);
+        }
+
+        .score-details {
+          flex: 1;
+        }
+
+        .status-title-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 4px;
+        }
+
+        .status-title-row h3 {
+          font-size: 15px;
+          font-weight: 700;
+          color: var(--color-primary);
+          margin: 0;
+        }
+
+        .status-badge-green {
+          background-color: #DCFCE7;
+          color: #15803D;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
+
+        .status-desc {
+          font-size: 12px;
+          color: var(--color-muted);
+          margin-bottom: 8px;
+        }
+
+        .progress-bar-track {
+          height: 6px;
+          background-color: #E2E8F0;
+          border-radius: 3px;
+          overflow: hidden;
+        }
+
+        .progress-bar-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #0B8FD3 0%, #10B981 100%);
+        }
+
+        .dashboard-grid-widgets {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        @media (min-width: 640px) {
+          .dashboard-grid-widgets {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        .widget-card {
+          background-color: var(--color-subsurface);
+          border: 1px solid var(--color-border);
+          border-radius: 6px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .widget-icon {
+          font-size: 16px;
+        }
+
+        .widget-info {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .widget-info strong {
+          font-size: 11px;
+          color: var(--color-primary);
+          line-height: 1.2;
+        }
+
+        .widget-info span {
+          font-size: 9px;
+          color: var(--color-muted);
         }
 
         .post-header-img {
