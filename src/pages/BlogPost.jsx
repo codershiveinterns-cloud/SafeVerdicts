@@ -214,7 +214,7 @@ export default function BlogPost() {
                     <span className="window-dot green"></span>
                   </div>
                   <div className="window-app-title">
-                    <ShieldCheck size={14} className="title-icon" /> WiseCare 365 Pro v7.2 — System Performance & Privacy Manager
+                    <ShieldCheck size={14} className="title-icon" /> Wise Data Recovery Pro v7.1 — Lost File Recovery & Disk Scanner
                   </div>
                   <div className="window-license-badge">PRO EDITION ACTIVE</div>
                 </div>
@@ -224,17 +224,17 @@ export default function BlogPost() {
                     <div className="score-ring-container">
                       <div className="score-ring-outer">
                         <div className="score-ring-inner">
-                          <span className="score-number">98</span>
-                          <span className="score-unit">/100</span>
+                          <span className="score-number">98%</span>
+                          <span className="score-unit">Recovery</span>
                         </div>
                       </div>
                     </div>
                     <div className="score-details">
                       <div className="status-title-row">
-                        <h3>System Status: Excellent</h3>
-                        <span className="status-badge-green">✓ Fully Optimized</span>
+                        <h3>Deep Scan Complete: 1,248 Files Found</h3>
+                        <span className="status-badge-green">✓ Ready to Restore</span>
                       </div>
-                      <p className="status-desc">14.8 GB Junk Files Cleaned • Startup Time Boosted by 48% • Privacy Shield Active</p>
+                      <p className="status-desc">Hard Drive, SSD, USB & Memory Card Scanned • Photos, Documents & Videos Intact</p>
                       <div className="progress-bar-track">
                         <div className="progress-bar-fill" style={{ width: '98%' }}></div>
                       </div>
@@ -243,31 +243,31 @@ export default function BlogPost() {
 
                   <div className="dashboard-grid-widgets">
                     <div className="widget-card">
-                      <div className="widget-icon">🧹</div>
+                      <div className="widget-icon">🔍</div>
                       <div className="widget-info">
-                        <strong>Disk Cleaner</strong>
-                        <span>0 Temp Files Remaining</span>
+                        <strong>Deep Scan Mode</strong>
+                        <span>1,248 Files Detected</span>
                       </div>
                     </div>
                     <div className="widget-card">
-                      <div className="widget-icon">⚡</div>
+                      <div className="widget-icon">📁</div>
                       <div className="widget-info">
-                        <strong>System Tuneup</strong>
-                        <span>Fast Boot (9.2s)</span>
+                        <strong>1,000+ File Types</strong>
+                        <span>Photos, Docs, Videos</span>
                       </div>
                     </div>
                     <div className="widget-card">
-                      <div className="widget-icon">🛡️</div>
+                      <div className="widget-icon">💾</div>
                       <div className="widget-info">
-                        <strong>Privacy Eraser</strong>
-                        <span>History Wiped</span>
+                        <strong>Multi-Storage</strong>
+                        <span>SSD, USB, SD Cards</span>
                       </div>
                     </div>
                     <div className="widget-card">
                       <div className="widget-icon">🔒</div>
                       <div className="widget-info">
-                        <strong>Registry Protector</strong>
-                        <span>0 Invalid Entries</span>
+                        <strong>Safe Recovery</strong>
+                        <span>Preview Before Restore</span>
                       </div>
                     </div>
                   </div>
@@ -302,8 +302,8 @@ export default function BlogPost() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{ fontSize: '24px' }}>💻</span>
                       <div>
-                        <strong style={{ display: 'block', fontSize: '16px', color: 'var(--color-primary)', fontWeight: '800' }}>WiseCare 365 Pro</strong>
-                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>Windows PC Care & Speed Toolkit</span>
+                        <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)', fontWeight: '800' }}>Wise Data Recovery Pro</strong>
+                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>Windows Lost File Recovery Tool</span>
                       </div>
                     </div>
                   </div>
