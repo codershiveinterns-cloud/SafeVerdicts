@@ -236,14 +236,8 @@ export default function BlogPost() {
                     </span>
                   </div>
 
-                  <div className="active-partnership-badge" style={{ backgroundColor: '#DCFCE7', color: '#15803D', fontSize: '12px', fontWeight: '600', padding: '6px 10px', borderRadius: '6px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div className="active-partnership-badge" style={{ backgroundColor: '#DCFCE7', color: '#15803D', fontSize: '12px', fontWeight: '600', padding: '6px 10px', borderRadius: '6px', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span>✓ Verified SafeVerdicts Offer</span>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '18px' }}>
-                    <span style={{ fontSize: '24px', fontWeight: '800', color: 'var(--color-primary)' }}>$9.95</span>
-                    <span style={{ fontSize: '14px', textDecoration: 'line-through', color: 'var(--color-muted)' }}>$39.95</span>
-                    <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>/year</span>
                   </div>
 
                   <a
