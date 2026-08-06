@@ -281,8 +281,8 @@ export default function BlogPost() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{ fontSize: '24px' }}>💻</span>
                       <div>
-                        <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)', fontWeight: '800' }}>Wise Data Recovery Pro</strong>
-                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>Windows Lost File Recovery Tool</span>
+                        <strong style={{ display: 'block', fontSize: '15px', color: 'var(--color-primary)', fontWeight: '800' }}>WiseCare 365 Pro</strong>
+                        <span style={{ fontSize: '12px', color: 'var(--color-muted)' }}>All-in-One PC Care & Windows Cleanup</span>
                       </div>
                     </div>
                   </div>
