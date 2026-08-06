@@ -166,7 +166,6 @@ export default function Home() {
             {newestDeals.map((product) => (
               <div key={product.id} className="card deal-card-item">
                 <div className="deal-card-header">
-                  <span className="deal-badge">{product.discountBadge}</span>
                   <div className="deal-brand-logo">{product.logo}</div>
                 </div>
 

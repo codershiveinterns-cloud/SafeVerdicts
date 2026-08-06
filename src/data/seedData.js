@@ -858,10 +858,7 @@ export const siteFaqs = [
     q: 'What is a "zero-knowledge" policy in password managers?',
     a: 'It means your data is encrypted on your local device using your master password before it is backed up to the cloud. The password manager company never receives your master password or the keys to decrypt your vault, ensuring that even if their servers are hacked, your passwords remain secure.'
   },
-  {
-    q: 'Why are struck-through prices shown on deal cards?',
-    a: 'Struck-through prices represent the standard monthly or annual retail cost of the software without a subscription discount. The lower price listed next to it is the active promotional rate available through our affiliate deal partnership.'
-  },
+
   {
     q: 'How often are the cyber deals updated?',
     a: 'Our systems and editors check deal coupon codes and affiliate promotions weekly. We verify that checkout links work and ensure expired deals are deactivated or replaced.'
