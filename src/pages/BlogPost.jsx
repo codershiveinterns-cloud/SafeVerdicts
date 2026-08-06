@@ -204,83 +204,11 @@ export default function BlogPost() {
           </div>
 
           {/* Software Preview Dashboard Hero / Image Header */}
-          {post.slug === 'wisecare-365-pro-all-in-one-windows' ? (
-            <div className="post-media-image-header custom-dashboard-container">
-              <div className="app-window-frame">
-                <div className="app-window-header">
-                  <div className="window-controls">
-                    <span className="window-dot red"></span>
-                    <span className="window-dot yellow"></span>
-                    <span className="window-dot green"></span>
-                  </div>
-                  <div className="window-app-title">
-                    <ShieldCheck size={14} className="title-icon" /> Wise Data Recovery Pro v7.1 — Lost File Recovery & Disk Scanner
-                  </div>
-                  <div className="window-license-badge">PRO EDITION ACTIVE</div>
-                </div>
-
-                <div className="app-window-body">
-                  <div className="dashboard-top-banner">
-                    <div className="score-ring-container">
-                      <div className="score-ring-outer">
-                        <div className="score-ring-inner">
-                          <span className="score-number">98%</span>
-                          <span className="score-unit">Recovery</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="score-details">
-                      <div className="status-title-row">
-                        <h3>Deep Scan Complete: 1,248 Files Found</h3>
-                        <span className="status-badge-green">✓ Ready to Restore</span>
-                      </div>
-                      <p className="status-desc">Hard Drive, SSD, USB & Memory Card Scanned • Photos, Documents & Videos Intact</p>
-                      <div className="progress-bar-track">
-                        <div className="progress-bar-fill" style={{ width: '98%' }}></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="dashboard-grid-widgets">
-                    <div className="widget-card">
-                      <div className="widget-icon">🔍</div>
-                      <div className="widget-info">
-                        <strong>Deep Scan Mode</strong>
-                        <span>1,248 Files Detected</span>
-                      </div>
-                    </div>
-                    <div className="widget-card">
-                      <div className="widget-icon">📁</div>
-                      <div className="widget-info">
-                        <strong>1,000+ File Types</strong>
-                        <span>Photos, Docs, Videos</span>
-                      </div>
-                    </div>
-                    <div className="widget-card">
-                      <div className="widget-icon">💾</div>
-                      <div className="widget-info">
-                        <strong>Multi-Storage</strong>
-                        <span>SSD, USB, SD Cards</span>
-                      </div>
-                    </div>
-                    <div className="widget-card">
-                      <div className="widget-icon">🔒</div>
-                      <div className="widget-info">
-                        <strong>Safe Recovery</strong>
-                        <span>Preview Before Restore</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="post-media-image-header">
-              {post.imageSrc && (
-                <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
-              )}
-            </div>
-          )}
+          <div className="post-media-image-header">
+            {post.imageSrc && (
+              <img src={`/${post.imageSrc}`} alt={post.title} className="post-header-img" />
+            )}
+          </div>
           <div className="post-body-wrapper">
             <MarkdownRenderer content={post.content} />
           </div>

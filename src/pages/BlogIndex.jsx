@@ -26,27 +26,8 @@ export default function BlogIndex() {
             {blogPosts.map((post) => (
               <article key={post.slug} className="card blog-card">
                 <div className="blog-card-media">
-                  {post.slug === 'wisecare-365-pro-all-in-one-windows' ? (
-                    <div className="custom-vector-card-thumbnail">
-                      <div className="thumbnail-window-header">
-                        <span className="dot dot-r"></span>
-                        <span className="dot dot-y"></span>
-                        <span className="dot dot-g"></span>
-                        <span className="thumb-app-name">Wise Data Recovery Pro</span>
-                      </div>
-                      <div className="thumbnail-body-content">
-                        <div className="thumb-icon-badge">📁</div>
-                        <div className="thumb-status-box">
-                          <strong>1,248 Files Restored</strong>
-                          <span>Docs, Photos & Videos</span>
-                        </div>
-                        <div className="thumb-speed-pill">98% Match</div>
-                      </div>
-                    </div>
-                  ) : (
-                    post.imageSrc && (
-                      <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
-                    )
+                  {post.imageSrc && (
+                    <img src={`/${post.imageSrc}`} alt={post.title} className="blog-media-img" />
                   )}
                 </div>
 
