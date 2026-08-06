@@ -46,99 +46,100 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      {/* 1. Hero Section - Matching Mockup Screenshot */}
-      <section className="hero-dark-section">
-        <div className="container hero-dark-grid">
+      {/* 1. Hero Section - Seamless Theme Integration */}
+      <section className="hero-theme-section">
+        <div className="container hero-theme-grid">
           {/* Left Column: Headlines, CTA Buttons, Stats */}
-          <div className="hero-dark-left">
-            <div className="hero-dark-pill">
-              <span className="pill-version">v2.4</span>
-              <span className="pill-text">Rebuilt — your stack, your deals, your savings.</span>
+          <div className="hero-theme-left">
+            <div className="hero-theme-pill">
+              <span className="pill-badge-tag">v2.4</span>
+              <span className="pill-badge-text">Rebuilt — your stack, your deals, your savings.</span>
             </div>
 
-            <h1 className="hero-dark-headline">
-              Lifetime deals, <br />
-              <span className="text-pink-gradient">finally organized.</span>
+            <h1 className="hero-theme-headline">
+              Software deals, <br />
+              <span className="text-accent-gradient">finally organized.</span>
             </h1>
 
-            <p className="hero-dark-sub">
+            <p className="hero-theme-sub">
               The deal aggregator that helps you clean, protect, and speed up your PC. Discover top-rated tools like WiseCare 365 Pro, track your savings, and stop overpaying for SaaS.
             </p>
 
-            <div className="hero-dark-actions">
+            <div className="hero-theme-actions">
               <a 
                 href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="btn btn-pink-glow"
+                className="btn btn-primary hero-main-btn"
               >
                 Get WiseCare 365 — 75% Off <ArrowRight size={16} />
               </a>
-              <Link to="/categories" className="btn btn-outline-dark">
-                Browse 2,800+ deals
+              <Link to="/categories" className="btn btn-secondary hero-sub-btn">
+                Browse all deals
               </Link>
             </div>
 
             {/* Stats Row */}
-            <div className="hero-stats-row">
-              <div className="hero-stat-col">
-                <div className="hero-stat-val">$4,318</div>
-                <div className="hero-stat-lbl">AVG VAULT VALUE / YEAR SAVED</div>
+            <div className="hero-theme-stats">
+              <div className="stat-theme-col">
+                <div className="stat-theme-val">$4,318</div>
+                <div className="stat-theme-lbl">AVG USER SAVINGS / YEAR</div>
               </div>
-              <div className="hero-stat-col">
-                <div className="hero-stat-val">2,847</div>
-                <div className="hero-stat-lbl">LIFETIME DEALS TRACKED</div>
+              <div className="stat-theme-col">
+                <div className="stat-theme-val">2,847</div>
+                <div className="stat-theme-lbl">DEALS TRACKED</div>
               </div>
-              <div className="hero-stat-col">
-                <div className="hero-stat-val">38,120</div>
-                <div className="hero-stat-lbl">FOUNDERS & SMALL TEAMS</div>
+              <div className="stat-theme-col">
+                <div className="stat-theme-val">38,120</div>
+                <div className="stat-theme-lbl">PC USERS & TEAMS</div>
               </div>
-              <div className="hero-stat-col">
-                <div className="hero-stat-val">9 min</div>
-                <div className="hero-stat-lbl">AVG TIME TO SET UP</div>
+              <div className="stat-theme-col">
+                <div className="stat-theme-val">9 min</div>
+                <div className="stat-theme-lbl">AVG TIME TO SET UP</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Hero Spotlight Card matching screenshot */}
-          <div className="hero-dark-right">
-            <div className="spotlight-dark-card">
-              <div className="spotlight-card-banner">
-                <div className="today-pick-badge">
+          {/* Right Column: Featured WiseCleaner Deal Card */}
+          <div className="hero-theme-right">
+            <div className="spotlight-theme-card card">
+              <div className="spotlight-card-hero">
+                <div className="today-pick-tag">
                   <Zap size={13} fill="currentColor" />
                   <span>Today's Pick</span>
                 </div>
-                <div className="banner-text-overlay">
-                  <h3 className="banner-title">WiseCare 365 Pro</h3>
-                  <p className="banner-sub">All-in-One PC Care & Windows Cleanup</p>
+                <div className="spotlight-hero-text">
+                  <h3 className="spotlight-hero-title">WiseCare 365 Pro</h3>
+                  <p className="spotlight-hero-sub">All-in-One PC Care & Windows Cleanup</p>
                 </div>
-                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="banner-img" />
+                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="spotlight-hero-bg" />
               </div>
 
-              <div className="spotlight-card-content">
-                <div className="most-clicked-tag">MOST CLICKED RIGHT NOW</div>
-                <h4 className="card-product-title">WiseCare 365 Pro</h4>
-                <p className="card-product-desc">
-                  One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one dashboard.
+              <div className="spotlight-card-details">
+                <div className="most-clicked-badge">MOST CLICKED RIGHT NOW</div>
+                <h4 className="spotlight-product-title">WiseCare 365 Pro</h4>
+                <p className="spotlight-product-desc">
+                  One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one simple dashboard.
                 </p>
 
-                <div className="card-product-footer">
-                  <div className="price-tag-wrap">
-                    <span className="price-tag">$9.95</span>
-                    <span className="period-tag">/ year</span>
+                <div className="spotlight-product-footer">
+                  <div className="price-box">
+                    <span className="price-main">$9.95</span>
+                    <span className="price-slash">$39.95</span>
+                    <span className="price-sub">/year</span>
                   </div>
                   <a
                     href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
                     target="_blank"
                     rel="noopener noreferrer sponsored"
-                    className="btn btn-pink-deal"
+                    className="btn btn-primary spotlight-deal-btn"
                   >
                     Get deal <ArrowRight size={14} />
                   </a>
                 </div>
 
-                <div className="view-page-row">
-                  <Link to="/blog/wisecare-365-pro-all-in-one-windows" className="view-product-link">
+                <div className="spotlight-review-row">
+                  <Link to="/blog/wisecare-365-pro-all-in-one-windows" className="review-link">
                     View product page →
                   </Link>
                 </div>
@@ -446,42 +447,41 @@ export default function Home() {
 
       {/* Home page styling */}
       <style>{`
-        /* Dark Theme Hero Section Matching Mockup */
-        .hero-dark-section {
-          background-color: #0B0F19;
-          color: #FFFFFF;
+        /* Seamless Theme Integration for Hero Section */
+        .hero-theme-section {
+          background: radial-gradient(110% 80% at 50% 10%, var(--color-surface) 60%, hsl(var(--color-accent-hsl) / 0.08) 100%);
           padding: 60px 0;
-          border-bottom: 1px solid #1E293B;
+          border-bottom: 1px solid var(--color-border);
         }
 
-        .hero-dark-grid {
+        .hero-theme-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 48px;
+          gap: 40px;
           align-items: center;
         }
 
         @media (min-width: 992px) {
-          .hero-dark-grid {
+          .hero-theme-grid {
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 56px;
+            gap: 48px;
           }
         }
 
-        .hero-dark-pill {
+        .hero-theme-pill {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background-color: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          background-color: hsl(var(--color-accent-hsl) / 0.06);
+          border: 1px solid hsl(var(--color-accent-hsl) / 0.18);
           padding: 6px 14px;
           border-radius: 9999px;
           font-size: 13px;
           margin-bottom: 24px;
         }
 
-        .pill-version {
-          background-color: #EC4899;
+        .pill-badge-tag {
+          background-color: var(--color-accent);
           color: #FFFFFF;
           font-weight: 800;
           font-size: 11px;
@@ -489,41 +489,41 @@ export default function Home() {
           border-radius: 9999px;
         }
 
-        .pill-text {
-          color: #94A3B8;
-          font-weight: 500;
+        .pill-badge-text {
+          color: var(--color-accent);
+          font-weight: 600;
         }
 
-        .hero-dark-headline {
+        .hero-theme-headline {
           font-size: 38px;
           font-weight: 800;
           line-height: 1.12;
           letter-spacing: -0.02em;
-          color: #FFFFFF;
+          color: var(--color-primary);
           margin-bottom: 20px;
         }
 
         @media (min-width: 768px) {
-          .hero-dark-headline {
-            font-size: 56px;
+          .hero-theme-headline {
+            font-size: 52px;
           }
         }
 
-        .text-pink-gradient {
-          background: linear-gradient(135deg, #EC4899 0%, #F43F5E 50%, #A855F7 100%);
+        .text-accent-gradient {
+          background: linear-gradient(135deg, var(--color-accent) 0%, #0056B3 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
-        .hero-dark-sub {
+        .hero-theme-sub {
           font-size: 17px;
           line-height: 1.6;
-          color: #94A3B8;
+          color: var(--color-muted);
           max-width: 620px;
           margin-bottom: 32px;
         }
 
-        .hero-dark-actions {
+        .hero-theme-actions {
           display: flex;
           align-items: center;
           flex-wrap: wrap;
@@ -531,96 +531,78 @@ export default function Home() {
           margin-bottom: 48px;
         }
 
-        .btn-pink-glow {
-          background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
-          color: #FFFFFF !important;
-          font-weight: 700;
+        .hero-main-btn {
           padding: 14px 28px;
           border-radius: 10px;
-          border: none;
-          box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          font-size: 15px;
         }
 
-        .btn-pink-glow:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
-        }
-
-        .btn-outline-dark {
-          background-color: #1E293B;
-          color: #E2E8F0 !important;
-          border: 1px solid #334155;
-          font-weight: 600;
+        .hero-sub-btn {
           padding: 14px 24px;
           border-radius: 10px;
-          transition: background-color 0.2s ease;
-        }
-
-        .btn-outline-dark:hover {
-          background-color: #334155;
+          font-size: 15px;
         }
 
         /* Hero Stats Row */
-        .hero-stats-row {
+        .hero-theme-stats {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 20px;
-          border-top: 1px solid #1E293B;
+          border-top: 1px solid var(--color-border);
           padding-top: 28px;
         }
 
         @media (min-width: 640px) {
-          .hero-stats-row {
+          .hero-theme-stats {
             grid-template-columns: repeat(4, 1fr);
           }
         }
 
-        .hero-stat-val {
+        .stat-theme-val {
           font-family: var(--font-heading);
-          font-size: 26px;
+          font-size: 24px;
           font-weight: 800;
-          color: #FFFFFF;
+          color: var(--color-primary);
           margin-bottom: 4px;
         }
 
-        .hero-stat-lbl {
+        .stat-theme-lbl {
           font-size: 10px;
           font-weight: 700;
-          color: #64748B;
+          color: var(--color-muted);
           letter-spacing: 0.05em;
         }
 
         /* Right Column Spotlight Card */
-        .spotlight-dark-card {
-          background-color: #111827;
-          border: 1px solid #1F2937;
+        .spotlight-theme-card {
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.15);
-          transition: transform 0.3s ease, border-color 0.3s ease;
+          box-shadow: var(--shadow-lg);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: 1px solid var(--color-border);
+          background-color: var(--color-surface);
         }
 
-        .spotlight-dark-card:hover {
+        .spotlight-theme-card:hover {
           transform: translateY(-4px);
-          border-color: #EC4899;
+          box-shadow: 0 20px 40px rgba(11, 143, 211, 0.15);
         }
 
-        .spotlight-card-banner {
+        .spotlight-card-hero {
           position: relative;
-          height: 220px;
-          background: linear-gradient(180deg, rgba(236, 72, 153, 0.2) 0%, rgba(17, 24, 39, 0.95) 100%), #0F172A;
+          height: 210px;
+          background: linear-gradient(180deg, rgba(11, 143, 211, 0.15) 0%, rgba(10, 25, 47, 0.9) 100%), #0A192F;
           display: flex;
           align-items: flex-end;
           padding: 20px;
           overflow: hidden;
         }
 
-        .today-pick-badge {
+        .today-pick-tag {
           position: absolute;
           top: 16px;
           left: 16px;
-          background-color: #EC4899;
+          background-color: #F97316;
           color: #FFFFFF;
           font-size: 11px;
           font-weight: 800;
@@ -632,27 +614,25 @@ export default function Home() {
           z-index: 2;
         }
 
-        .banner-text-overlay {
+        .spotlight-hero-text {
           position: relative;
           z-index: 2;
         }
 
-        .banner-title {
+        .spotlight-hero-title {
           font-size: 22px;
           font-weight: 800;
           color: #FFFFFF;
           margin: 0 0 4px 0;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        .banner-sub {
+        .spotlight-hero-sub {
           font-size: 13px;
           color: #E2E8F0;
           margin: 0;
-          text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
-        .banner-img {
+        .spotlight-hero-bg {
           position: absolute;
           top: 0;
           right: 0;
@@ -662,86 +642,85 @@ export default function Home() {
           opacity: 0.35;
         }
 
-        .spotlight-card-content {
+        .spotlight-card-details {
           padding: 24px;
         }
 
-        .most-clicked-tag {
+        .most-clicked-badge {
           font-size: 10px;
           font-weight: 800;
           letter-spacing: 0.08em;
-          color: #EC4899;
+          color: var(--color-accent);
           margin-bottom: 8px;
         }
 
-        .card-product-title {
+        .spotlight-product-title {
           font-size: 20px;
           font-weight: 800;
-          color: #FFFFFF;
+          color: var(--color-primary);
           margin-bottom: 10px;
         }
 
-        .card-product-desc {
+        .spotlight-product-desc {
           font-size: 14px;
           line-height: 1.6;
-          color: #94A3B8;
+          color: var(--color-muted);
           margin-bottom: 24px;
         }
 
-        .card-product-footer {
+        .spotlight-product-footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          border-top: 1px solid #1F2937;
+          border-top: 1px solid var(--color-border);
           padding-top: 18px;
           margin-bottom: 16px;
         }
 
-        .price-tag-wrap {
+        .price-box {
           display: flex;
           align-items: baseline;
-          gap: 4px;
+          gap: 6px;
         }
 
-        .price-tag {
+        .price-main {
           font-family: var(--font-heading);
           font-size: 24px;
           font-weight: 800;
-          color: #FFFFFF;
+          color: var(--color-primary);
         }
 
-        .period-tag {
+        .price-slash {
+          font-size: 14px;
+          text-decoration: line-through;
+          color: var(--color-muted);
+        }
+
+        .price-sub {
           font-size: 13px;
-          color: #64748B;
+          color: var(--color-muted);
         }
 
-        .btn-pink-deal {
-          background-color: #EC4899;
-          color: #FFFFFF !important;
-          font-weight: 700;
+        .spotlight-deal-btn {
           font-size: 14px;
           padding: 10px 20px;
           border-radius: 8px;
-          transition: background-color 0.2s ease;
         }
 
-        .btn-pink-deal:hover {
-          background-color: #DB2777;
-        }
-
-        .view-page-row {
+        .spotlight-review-row {
           text-align: left;
         }
 
-        .view-product-link {
+        .review-link {
           font-size: 13px;
-          color: #64748B;
+          font-weight: 600;
+          color: var(--color-accent);
           text-decoration: none;
           transition: color 0.2s ease;
         }
 
-        .view-product-link:hover {
-          color: #EC4899;
+        .review-link:hover {
+          color: var(--color-accent-hover);
         }
         .hero-section {
           padding: 60px 0 40px 0;
