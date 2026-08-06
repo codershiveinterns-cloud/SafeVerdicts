@@ -117,25 +117,41 @@ export default function Home() {
 
               <div className="spotlight-card-details">
                 <div className="most-clicked-badge">MOST CLICKED RIGHT NOW</div>
-                <h4 className="spotlight-product-title">WiseCare 365 Pro</h4>
-                <p className="spotlight-product-desc">
+                <p className="spotlight-product-desc" style={{ marginBottom: '16px' }}>
                   One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one simple dashboard.
                 </p>
 
-                <div className="spotlight-product-footer" style={{ justifyContent: 'flex-end' }}>
+                <div className="spotlight-quick-bullets" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-text)' }}>
+                    <Check size={14} style={{ color: '#10B981', flexShrink: 0 }} />
+                    <span>Junk file & registry defrag cleaner</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-text)' }}>
+                    <Check size={14} style={{ color: '#10B981', flexShrink: 0 }} />
+                    <span>Boosts startup speed & Windows performance</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-text)' }}>
+                    <Check size={14} style={{ color: '#10B981', flexShrink: 0 }} />
+                    <span>Protects privacy by erasing browser traces</span>
+                  </div>
+                </div>
+
+                <div className="spotlight-card-actions" style={{ display: 'flex', gap: '12px', paddingTop: '16px', borderTop: '1px solid var(--color-border)' }}>
                   <a
                     href="https://www.wisecleaner.com/"
                     target="_blank"
                     rel="noopener noreferrer sponsored"
-                    className="btn btn-primary spotlight-deal-btn"
+                    className="btn btn-primary"
+                    style={{ flex: 1, justifyContent: 'center', fontSize: '13px', padding: '10px 14px' }}
                   >
-                    Visit Site <ArrowRight size={14} />
+                    Visit Site <ExternalLink size={14} />
                   </a>
-                </div>
-
-                <div className="spotlight-review-row">
-                  <Link to="/blog/wisecare-365-pro-all-in-one-windows" className="review-link">
-                    View product page →
+                  <Link 
+                    to="/blog/wisecare-365-pro-all-in-one-windows" 
+                    className="btn btn-secondary"
+                    style={{ flex: 1, justifyContent: 'center', fontSize: '13px', padding: '10px 14px' }}
+                  >
+                    Read Review <ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
