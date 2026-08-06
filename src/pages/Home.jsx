@@ -109,10 +109,10 @@ export default function Home() {
                   <span>Today's Pick</span>
                 </div>
                 <div className="spotlight-hero-text">
-                  <h3 className="spotlight-hero-title">WiseCare 365 Pro</h3>
-                  <p className="spotlight-hero-sub">All-in-One PC Care & Windows Cleanup</p>
+                  <h3 className="spotlight-hero-title">WindowsPCDoc</h3>
+                  <p className="spotlight-hero-sub">Diagnose, Fix, and Speed Up Your System</p>
                 </div>
-                <img src="/wisecare_365.png" alt="WiseCare 365 Pro" className="spotlight-hero-bg" loading="lazy" decoding="async" />
+                <img src="/wisecare_365.png" alt="WindowsPCDoc" className="spotlight-hero-bg" loading="lazy" decoding="async" />
               </div>
 
               <div className="spotlight-card-details">

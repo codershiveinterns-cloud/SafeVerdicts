@@ -416,7 +416,7 @@ export const products = [
   },
   {
     id: 'wisecare-365',
-    name: 'WiseCare 365 Pro',
+    name: 'WindowsPCDoc',
     slug: 'wisecare-365-pro',
     category: 'windows-utility',
     rating: 4.8,
@@ -424,8 +424,8 @@ export const products = [
     logo: '💻',
     brandColor: '#F97316',
     vendorCode: 'TNGZI',
-    headline: 'The All-in-One PC Care Toolkit for Windows.',
-    description: 'WiseCare 365 Pro is a complete PC care solution designed to clean, optimize, protect, and maintain your Windows computer in one dashboard.',
+    headline: 'Diagnose, Fix, and Speed Up Your System.',
+    description: 'WindowsPCDoc is a complete PC care solution designed to diagnose, fix, protect, and speed up your Windows computer in one dashboard.',
     originalPrice: '$39.95',
     discountedPrice: '$9.95',
     billingPeriod: 'per year',
@@ -451,7 +451,7 @@ export const products = [
       'Refund Policy': '60-day money-back guarantee'
     },
     faqs: [
-      { q: 'Is WiseCare 365 Pro safe for Windows 11?', a: 'Yes, WiseCare 365 Pro is fully tested and compatible with Windows 11 and Windows 10, providing safe automated cleanup without removing essential system files.' }
+      { q: 'Is WindowsPCDoc safe for Windows 11?', a: 'Yes, WindowsPCDoc is fully tested and compatible with Windows 11 and Windows 10, providing safe automated cleanup without removing essential system files.' }
     ]
   }
 ];
@@ -459,7 +459,7 @@ export const products = [
 export const blogPosts = [
   {
     slug: 'wisecare-365-pro-all-in-one-windows',
-    title: 'WiseCare 365 Pro: All-in-One PC Care & Windows Cleanup',
+    title: 'WindowsPCDoc: Diagnose, Fix, and Speed Up Your System',
     excerpt: 'One Windows utility that replaces separate cleanup, registry defrag, startup optimizer, and privacy protection tools — all in one simple dashboard.',
     date: 'August 06, 2026',
     author: 'SafeVerdicts Tech Team',
@@ -467,15 +467,15 @@ export const blogPosts = [
     category: 'Windows Utility',
     imageSrc: 'wisecare_365.png',
     content: `
-WiseCare 365 Pro is an all-in-one PC care solution designed to clean, optimize, protect, and maintain your Windows computer. Whether your PC has slowed down over time due to accumulated junk files, fragmented registry entries, heavy startup applications, or browser privacy traces, WiseCare 365 Pro consolidates these essential maintenance tasks into one clean, 1-click dashboard.
+WindowsPCDoc is an all-in-one PC care solution designed to diagnose, fix, protect, and speed up your Windows computer. Whether your PC has slowed down over time due to accumulated junk files, fragmented registry entries, heavy startup applications, or browser privacy traces, WindowsPCDoc consolidates these essential maintenance tasks into one clean, 1-click dashboard.
 
-> **Quick takeaway:** WiseCare 365 Pro combines system cleaning, registry optimization, startup speed acceleration, and privacy trace wiping into a single automated utility for Windows PCs.
+> **Quick takeaway:** WindowsPCDoc combines system cleaning, registry optimization, startup speed acceleration, and privacy trace wiping into a single automated utility for Windows PCs.
 
 ---
 
-## What WiseCare 365 Pro Does
+## What WindowsPCDoc Does
 
-Over months of daily use, Windows PCs collect gigabytes of temporary cache, leftover installation files, and unnecessary background processes that degrade system speed and responsiveness. WiseCare 365 Pro is built to scan your system thoroughly, diagnose performance bottlenecks, and restore your computer to peak operational condition.
+Over months of daily use, Windows PCs collect gigabytes of temporary cache, leftover installation files, and unnecessary background processes that degrade system speed and responsiveness. WindowsPCDoc is built to scan your system thoroughly, diagnose performance bottlenecks, and restore your computer to peak operational condition.
 
 The software runs an automated 1-click health checkup, rates your overall PC health score, and provides instant optimizations across disk space, startup programs, and browser tracking records.
 
@@ -493,7 +493,7 @@ The software runs an automated 1-click health checkup, rates your overall PC hea
 
 ## Why It's Useful for Windows Users
 
-Instead of juggling four or five separate utility tools — one for cleaning, one for startup management, and another for privacy protection — WiseCare 365 Pro handles all maintenance within a unified interface. It automates essential PC upkeep so you don't have to manually edit registry settings or dig through hidden system folders.
+Instead of juggling four or five separate utility tools — one for cleaning, one for startup management, and another for privacy protection — WindowsPCDoc handles all maintenance within a unified interface. It automates essential PC upkeep so you don't have to manually edit registry settings or dig through hidden system folders.
 
 It is especially beneficial for daily office users, gamers seeking lower latency and freed RAM, and anyone running an older Windows PC that needs a performance boost.
 
@@ -509,15 +509,15 @@ It is especially beneficial for daily office users, gamers seeking lower latency
 
 ---
 
-## Who Should Consider WiseCare 365 Pro?
+## Who Should Consider WindowsPCDoc?
 
-WiseCare 365 Pro is an ideal choice for Windows 11 and 10 users looking for a reliable, hassle-free utility to keep their computer running fast and clean. If your PC feels sluggish on boot or is running low on disk space, running WiseCare 365 Pro is one of the most effective ways to optimize performance without requiring expensive hardware upgrades.
+WindowsPCDoc is an ideal choice for Windows 11 and 10 users looking for a reliable, hassle-free utility to keep their computer running fast and clean. If your PC feels sluggish on boot or is running low on disk space, running WindowsPCDoc is one of the most effective ways to optimize performance without requiring expensive hardware upgrades.
 
 ---
 
 ## Final Thoughts
 
-WiseCare 365 Pro is a comprehensive, highly efficient PC maintenance suite. With its 1-click cleanup, deep registry repair, startup optimizer, and privacy protection tools, it provides Windows users with a simple and complete solution for long-term computer care.
+WindowsPCDoc is a comprehensive, highly efficient PC maintenance suite. With its 1-click cleanup, deep registry repair, startup optimizer, and privacy protection tools, it provides Windows users with a simple and complete solution for long-term computer care.
 `
   },
   {
