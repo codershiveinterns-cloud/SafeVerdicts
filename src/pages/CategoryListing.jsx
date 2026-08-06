@@ -153,15 +153,7 @@ export default function CategoryListing({ categoryId }) {
                     </div>
 
                     <div className="action-buttons-group">
-                      <a 
-                        href={product.affiliateUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-primary list-cta-btn"
-                      >
-                        Get Deal <ExternalLink size={14} />
-                      </a>
-                      <Link to={`/${product.slug}`} className="btn btn-secondary list-review-btn">
+                      <Link to={`/${product.slug}`} className="btn btn-primary list-review-btn" style={{ width: '100%', justifyContent: 'center' }}>
                         Read Review <ArrowRight size={14} />
                       </Link>
                     </div>

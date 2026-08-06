@@ -67,7 +67,7 @@ export default function Home() {
 
             <div className="hero-theme-actions">
               <a 
-                href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
+                href="https://www.wisecleaner.com/"
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 className="btn btn-primary hero-main-btn"
@@ -129,7 +129,7 @@ export default function Home() {
                     <span className="price-sub">/year</span>
                   </div>
                   <a
-                    href="https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI"
+                    href="https://www.wisecleaner.com/"
                     target="_blank"
                     rel="noopener noreferrer sponsored"
                     className="btn btn-primary spotlight-deal-btn"
@@ -232,12 +232,12 @@ export default function Home() {
 
                   <div className="spotlight-actions">
                     <a 
-                      href={trendingProduct.affiliateUrl} 
+                      href="https://www.wisecleaner.com/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="btn btn-primary spotlight-cta"
                     >
-                      Get Deal Now <ExternalLink size={16} />
+                      Visit WiseCleaner <ExternalLink size={16} />
                     </a>
                     <Link to={`/${trendingProduct.slug}`} className="spotlight-review-link">
                       Read full review & test reports <ArrowRight size={14} />
@@ -283,17 +283,25 @@ export default function Home() {
                 </div>
 
                 <div className="deal-card-footer">
-                  <Link to={`/${product.slug}`} className="deal-link-review">
-                    Read Review
-                  </Link>
-                  <a 
-                    href={product.affiliateUrl}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn btn-primary deal-link-btn"
-                  >
-                    Get Deal <ExternalLink size={14} />
-                  </a>
+                  {product.id === 'wisecare-365' ? (
+                    <>
+                      <Link to={`/${product.slug}`} className="deal-link-review">
+                        Read Review
+                      </Link>
+                      <a 
+                        href="https://www.wisecleaner.com/"
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn btn-primary deal-link-btn"
+                      >
+                        Visit Site <ExternalLink size={14} />
+                      </a>
+                    </>
+                  ) : (
+                    <Link to={`/${product.slug}`} className="btn btn-primary deal-link-btn" style={{ width: '100%', justifyContent: 'center' }}>
+                      Read Review <ArrowRight size={14} />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

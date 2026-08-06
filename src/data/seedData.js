@@ -25,7 +25,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed annually ($80.04 total) + 3 months free',
     discountBadge: '49% Off',
-    affiliateUrl: 'https://www.expressvpn.com',
+    affiliateUrl: null,
     trending: true,
     trendingReason: 'Best Overall Performance',
     pros: [
@@ -67,7 +67,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed biennially ($83.43 total) + 3 months free',
     discountBadge: '76% Off',
-    affiliateUrl: 'https://www.nordvpn.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       'Threat Protection stops ads, trackers, and malware',
@@ -107,7 +107,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed biennially ($56.94 total) + 2 months free',
     discountBadge: '86% Off',
-    affiliateUrl: 'https://www.surfshark.com',
+    affiliateUrl: null,
     trending: true,
     trendingReason: 'Best Budget VPN',
     pros: [
@@ -148,7 +148,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed biennially ($119.76 total)',
     discountBadge: '50% Off',
-    affiliateUrl: 'https://protonvpn.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       'Strong Swiss privacy jurisdiction outside US/EU eye alliances',
@@ -188,7 +188,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed for 2 years ($56.94 total) + 4 months free',
     discountBadge: '84% Off',
-    affiliateUrl: 'https://www.cyberghostvpn.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       'Dedicated profiles for Netflix, BBC iPlayer, Disney+, and more',
@@ -228,7 +228,7 @@ export const products = [
     billingPeriod: 'per year',
     billingDetails: '1-year protection for up to 5 devices',
     discountBadge: '53% Off',
-    affiliateUrl: 'https://www.bitdefender.com',
+    affiliateUrl: null,
     trending: true,
     trendingReason: 'Best Antivirus Suite',
     pros: [
@@ -269,7 +269,7 @@ export const products = [
     billingPeriod: 'per year',
     billingDetails: 'First year promotional rate for 5 devices',
     discountBadge: '56% Off',
-    affiliateUrl: 'https://www.norton.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       'All-in-one security bundle with unlimited VPN included',
@@ -309,7 +309,7 @@ export const products = [
     billingPeriod: 'per year',
     billingDetails: '1-year protection for 5 devices',
     discountBadge: '67% Off',
-    affiliateUrl: 'https://www.mcafee.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       'Interactive Protection Score helps improve settings',
@@ -349,7 +349,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed annually ($35.88 total) — Individual Plan',
     discountBadge: '25% Off',
-    affiliateUrl: 'https://1password.com',
+    affiliateUrl: null,
     trending: true,
     trendingReason: 'Editor Choice - Password Mgr',
     pros: [
@@ -390,7 +390,7 @@ export const products = [
     billingPeriod: 'per month',
     billingDetails: 'billed annually ($10 total) — Premium Plan',
     discountBadge: 'Best Value',
-    affiliateUrl: 'https://bitwarden.com',
+    affiliateUrl: null,
     trending: false,
     pros: [
       '100% open-source software vetted by global security testers',
@@ -431,7 +431,7 @@ export const products = [
     billingPeriod: 'per year',
     billingDetails: 'billed annually ($9.95 total) - Exclusive Special Deal',
     discountBadge: 'Exclusive Deal',
-    affiliateUrl: 'https://www.wisecleaner.com/wise-care-365.html?pid=TNGZI',
+    affiliateUrl: 'https://www.wisecleaner.com/',
     trending: true,
     trendingReason: 'Best Windows Utility 2026',
     pros: [
@@ -842,7 +842,7 @@ While you can perform credit monitoring manually, premium identity safeguard ser
 export const siteFaqs = [
   {
     q: 'How does SafeVerdicts make money?',
-    a: 'SafeVerdicts is funded via affiliate commissions. When you click one of our "Get Deal" links and purchase a software subscription, the vendor pays us a referral commission. This does not increase the price you pay—in fact, we work with vendors to secure the lowest exclusive coupon rates for our readers.'
+    a: 'SafeVerdicts provides independent software reviews and featured partner redirect links (such as WiseCleaner on our home and blog pages). We show unbiased testing scores and reviews without external links for all other software listings.'
   },
   {
     q: 'Are your VPN reviews truly independent?',

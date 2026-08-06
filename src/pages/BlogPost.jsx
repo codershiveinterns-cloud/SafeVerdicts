@@ -319,7 +319,7 @@ export default function BlogPost() {
                   </div>
 
                   <a
-                    href={wiseCleanerDeal.affiliateUrl}
+                    href="https://www.wisecleaner.com/"
                     target="_blank"
                     rel="noopener noreferrer sponsored"
                     className="btn btn-primary"
@@ -357,14 +357,13 @@ export default function BlogPost() {
                         <span className="sidebar-deal-price">{deal.discountedPrice}/mo</span>
                       </div>
 
-                      <a
-                        href={deal.affiliateUrl}
-                        target="_blank"
-                        rel="noopener noreferrer sponsored"
-                        className="btn btn-primary sidebar-deal-btn"
+                      <Link
+                        to={`/${deal.slug}`}
+                        className="btn btn-secondary sidebar-deal-btn"
+                        style={{ width: '100%', justifyContent: 'center' }}
                       >
-                        Get Deal <ExternalLink size={12} />
-                      </a>
+                        Read Review
+                      </Link>
                     </div>
                   ))}
                 </div>

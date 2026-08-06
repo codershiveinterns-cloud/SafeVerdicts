@@ -25,17 +25,17 @@ export default function Legal({ pageType }) {
           <li><strong>Log Files & Web Analytics:</strong> Standard IP addresses, browser types, referral URLs, ISP details, and timestamps to diagnose server errors and analyze traffic trends.</li>
         </ul>
 
-        <h2>2. Cookies & Affiliate Tracking</h2>
+        <h2>2. Cookies & Partner Redirects</h2>
         <p>
-          SafeVerdicts utilizes cookies and affiliate tracking pixels. When you click on a "Get Deal" button, you are redirected to the software vendor's website via an affiliate link. 
+          SafeVerdicts provides independent software reviews and featured partner redirect links (such as for WiseCleaner on our homepage and blog). When you click on a partner link, you are redirected to the vendor's website. 
         </p>
         <p>
-          During this redirection, a cookie is stored in your web browser by third-party affiliate networks (such as Impact Radius, Commission Junction, or vendor direct networks). This cookie stores a referral code indicating you came from SafeVerdicts, so the vendor can credit us with a referral commission. These cookies do not track personal identifying information and expire automatically after 30 to 120 days.
+          During this redirection, standard referral tracking cookies may be used by the software vendor to identify visitor referrals. These cookies do not track personal identifying information and expire automatically.
         </p>
 
-        <h2>3. Third-Party Links</h2>
+        <h2>3. Third-Party Links & Reviews</h2>
         <p>
-          Our website contains links to external vendor websites (e.g., ExpressVPN, NordVPN, Norton). We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. We encourage you to read the privacy policies of any site you visit.
+          Our website focuses on unbiased software reviews. Direct redirect links are provided only for select featured partners like WiseCleaner. All other product listings present independent editorial reviews without external vendor links.
         </p>
 
         <h2>4. GDPR & CCPA Compliance</h2>
