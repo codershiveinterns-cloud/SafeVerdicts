@@ -459,13 +459,14 @@ export const products = [
 export const blogPosts = [
   {
     slug: 'wisecare-365-pro-all-in-one-windows',
-    title: 'WindowsPCDoc: Diagnose, Fix, and Speed Up Your System',
+    title: 'WindowsPCDoc(WiseCleaner): Diagnose, Fix, and Speed Up Your System',
     excerpt: 'A diagnostic-first approach to PC maintenance — score your system\'s health, then fix what\'s actually slowing it down.',
     date: 'August 06, 2026',
     author: 'SafeVerdicts Tech Team',
     readTime: '8 min read',
     category: 'Windows Utility',
     imageSrc: 'wisecare_365.png',
+    buyNowUrl: 'https://store.wisecleaner.com/order/checkout.php?PRODS=4570741&QTY=1&AFFILIATE=257047&CART=1',
     content: `
 A diagnostic-first approach to PC maintenance — score your system's health, then fix what's actually slowing it down.
 

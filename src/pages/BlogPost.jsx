@@ -198,6 +198,12 @@ export default function BlogPost() {
   const normalizedSlug = slug ? slug.replace(/\/$/, '').trim().toLowerCase() : '';
   const post = blogPosts.find((p) => p.slug.toLowerCase() === normalizedSlug);
 
+  React.useEffect(() => {
+    if (post?.title) {
+      document.title = `${post.title} | SafeVerdicts`;
+    }
+  }, [post]);
+
   // Wisecleaner specific product or top 2 default deals
   const wiseCleanerDeal = products.find((p) => p.id === 'wisecare-365');
   const recommendedDeals = products.slice(0, 2);
@@ -211,6 +217,8 @@ export default function BlogPost() {
       </div>
     );
   }
+
+  const buyUrl = post.buyNowUrl || (normalizedSlug === 'wisecare-365-pro-all-in-one-windows' ? 'https://store.wisecleaner.com/order/checkout.php?PRODS=4570741&QTY=1&AFFILIATE=257047&CART=1' : '#');
 
   return (
     <div className="blog-post-page">
@@ -256,8 +264,10 @@ export default function BlogPost() {
               <hr className="post-hr" />
               <div className="post-footer-buttons">
                 <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href={buyUrl}
+                  target={buyUrl !== '#' ? "_blank" : undefined}
+                  rel={buyUrl !== '#' ? "noopener noreferrer" : undefined}
+                  onClick={buyUrl === '#' ? (e) => e.preventDefault() : undefined}
                   className="btn btn-primary post-footer-buy-btn"
                 >
                   Buy Now
